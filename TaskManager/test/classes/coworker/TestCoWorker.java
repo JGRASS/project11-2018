@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
+
 
 public class TestCoWorker {
 	CoWorker cow;
@@ -168,6 +168,26 @@ public class TestCoWorker {
 	public void testSetId() {
 		cow.setId(1);
 		assertEquals(1, cow.getId());
+	}
+	
+	@Test
+	public void testEqualsTrue() {
+		cow.setId(1);
+		
+		CoWorker cow2 = new CoWorker();
+		cow2.setId(1);
+		
+		assertTrue(cow.equals(cow2));
+	}
+	
+	@Test
+	public void testEqualsFalse() {
+		cow.setId(1);
+		
+		CoWorker cow2 = new CoWorker();
+		cow2.setId(2);
+		
+		assertFalse(cow.equals(cow2));
 	}
 }
 
