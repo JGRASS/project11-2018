@@ -163,5 +163,11 @@ public class TestCoWorker {
 	public void setPhoneWithChar() {
 		cow.setPhone("098(djsi");
 	}
+	
+	@Test
+	public void testSetId() {
+		cow.setId(1);
+		assertEquals(1, cow.getId());
+	}
 }
 

@@ -25,7 +25,7 @@ public class Task {
 			throw new RuntimeException("Task title is null");
 		if (taskTitle.isEmpty())
 			throw new RuntimeException("Task title is empty string");
-		if (taskTitle.length() < 10)
+		if (taskTitle.length() < 8)
 			throw new RuntimeException("Task title is too short");
 		this.taskTitle = taskTitle;
 	}
