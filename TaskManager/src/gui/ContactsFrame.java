@@ -32,31 +32,18 @@ public class ContactsFrame extends JFrame {
 	private ContactsFrame cntf;
 	private JLabel lblContactList;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ContactsFrame frame = new ContactsFrame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private MainFrame mf;
+	
 
 	/**
 	 * Create the frame.
 	 */
-	public ContactsFrame() {
+	public ContactsFrame(MainFrame mf) {
 		
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent arg0) {
-				exit();
+				exit1();
 			}
 		});
 		setTitle("Contacts");
@@ -68,6 +55,8 @@ public class ContactsFrame extends JFrame {
 		setLocationRelativeTo(null);
 		setContentPane(contentPane);
 		contentPane.add(getPanel(), BorderLayout.CENTER);
+		
+		this.mf = mf;
 	}
 	private JPanel getPanel() {
 		if (panel == null) {
@@ -106,18 +95,18 @@ public class ContactsFrame extends JFrame {
 			btnNewButton = new JButton("Cancel");
 			btnNewButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					exit();
+					exit1();
 				}
 			});
 			btnNewButton.setBounds(12, 288, 146, 25);
 		}
 		return btnNewButton;
 	}
-	private void exit() {
+	private void exit1() {
 		int opcija = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Exit", JOptionPane.YES_NO_CANCEL_OPTION);
 		
 		if (opcija == JOptionPane.YES_OPTION)
-			System.exit(0);
+			dispose();
 }
 	private JLabel getLblContactList() {
 		if (lblContactList == null) {

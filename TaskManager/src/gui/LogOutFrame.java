@@ -19,26 +19,12 @@ public class LogOutFrame extends JFrame {
 	private JPanel panel;
 	private JLabel lblHaveANice;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LogOutFrame frame = new LogOutFrame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	private MainFrame mf;
+	
 	/**
 	 * Create the frame.
 	 */
-	public LogOutFrame() {
+	public LogOutFrame(MainFrame mf) {
 		setTitle("Good bye!");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -48,6 +34,8 @@ public class LogOutFrame extends JFrame {
 		setLocationRelativeTo(null);
 		setContentPane(contentPane);
 		contentPane.add(getPanel(), BorderLayout.CENTER);
+		
+		this.mf = mf;
 	}
 
 	private JPanel getPanel() {

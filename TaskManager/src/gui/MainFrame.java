@@ -17,12 +17,10 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
-import javax.swing.JTextPane;
 import javax.swing.JSeparator;
 
 import javax.swing.JSplitPane;
 import java.awt.Component;
-import javax.swing.ImageIcon;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
 
@@ -173,6 +171,11 @@ public class MainFrame extends JFrame {
 	private JMenuItem getMntmLogOut() {
 		if (mntmLogOut == null) {
 			mntmLogOut = new JMenuItem("Log out");
+			mntmLogOut.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					loggingOut();
+				}
+			});
 			mntmLogOut.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L, InputEvent.ALT_MASK));
 		}
 		return mntmLogOut;
@@ -183,8 +186,8 @@ public class MainFrame extends JFrame {
 			mntmExit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, InputEvent.ALT_MASK));
 			mntmExit.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					int izlaz = JOptionPane.showConfirmDialog(mainFrame, "Do you want to quit TaskManager?", "Exit", JOptionPane.YES_NO_OPTION);
-					if (izlaz == JOptionPane.YES_OPTION)
+					int exit = JOptionPane.showConfirmDialog(mainFrame, "Do you want to quit TaskManager?", "Exit", JOptionPane.YES_NO_OPTION);
+					if (exit == JOptionPane.YES_OPTION)
 						System.exit(0);
 				}
 			});
@@ -194,6 +197,11 @@ public class MainFrame extends JFrame {
 	private JMenuItem getMntmNewContact() {
 		if (mntmNewContact == null) {
 			mntmNewContact = new JMenuItem("New contact");
+			mntmNewContact.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					searchContacts();
+				}
+			});
 			mntmNewContact.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_MASK));
 			//mntmNewContact.setIcon(new ImageIcon(MainFrame.class.getResource("/com/sun/java/swing/plaf/windows/icons/DetailsView.gif")));
 		}
@@ -271,6 +279,11 @@ public class MainFrame extends JFrame {
 		if (btnContacts == null) {
 			btnContacts = new JButton("Contacts");
 			btnContacts.setBounds(10, 102, 140, 34);
+			btnContacts.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					searchContacts();
+				}
+			});
 		}
 		return btnContacts;
 	}
@@ -278,12 +291,24 @@ public class MainFrame extends JFrame {
 		if (btnHistory == null) {
 			btnHistory = new JButton("History");
 			btnHistory.setBounds(10, 167, 140, 34);
+			btnHistory.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					searchHistory();
+				}
+
+			});
 		}
 		return btnHistory;
 	}
 	private JButton getBtnLogOut() {
 		if (btnLogOut == null) {
 			btnLogOut = new JButton("Log out");
+			btnLogOut.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					loggingOut();
+				}
+
+			});
 			btnLogOut.setBounds(10, 21, 140,34);
 		}
 		return btnLogOut;
@@ -618,5 +643,20 @@ public class MainFrame extends JFrame {
 			listTasks = new JList();
 		}
 		return listTasks;
+	}
+	
+	private void searchContacts() {
+		ContactsFrame conf = new ContactsFrame(mainFrame);
+		conf.setVisible(true);
+	}
+	
+	private void loggingOut() {
+		LogOutFrame lof = new LogOutFrame(mainFrame);
+		lof.setVisible(true);
+	}
+
+	private void searchHistory() {
+		HistoryFrame hf = new HistoryFrame(mainFrame);
+		hf.setVisible(true);
 	}
 }
