@@ -109,9 +109,20 @@ public class PasswordFrame extends JFrame {
 		}
 		return lblPassword;
 	}
+	private void goToMainFrame() {
+		MainFrame main = new MainFrame();
+		main.setVisible(true);
+	}
+	
 	private JButton getBtnLogIn() {
 		if (btnLogIn == null) {
 			btnLogIn = new JButton("Log in");
+			btnLogIn.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+						goToMainFrame();
+					
+				}
+			});
 			btnLogIn.setBounds(271, 214, 90, 25);
 		}
 		return btnLogIn;
