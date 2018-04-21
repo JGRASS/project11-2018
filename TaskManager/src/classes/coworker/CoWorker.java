@@ -1,4 +1,4 @@
-package coworker;
+package classes.coworker;
 
 public class CoWorker {
 	private String companyName;
