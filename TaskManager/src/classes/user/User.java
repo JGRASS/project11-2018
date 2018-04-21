@@ -52,14 +52,15 @@ public class User {
 	
 	public void setUsername(String username) {
 		if(username.equals(null))
-			throw new RuntimeException("Surname is null");
-		if(username.length()<2)
-			throw new RuntimeException("Surame is too short");
+			throw new RuntimeException("Username is null");
+		if(username.length()<5)
+			throw new RuntimeException("Username is too short");
 		this.username = username;
 	}
 	public String getPassword() {
 		return password;
 	}
+	
 	public void setPassword(String password) {
 		if(password.equals(null))
 			throw new RuntimeException("Password is null");
