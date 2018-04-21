@@ -31,6 +31,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
+import javax.swing.JTextField;
+import javax.swing.border.TitledBorder;
+import javax.swing.JList;
 
 public class MainFrame extends JFrame {
 
@@ -47,7 +50,6 @@ public class MainFrame extends JFrame {
 	private JPanel panelWest;
 	private JLabel lblYourTasksFor;
 	private JScrollPane scrollPane;
-	private JTextArea textAreaTasks;
 	private JLabel lblHello;
 	private JPanel panelEast;
 	private JButton btnAddTask;
@@ -63,14 +65,38 @@ public class MainFrame extends JFrame {
 	private JSplitPane splitPane;
 	private JScrollPane scrollPaneLeft;
 	private JScrollPane scrollPaneRight;
-	private JTextArea textAreaRight;
 	private JSeparator separator;
-	private JTextPane textPane;
 	private JPanel panelButton;
 	private JPanel panelContact;
 	private JLabel lblImportantContacts;
-	private JButton btnTaskCompleted;
 	private MainFrame mainFrame;
+	private JLabel lblCompanyName;
+	private JLabel lblCoworkerName;
+	private JLabel lblEmail;
+	private JLabel lblPhone;
+	private JLabel lblCountry;
+	private JLabel lblCOmpanyNameFilled;
+	private JLabel lblCoWorkerNAmeFilled;
+	private JTextField textFieldEmail;
+	private JTextField textFieldPhone;
+	private JLabel lblNekaZemljaCuda;
+	private JPanel panelDetailsOfTask;
+	private JPanel panelTaskDescription;
+	private JScrollPane scrollPaneTaskDescription;
+	private JTextArea textAreaTaskDescription;
+	private JTextArea textAreaComments;
+	private JPanel panelPomocni;
+	private JPanel panelAboutCompany;
+	private JTextArea textAreaAboutCompany;
+	private JPanel panelNorthAbout;
+	private JPanel panelSoutnAbout;
+	private JPanel panelSouthAbout;
+	private JPanel panelWestAbout;
+	private JPanel panelEastAbout;
+	private JPanel panelContactDetails;
+	private JPanel panelLeftButton;
+	private JButton button;
+	private JList listTasks;
 
 	/**
 	 * Launch the application.
@@ -98,7 +124,7 @@ public class MainFrame extends JFrame {
 		//Toolkit tk = Toolkit.getDefaultToolkit();
 		//int width = (int) tk.getScreenSize().getWidth();
 		//int height = (int) tk.getScreenSize().getHeight();
-		setBounds(100, 100, 900, 700);
+		setBounds(100, 100, 1080, 1500);
 		//this.setSize(977, 668);
 		setJMenuBar(getMenuBar_1());
 		contentPane = new JPanel();
@@ -169,7 +195,7 @@ public class MainFrame extends JFrame {
 		if (mntmNewContact == null) {
 			mntmNewContact = new JMenuItem("New contact");
 			mntmNewContact.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_MASK));
-			mntmNewContact.setIcon(new ImageIcon(MainFrame.class.getResource("/com/sun/java/swing/plaf/windows/icons/DetailsView.gif")));
+			//mntmNewContact.setIcon(new ImageIcon(MainFrame.class.getResource("/com/sun/java/swing/plaf/windows/icons/DetailsView.gif")));
 		}
 		return mntmNewContact;
 	}
@@ -177,7 +203,7 @@ public class MainFrame extends JFrame {
 		if (mntmNewTask == null) {
 			mntmNewTask = new JMenuItem("New task");
 			mntmNewTask.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_T, InputEvent.CTRL_MASK));
-			mntmNewTask.setIcon(new ImageIcon(MainFrame.class.getResource("/com/sun/java/swing/plaf/windows/icons/File.gif")));
+			//mntmNewTask.setIcon(new ImageIcon(MainFrame.class.getResource("/com/sun/java/swing/plaf/windows/icons/File.gif")));
 		}
 		return mntmNewTask;
 	}
@@ -203,16 +229,9 @@ public class MainFrame extends JFrame {
 	private JScrollPane getScrollPane() {
 		if (scrollPane == null) {
 			scrollPane = new JScrollPane();
-			scrollPane.setViewportView(getTextAreaTasks());
+			scrollPane.setViewportView(getPanelPomocni());
 		}
 		return scrollPane;
-	}
-	private JTextArea getTextAreaTasks() {
-		if (textAreaTasks == null) {
-			textAreaTasks = new JTextArea();
-			textAreaTasks.setEditable(false);
-		}
-		return textAreaTasks;
 	}
 	private JLabel getLblHello() {
 		if (lblHello == null) {
@@ -238,7 +257,6 @@ public class MainFrame extends JFrame {
 			panelEast.add(getBtnAddTask());
 			panelEast.add(getBtnHistory());
 			panelEast.add(getBtnContacts());
-			panelEast.add(getBtnTaskCompleted());
 		}
 		return panelEast;
 	}
@@ -252,14 +270,14 @@ public class MainFrame extends JFrame {
 	private JButton getBtnContacts() {
 		if (btnContacts == null) {
 			btnContacts = new JButton("Contacts");
-			btnContacts.setBounds(10, 148, 140, 34);
+			btnContacts.setBounds(10, 102, 140, 34);
 		}
 		return btnContacts;
 	}
 	private JButton getBtnHistory() {
 		if (btnHistory == null) {
 			btnHistory = new JButton("History");
-			btnHistory.setBounds(10, 205, 140, 34);
+			btnHistory.setBounds(10, 167, 140, 34);
 		}
 		return btnHistory;
 	}
@@ -321,6 +339,7 @@ public class MainFrame extends JFrame {
 			panelSouth.setPreferredSize(new Dimension(50, 80));
 			panelSouth.setLayout(new BorderLayout(0, 0));
 			panelSouth.add(getPanelButton(), BorderLayout.EAST);
+			panelSouth.add(getPanelLeftButton(), BorderLayout.WEST);
 		}
 		return panelSouth;
 	}
@@ -331,14 +350,13 @@ public class MainFrame extends JFrame {
 			splitPane.setBorder(new EmptyBorder(15, 15, 15, 15));
 			splitPane.setLeftComponent(getScrollPaneLeft());
 			splitPane.setRightComponent(getScrollPaneRight());
-			splitPane.setDividerLocation(600);
+			splitPane.setDividerLocation(350);
 		}
 		return splitPane;
 	}
 	private JScrollPane getScrollPaneLeft() {
 		if (scrollPaneLeft == null) {
 			scrollPaneLeft = new JScrollPane();
-			scrollPaneLeft.setColumnHeaderView(getTextPane());
 			scrollPaneLeft.setViewportView(getPanelContact());
 		}
 		return scrollPaneLeft;
@@ -346,17 +364,9 @@ public class MainFrame extends JFrame {
 	private JScrollPane getScrollPaneRight() {
 		if (scrollPaneRight == null) {
 			scrollPaneRight = new JScrollPane();
-			scrollPaneRight.setViewportView(getTextAreaRight());
+			scrollPaneRight.setViewportView(getPanelDetailsOfTask());
 		}
 		return scrollPaneRight;
-	}
-	private JTextArea getTextAreaRight() {
-		if (textAreaRight == null) {
-			textAreaRight = new JTextArea();
-			textAreaRight.setEditable(false);
-			textAreaRight.setText("");
-		}
-		return textAreaRight;
 	}
 	private JSeparator getSeparator() {
 		if (separator == null) {
@@ -366,14 +376,6 @@ public class MainFrame extends JFrame {
 			separator.setAlignmentY(Component.BOTTOM_ALIGNMENT);
 		}
 		return separator;
-	}
-	private JTextPane getTextPane() {
-		if (textPane == null) {
-			textPane = new JTextPane();
-			textPane.setText("\nHere you may find all details about selected task. Downbelow you may find special informations about your co-workers with whom you need to communicate. On the right you may read step by step about everythig related to this task.");
-			textPane.setBackground(SystemColor.menu);
-		}
-		return textPane;
 	}
 	private JPanel getPanelButton() {
 		if (panelButton == null) {
@@ -387,23 +389,233 @@ public class MainFrame extends JFrame {
 	private JPanel getPanelContact() {
 		if (panelContact == null) {
 			panelContact = new JPanel();
-			panelContact.setLayout(null);
-			panelContact.add(getLblImportantContacts());
+			panelContact.setLayout(new BorderLayout(0, 0));
+			panelContact.add(getPanelAboutCompany(), BorderLayout.SOUTH);
+			panelContact.add(getPanelContactDetails(), BorderLayout.CENTER);
 		}
 		return panelContact;
 	}
 	private JLabel getLblImportantContacts() {
 		if (lblImportantContacts == null) {
-			lblImportantContacts = new JLabel("Important contacts:");
-			lblImportantContacts.setBounds(10, 41, 237, 14);
+			lblImportantContacts = new JLabel("Contacts:");
+			lblImportantContacts.setBounds(10, 11, 113, 14);
 		}
 		return lblImportantContacts;
 	}
-	private JButton getBtnTaskCompleted() {
-		if (btnTaskCompleted == null) {
-			btnTaskCompleted = new JButton("Task completed");
-			btnTaskCompleted.setBounds(10, 92, 140, 34);
+	private JLabel getLblCompanyName() {
+		if (lblCompanyName == null) {
+			lblCompanyName = new JLabel("Company name:");
+			lblCompanyName.setBounds(24, 57, 99, 14);
 		}
-		return btnTaskCompleted;
+		return lblCompanyName;
+	}
+	private JLabel getLblCoworkerName() {
+		if (lblCoworkerName == null) {
+			lblCoworkerName = new JLabel("Co-worker name:");
+			lblCoworkerName.setBounds(24, 97, 99, 14);
+		}
+		return lblCoworkerName;
+	}
+	private JLabel getLblEmail() {
+		if (lblEmail == null) {
+			lblEmail = new JLabel("E-mail:");
+			lblEmail.setBounds(24, 134, 46, 14);
+		}
+		return lblEmail;
+	}
+	private JLabel getLblPhone() {
+		if (lblPhone == null) {
+			lblPhone = new JLabel("Phone:");
+			lblPhone.setBounds(24, 174, 46, 14);
+		}
+		return lblPhone;
+	}
+	private JLabel getLblCountry() {
+		if (lblCountry == null) {
+			lblCountry = new JLabel("Country:");
+			lblCountry.setBounds(24, 213, 99, 14);
+		}
+		return lblCountry;
+	}
+	private JLabel getLblCOmpanyNameFilled() {
+		if (lblCOmpanyNameFilled == null) {
+			lblCOmpanyNameFilled = new JLabel("Teodorina kompanija");
+			lblCOmpanyNameFilled.setBounds(133, 57, 184, 14);
+		}
+		return lblCOmpanyNameFilled;
+	}
+	private JLabel getLblCoWorkerNAmeFilled() {
+		if (lblCoWorkerNAmeFilled == null) {
+			lblCoWorkerNAmeFilled = new JLabel("Teodora crna princeza");
+			lblCoWorkerNAmeFilled.setBounds(133, 97, 184, 14);
+		}
+		return lblCoWorkerNAmeFilled;
+	}
+	private JTextField getTextFieldEmail() {
+		if (textFieldEmail == null) {
+			textFieldEmail = new JTextField();
+			textFieldEmail.setBounds(133, 131, 186, 20);
+			textFieldEmail.setEditable(false);
+			textFieldEmail.setBackground(SystemColor.control);
+			textFieldEmail.setBorder(null);
+			textFieldEmail.setColumns(10);
+		}
+		return textFieldEmail;
+	}
+	private JTextField getTextFieldPhone() {
+		if (textFieldPhone == null) {
+			textFieldPhone = new JTextField();
+			textFieldPhone.setBounds(133, 171, 184, 20);
+			textFieldPhone.setEditable(false);
+			textFieldPhone.setColumns(10);
+			textFieldPhone.setBorder(null);
+			textFieldPhone.setBackground(SystemColor.menu);
+		}
+		return textFieldPhone;
+	}
+	private JLabel getLblNekaZemljaCuda() {
+		if (lblNekaZemljaCuda == null) {
+			lblNekaZemljaCuda = new JLabel("Neka zemlja cuda");
+			lblNekaZemljaCuda.setBounds(139, 213, 184, 14);
+		}
+		return lblNekaZemljaCuda;
+	}
+	private JPanel getPanelDetailsOfTask() {
+		if (panelDetailsOfTask == null) {
+			panelDetailsOfTask = new JPanel();
+			panelDetailsOfTask.setLayout(new BorderLayout(0, 0));
+			panelDetailsOfTask.add(getPanelTaskDescription(), BorderLayout.NORTH);
+			panelDetailsOfTask.add(getTextAreaComments(), BorderLayout.CENTER);
+		}
+		return panelDetailsOfTask;
+	}
+	private JPanel getPanelTaskDescription() {
+		if (panelTaskDescription == null) {
+			panelTaskDescription = new JPanel();
+			panelTaskDescription.setPreferredSize(new Dimension(150, 275));
+			panelTaskDescription.setLayout(new BorderLayout(0, 0));
+			panelTaskDescription.add(getScrollPaneTaskDescription());
+		}
+		return panelTaskDescription;
+	}
+	private JScrollPane getScrollPaneTaskDescription() {
+		if (scrollPaneTaskDescription == null) {
+			scrollPaneTaskDescription = new JScrollPane();
+			scrollPaneTaskDescription.setViewportView(getTextAreaTaskDescription());
+		}
+		return scrollPaneTaskDescription;
+	}
+	private JTextArea getTextAreaTaskDescription() {
+		if (textAreaTaskDescription == null) {
+			textAreaTaskDescription = new JTextArea();
+			textAreaTaskDescription.setEditable(false);
+			textAreaTaskDescription.setBackground(SystemColor.control);
+		}
+		return textAreaTaskDescription;
+	}
+	private JTextArea getTextAreaComments() {
+		if (textAreaComments == null) {
+			textAreaComments = new JTextArea();
+			textAreaComments.setBorder(new TitledBorder(null, "Comments", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		}
+		return textAreaComments;
+	}
+	private JPanel getPanelPomocni() {
+		if (panelPomocni == null) {
+			panelPomocni = new JPanel();
+			panelPomocni.setLayout(new BorderLayout(0, 0));
+			panelPomocni.add(getListTasks(), BorderLayout.CENTER);
+		}
+		return panelPomocni;
+	}
+	private JPanel getPanelAboutCompany() {
+		if (panelAboutCompany == null) {
+			panelAboutCompany = new JPanel();
+			panelAboutCompany.setPreferredSize(new Dimension(100, 180));
+			panelAboutCompany.setLayout(new BorderLayout(0, 0));
+			panelAboutCompany.add(getTextAreaAboutCompany(), BorderLayout.CENTER);
+			panelAboutCompany.add(getPanelNorthAbout(), BorderLayout.NORTH);
+			panelAboutCompany.add(getPanelSouthAbout(), BorderLayout.SOUTH);
+			panelAboutCompany.add(getPanelWestAbout(), BorderLayout.WEST);
+			panelAboutCompany.add(getPanelEastAbout(), BorderLayout.EAST);
+		}
+		return panelAboutCompany;
+	}
+	private JTextArea getTextAreaAboutCompany() {
+		if (textAreaAboutCompany == null) {
+			textAreaAboutCompany = new JTextArea();
+			textAreaAboutCompany.setBorder(new TitledBorder(null, "About company", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+			textAreaAboutCompany.setBackground(SystemColor.control);
+		}
+		return textAreaAboutCompany;
+	}
+	private JPanel getPanelNorthAbout() {
+		if (panelNorthAbout == null) {
+			panelNorthAbout = new JPanel();
+			panelNorthAbout.setPreferredSize(new Dimension(50, 12));
+		}
+		return panelNorthAbout;
+	}
+	
+	private JPanel getPanelSouthAbout() {
+		if (panelSouthAbout == null) {
+			panelSouthAbout = new JPanel();
+			panelSouthAbout.setPreferredSize(new Dimension(50, 12));
+		}
+		return panelSouthAbout;
+	}
+	private JPanel getPanelWestAbout() {
+		if (panelWestAbout == null) {
+			panelWestAbout = new JPanel();
+			panelWestAbout.setPreferredSize(new Dimension(20, 12));
+		}
+		return panelWestAbout;
+	}
+	private JPanel getPanelEastAbout() {
+		if (panelEastAbout == null) {
+			panelEastAbout = new JPanel();
+			panelEastAbout.setPreferredSize(new Dimension(20, 12));
+		}
+		return panelEastAbout;
+	}
+	private JPanel getPanelContactDetails() {
+		if (panelContactDetails == null) {
+			panelContactDetails = new JPanel();
+			panelContactDetails.setLayout(null);
+			panelContactDetails.add(getLblImportantContacts());
+			panelContactDetails.add(getLblCompanyName());
+			panelContactDetails.add(getLblCountry());
+			panelContactDetails.add(getLblCoworkerName());
+			panelContactDetails.add(getLblEmail());
+			panelContactDetails.add(getLblPhone());
+			panelContactDetails.add(getLblCOmpanyNameFilled());
+			panelContactDetails.add(getLblCoWorkerNAmeFilled());
+			panelContactDetails.add(getLblNekaZemljaCuda());
+			panelContactDetails.add(getTextFieldPhone());
+			panelContactDetails.add(getTextFieldEmail());
+		}
+		return panelContactDetails;
+	}
+	private JPanel getPanelLeftButton() {
+		if (panelLeftButton == null) {
+			panelLeftButton = new JPanel();
+			panelLeftButton.setPreferredSize(new Dimension(250, 100));
+			panelLeftButton.setLayout(null);
+			panelLeftButton.add(getButton());
+		}
+		return panelLeftButton;
+	}
+	private JButton getButton() {
+		if (button == null) {
+			button = new JButton("Task completed");
+			button.setBounds(56, 23, 140, 34);
+		}
+		return button;
+	}
+	private JList getListTasks() {
+		if (listTasks == null) {
+			listTasks = new JList();
+		}
+		return listTasks;
 	}
 }
