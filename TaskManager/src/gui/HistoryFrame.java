@@ -34,29 +34,16 @@ public class HistoryFrame extends JFrame {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JLabel lblDetails;
 	private JList list;
+	
+	private MainFrame mf;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					HistoryFrame frame = new HistoryFrame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public HistoryFrame() {
+	public HistoryFrame(MainFrame mf) {
 		setTitle("History");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 596, 379);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -64,6 +51,8 @@ public class HistoryFrame extends JFrame {
 		setLocationRelativeTo(null);
 		setContentPane(contentPane);
 		contentPane.add(getPanel(), BorderLayout.CENTER);
+		
+		this.mf = mf;
 	}
 
 	private JPanel getPanel() {

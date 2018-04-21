@@ -22,6 +22,7 @@ import java.awt.SystemColor;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JSeparator;
 
 public class AddContactFrame extends JFrame {
 
@@ -37,12 +38,16 @@ public class AddContactFrame extends JFrame {
 	private JTextField textFieldEmail;
 	private JLabel lblCompanyInfo;
 	private JTextArea textAreaCompanyInfo;
-	private JComboBox comboBox;
 	private JButton btnAdd;
 	private JButton btnCancel;
 	
 	private AddContactFrame acf;
 	private ContactsFrame cntf;
+	private JLabel lblCompanyName;
+	private JLabel lblCountry;
+	private JTextField textFieldCompanyName;
+	private JTextField textFieldCountry;
+	private JSeparator separator;
 
 
 
@@ -60,7 +65,7 @@ public class AddContactFrame extends JFrame {
 		setVisible(true);
 		setTitle("Add contact");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 504, 338);
+		setBounds(100, 100, 480, 450);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -86,9 +91,13 @@ public class AddContactFrame extends JFrame {
 			panel.add(getTextFieldEmail());
 			panel.add(getLblCompanyInfo());
 			panel.add(getTextAreaCompanyInfo());
-			panel.add(getComboBox());
 			panel.add(getBtnAdd());
 			panel.add(getBtnCancel());
+			panel.add(getLblCompanyName());
+			panel.add(getLblCountry());
+			panel.add(getTextFieldCompanyName());
+			panel.add(getTextFieldCountry());
+			panel.add(getSeparator());
 		}
 		return panel;
 	}
@@ -155,7 +164,7 @@ public class AddContactFrame extends JFrame {
 	private JLabel getLblCompanyInfo() {
 		if (lblCompanyInfo == null) {
 			lblCompanyInfo = new JLabel("Company info:");
-			lblCompanyInfo.setBounds(32, 185, 108, 16);
+			lblCompanyInfo.setBounds(32, 182, 108, 16);
 		}
 		return lblCompanyInfo;
 	}
@@ -163,30 +172,10 @@ public class AddContactFrame extends JFrame {
 		if (textAreaCompanyInfo == null) {
 			textAreaCompanyInfo = new JTextArea();
 			textAreaCompanyInfo.setBackground(SystemColor.menu);
-			textAreaCompanyInfo.setBorder(new TitledBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)), "more details", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-			textAreaCompanyInfo.setBounds(156, 185, 245, 51);
+			textAreaCompanyInfo.setBorder(new TitledBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)), "Company details:", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+			textAreaCompanyInfo.setBounds(27, 271, 395, 84);
 		}
 		return textAreaCompanyInfo;
-	}
-	private JComboBox getComboBox() {
-		if (comboBox == null) {
-			comboBox = new JComboBox();
-			comboBox.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if(comboBox.getSelectedItem().equals("add new Company")) {
-						CompanyFrame cf = new CompanyFrame(acf);
-						cf.setVisible(true);
-					}
-				}
-			});
-			comboBox.setToolTipText("Please select Company here.");
-			comboBox.setEditable(true);
-			comboBox.setBounds(32, 203, 108, 22);
-			comboBox.setModel(new DefaultComboBoxModel(new String[] {"Company1", "Company2", "Company3", "...", "add new Company"}));
-			
-			
-		}
-		return comboBox;
 	}
 	private void exit1() {
 		int opcija = JOptionPane.showConfirmDialog(null, "Are you sure you want to quit?", "Exit", JOptionPane.YES_NO_CANCEL_OPTION);
@@ -212,5 +201,42 @@ public class AddContactFrame extends JFrame {
 			btnCancel.setBounds(325, 85, 97, 25);
 		}
 		return btnCancel;
+	}
+	private JLabel getLblCompanyName() {
+		if (lblCompanyName == null) {
+			lblCompanyName = new JLabel("Name:");
+			lblCompanyName.setBounds(32, 211, 56, 16);
+		}
+		return lblCompanyName;
+	}
+	private JLabel getLblCountry() {
+		if (lblCountry == null) {
+			lblCountry = new JLabel("Country:");
+			lblCountry.setBounds(32, 239, 56, 16);
+		}
+		return lblCountry;
+	}
+	private JTextField getTextFieldCompanyName() {
+		if (textFieldCompanyName == null) {
+			textFieldCompanyName = new JTextField();
+			textFieldCompanyName.setBounds(156, 208, 116, 22);
+			textFieldCompanyName.setColumns(10);
+		}
+		return textFieldCompanyName;
+	}
+	private JTextField getTextFieldCountry() {
+		if (textFieldCountry == null) {
+			textFieldCountry = new JTextField();
+			textFieldCountry.setBounds(156, 236, 116, 22);
+			textFieldCountry.setColumns(10);
+		}
+		return textFieldCountry;
+	}
+	private JSeparator getSeparator() {
+		if (separator == null) {
+			separator = new JSeparator();
+			separator.setBounds(32, 164, 390, 16);
+		}
+		return separator;
 	}
 }

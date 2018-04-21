@@ -147,6 +147,11 @@ public class MainFrame extends JFrame {
 	private JMenuItem getMntmLogOut() {
 		if (mntmLogOut == null) {
 			mntmLogOut = new JMenuItem("Log out");
+			mntmLogOut.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					loggingOut();
+				}
+			});
 			mntmLogOut.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L, InputEvent.ALT_MASK));
 		}
 		return mntmLogOut;
@@ -157,8 +162,8 @@ public class MainFrame extends JFrame {
 			mntmExit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, InputEvent.ALT_MASK));
 			mntmExit.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					int izlaz = JOptionPane.showConfirmDialog(mainFrame, "Do you want to quit TaskManager?", "Exit", JOptionPane.YES_NO_OPTION);
-					if (izlaz == JOptionPane.YES_OPTION)
+					int exit = JOptionPane.showConfirmDialog(mainFrame, "Do you want to quit TaskManager?", "Exit", JOptionPane.YES_NO_OPTION);
+					if (exit == JOptionPane.YES_OPTION)
 						System.exit(0);
 				}
 			});
@@ -168,6 +173,11 @@ public class MainFrame extends JFrame {
 	private JMenuItem getMntmNewContact() {
 		if (mntmNewContact == null) {
 			mntmNewContact = new JMenuItem("New contact");
+			mntmNewContact.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					searchContacts();
+				}
+			});
 			mntmNewContact.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_MASK));
 			mntmNewContact.setIcon(new ImageIcon(MainFrame.class.getResource("/com/sun/java/swing/plaf/windows/icons/DetailsView.gif")));
 		}
@@ -252,6 +262,11 @@ public class MainFrame extends JFrame {
 	private JButton getBtnContacts() {
 		if (btnContacts == null) {
 			btnContacts = new JButton("Contacts");
+			btnContacts.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					searchContacts();
+				}
+			});
 			btnContacts.setBounds(10, 148, 140, 34);
 		}
 		return btnContacts;
@@ -259,6 +274,12 @@ public class MainFrame extends JFrame {
 	private JButton getBtnHistory() {
 		if (btnHistory == null) {
 			btnHistory = new JButton("History");
+			btnHistory.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					searchHistory();
+				}
+
+			});
 			btnHistory.setBounds(10, 205, 140, 34);
 		}
 		return btnHistory;
@@ -266,6 +287,12 @@ public class MainFrame extends JFrame {
 	private JButton getBtnLogOut() {
 		if (btnLogOut == null) {
 			btnLogOut = new JButton("Log out");
+			btnLogOut.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					loggingOut();
+				}
+
+			});
 			btnLogOut.setBounds(10, 21, 140,34);
 		}
 		return btnLogOut;
@@ -405,5 +432,20 @@ public class MainFrame extends JFrame {
 			btnTaskCompleted.setBounds(10, 92, 140, 34);
 		}
 		return btnTaskCompleted;
+	}
+	
+	private void searchContacts() {
+		ContactsFrame conf = new ContactsFrame(mainFrame);
+		conf.setVisible(true);
+	}
+	
+	private void loggingOut() {
+		LogOutFrame lof = new LogOutFrame(mainFrame);
+		lof.setVisible(true);
+	}
+
+	private void searchHistory() {
+		HistoryFrame hf = new HistoryFrame(mainFrame);
+		hf.setVisible(true);
 	}
 }
