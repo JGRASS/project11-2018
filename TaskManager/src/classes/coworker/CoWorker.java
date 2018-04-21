@@ -34,10 +34,14 @@ public class CoWorker {
 			throw new RuntimeException("Country name is too short");
 		this.country = country;
 	}
+	
 	public String getAboutCompany() {
 		return aboutCompany;
 	}
+	
 	public void setAboutCompany(String aboutCompany) {
+		if(aboutCompany.equals(null))
+			throw new RuntimeException("About company is null");
 		this.aboutCompany = aboutCompany;
 	}
 	
@@ -51,6 +55,7 @@ public class CoWorker {
 	public String getName() {
 		return name;
 	}
+	
 	public void setName(String name) {
 		if(name.equals(null))
 			throw new RuntimeException("Name is null");
@@ -60,9 +65,11 @@ public class CoWorker {
 			throw new RuntimeException("Name contains something that is not alphabetic character");
 		this.name = name;
 	}
+	
 	public String getSurname() {
 		return surname;
 	}
+	
 	public void setSurname(String surname) {
 		if(surname.equals(null))
 			throw new RuntimeException("Surname is null");
@@ -104,7 +111,7 @@ public class CoWorker {
 	private boolean validPhone(String phone) {
 		for(int i = 0; i< phone.length(); i++) {
 			if(i == 0 && phone.charAt(i) == '+') continue;
-			if(!Character.isAlphabetic(phone.charAt(i)))
+			if(!Character.isDigit(phone.charAt(i)))
 				return false;
 		}
 		return true;
