@@ -439,14 +439,14 @@ public class MainFrame extends JFrame {
 	}
 	private JLabel getLblCOmpanyNameFilled() {
 		if (lblCOmpanyNameFilled == null) {
-			lblCOmpanyNameFilled = new JLabel("Teodorina kompanija");
+			lblCOmpanyNameFilled = new JLabel("");
 			lblCOmpanyNameFilled.setBounds(133, 57, 184, 14);
 		}
 		return lblCOmpanyNameFilled;
 	}
 	private JLabel getLblCoWorkerNAmeFilled() {
 		if (lblCoWorkerNAmeFilled == null) {
-			lblCoWorkerNAmeFilled = new JLabel("Teodora crna princeza");
+			lblCoWorkerNAmeFilled = new JLabel("");
 			lblCoWorkerNAmeFilled.setBounds(133, 97, 184, 14);
 		}
 		return lblCoWorkerNAmeFilled;
@@ -475,7 +475,7 @@ public class MainFrame extends JFrame {
 	}
 	private JLabel getLblNekaZemljaCuda() {
 		if (lblNekaZemljaCuda == null) {
-			lblNekaZemljaCuda = new JLabel("Neka zemlja cuda");
+			lblNekaZemljaCuda = new JLabel("");
 			lblNekaZemljaCuda.setBounds(139, 213, 184, 14);
 		}
 		return lblNekaZemljaCuda;
@@ -544,6 +544,7 @@ public class MainFrame extends JFrame {
 	private JTextArea getTextAreaAboutCompany() {
 		if (textAreaAboutCompany == null) {
 			textAreaAboutCompany = new JTextArea();
+			textAreaAboutCompany.setEditable(false);
 			textAreaAboutCompany.setBorder(new TitledBorder(null, "About company", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 			textAreaAboutCompany.setBackground(SystemColor.control);
 		}
