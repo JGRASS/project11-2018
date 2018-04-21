@@ -31,6 +31,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
+
+import gui.colors.Colors;
+
 import javax.swing.JList;
 
 public class MainFrame extends JFrame {
@@ -93,7 +96,7 @@ public class MainFrame extends JFrame {
 	private JPanel panelEastAbout;
 	private JPanel panelContactDetails;
 	private JPanel panelLeftButton;
-	private JButton button;
+	private JButton btnTaskCompleted;
 	private JList listTasks;
 
 	/**
@@ -271,6 +274,7 @@ public class MainFrame extends JFrame {
 	private JButton getBtnAddTask() {
 		if (btnAddTask == null) {
 			btnAddTask = new JButton("Add task");
+			btnAddTask.setBackground(Colors.lightGreen);
 			btnAddTask.setBounds(10, 37, 140, 34);
 		}
 		return btnAddTask;
@@ -278,6 +282,7 @@ public class MainFrame extends JFrame {
 	private JButton getBtnContacts() {
 		if (btnContacts == null) {
 			btnContacts = new JButton("Contacts");
+			btnContacts.setBackground(Colors.lightGreen);
 			btnContacts.setBounds(10, 102, 140, 34);
 			btnContacts.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -290,6 +295,7 @@ public class MainFrame extends JFrame {
 	private JButton getBtnHistory() {
 		if (btnHistory == null) {
 			btnHistory = new JButton("History");
+			btnHistory.setBackground(Colors.lightGreen);
 			btnHistory.setBounds(10, 167, 140, 34);
 			btnHistory.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -309,6 +315,7 @@ public class MainFrame extends JFrame {
 				}
 
 			});
+			btnLogOut.setBackground(Colors.lightGreen);
 			btnLogOut.setBounds(10, 21, 140,34);
 		}
 		return btnLogOut;
@@ -627,16 +634,17 @@ public class MainFrame extends JFrame {
 			panelLeftButton = new JPanel();
 			panelLeftButton.setPreferredSize(new Dimension(250, 100));
 			panelLeftButton.setLayout(null);
-			panelLeftButton.add(getButton());
+			panelLeftButton.add(getBtnTaskCompleted());
 		}
 		return panelLeftButton;
 	}
-	private JButton getButton() {
-		if (button == null) {
-			button = new JButton("Task completed");
-			button.setBounds(56, 23, 140, 34);
+	private JButton getBtnTaskCompleted() {
+		if (btnTaskCompleted == null) {
+			btnTaskCompleted = new JButton("Task completed");
+			btnTaskCompleted.setBackground(Colors.lightGreen);
+			btnTaskCompleted.setBounds(56, 23, 140, 34);
 		}
-		return button;
+		return btnTaskCompleted;
 	}
 	private JList getListTasks() {
 		if (listTasks == null) {
