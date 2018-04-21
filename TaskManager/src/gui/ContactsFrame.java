@@ -14,6 +14,9 @@ import javax.swing.JOptionPane;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
+
+import gui.colors.Colors;
+
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -27,7 +30,7 @@ public class ContactsFrame extends JFrame {
 	private JPanel panel;
 	private JButton btnAddNewContact;
 	private JList list;
-	private JButton btnNewButton;
+	private JButton btnCancel;
 	
 	private ContactsFrame cntf;
 	private JLabel lblContactList;
@@ -64,7 +67,7 @@ public class ContactsFrame extends JFrame {
 			panel.setLayout(null);
 			panel.add(getBtnAddNewContact());
 			panel.add(getList());
-			panel.add(getBtnNewButton());
+			panel.add(getBtnCancel());
 			panel.add(getLblContactList());
 		}
 		return panel;
@@ -78,6 +81,7 @@ public class ContactsFrame extends JFrame {
 					acf.setVisible(true);
 				}
 			});
+			btnAddNewContact.setBackground(Colors.lightGreen);
 			btnAddNewContact.setBounds(12, 250, 146, 25);
 		}
 		return btnAddNewContact;
@@ -90,17 +94,18 @@ public class ContactsFrame extends JFrame {
 		}
 		return list;
 	}
-	private JButton getBtnNewButton() {
-		if (btnNewButton == null) {
-			btnNewButton = new JButton("Cancel");
-			btnNewButton.addActionListener(new ActionListener() {
+	private JButton getBtnCancel() {
+		if (btnCancel == null) {
+			btnCancel = new JButton("Cancel");
+			btnCancel.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					exit1();
 				}
 			});
-			btnNewButton.setBounds(12, 288, 146, 25);
+			btnCancel.setBackground(Colors.lightGreen);
+			btnCancel.setBounds(12, 288, 146, 25);
 		}
-		return btnNewButton;
+		return btnCancel;
 	}
 	private void exit1() {
 		int opcija = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Exit", JOptionPane.YES_NO_CANCEL_OPTION);

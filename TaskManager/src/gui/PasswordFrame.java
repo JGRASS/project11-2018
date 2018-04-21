@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import gui.colors.Colors;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -112,6 +115,7 @@ public class PasswordFrame extends JFrame {
 	private JButton getBtnLogIn() {
 		if (btnLogIn == null) {
 			btnLogIn = new JButton("Log in");
+			btnLogIn.setBackground(Colors.lightGreen);
 			btnLogIn.setBounds(271, 214, 90, 25);
 		}
 		return btnLogIn;
@@ -124,6 +128,7 @@ public class PasswordFrame extends JFrame {
 					exit();
 				}
 			});
+			btnExit.setBackground(Colors.lightGreen);
 			btnExit.setBounds(96, 214, 97, 25);
 		}
 		return btnExit;

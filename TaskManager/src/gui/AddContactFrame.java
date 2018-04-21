@@ -15,6 +15,9 @@ import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.border.TitledBorder;
+
+import gui.colors.Colors;
+
 import javax.swing.UIManager;
 import java.awt.Color;
 import javax.swing.border.MatteBorder;
@@ -186,6 +189,7 @@ public class AddContactFrame extends JFrame {
 	private JButton getBtnAdd() {
 		if (btnAdd == null) {
 			btnAdd = new JButton("Add");
+			btnAdd.setBackground(Colors.lightGreen);
 			btnAdd.setBounds(325, 45, 97, 25);
 		}
 		return btnAdd;
@@ -198,6 +202,7 @@ public class AddContactFrame extends JFrame {
 					exit1();
 				}
 			});
+			btnCancel.setBackground(Colors.lightGreen);
 			btnCancel.setBounds(325, 85, 97, 25);
 		}
 		return btnCancel;
