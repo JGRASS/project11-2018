@@ -8,6 +8,11 @@ public class User {
 	
 	
 	
+	@Override
+	public String toString() {
+		return this.name + " " + this.surname;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -47,14 +52,15 @@ public class User {
 	
 	public void setUsername(String username) {
 		if(username.equals(null))
-			throw new RuntimeException("Surname is null");
-		if(username.length()<2)
-			throw new RuntimeException("Surame is too short");
+			throw new RuntimeException("Username is null");
+		if(username.length()<5)
+			throw new RuntimeException("Username is too short");
 		this.username = username;
 	}
 	public String getPassword() {
 		return password;
 	}
+	
 	public void setPassword(String password) {
 		if(password.equals(null))
 			throw new RuntimeException("Password is null");
@@ -72,6 +78,30 @@ public class User {
 		}
 		return false;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
+			return false;
+		if (username == null) {
+			if (other.username != null)
+				return false;
+		} else if (!username.equals(other.username))
+			return false;
+		return true;
+	}
+	
+	
 	
 	
 }
