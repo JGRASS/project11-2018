@@ -11,6 +11,7 @@ import system_operations.SOAddTaskDone;
 import system_operations.SOAddTaskToDo;
 import system_operations.SOLoadTasks;
 import system_operations.SOSaveTasks;
+import system_operations.SOSortByDate;
 
 public class Tasks implements TaskInterface {
 	/**
@@ -50,7 +51,8 @@ public class Tasks implements TaskInterface {
 
 	@Override
 	public void sortTasksByDate() {
-		
+		tasks = SOSortByDate.execute(tasks);
+		doneTasks = SOSortByDate.execute(doneTasks);
 	}
 
 	@Override
