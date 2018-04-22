@@ -1,8 +1,8 @@
 package interfaces;
 
+import classes.user.User;
+
 public interface UsersInterface {
 	
-	public boolean checkUsername(String username);
-	
-	public boolean checkPassword(String password);
+	public boolean checkUsernamePassword(User user);
 }

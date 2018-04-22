@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -119,8 +120,7 @@ public class PasswordFrame extends JFrame {
 			btnLogIn = new JButton("Log in");
 			btnLogIn.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-						goToMainFrame();
-					
+					goToMainFrame();
 				}
 			});
 			btnLogIn.setBounds(271, 214, 90, 25);

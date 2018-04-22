@@ -7,7 +7,6 @@ public class User {
 	private String password;
 	
 	
-	
 	@Override
 	public String toString() {
 		return this.name + " " + this.surname;

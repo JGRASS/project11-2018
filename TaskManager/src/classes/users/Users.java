@@ -3,8 +3,9 @@ package classes.users;
 import java.util.LinkedList;
 
 import classes.user.User;
+import interfaces.UsersInterface;
 
-public class Users {
+public class Users implements UsersInterface{
 	
 	private LinkedList<User> users = new LinkedList<User>();
 
@@ -39,6 +40,13 @@ public class Users {
 		} else if (!users.equals(other.users))
 			return false;
 		return true;
+	}
+
+	@Override
+	public boolean checkUsernamePassword(User user) {
+		if(users.contains(user))
+			return true;
+		return false;
 	}
 	
 	
