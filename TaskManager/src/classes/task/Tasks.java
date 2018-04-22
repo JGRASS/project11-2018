@@ -1,9 +1,5 @@
 package classes.task;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import interfaces.TaskInterface;
@@ -11,6 +7,7 @@ import system_operations.SOAddTaskDone;
 import system_operations.SOAddTaskToDo;
 import system_operations.SOLoadTasks;
 import system_operations.SOSaveTasks;
+import system_operations.SOShowTillToday;
 import system_operations.SOSortByDate;
 
 public class Tasks implements TaskInterface {
@@ -57,8 +54,7 @@ public class Tasks implements TaskInterface {
 
 	@Override
 	public ArrayList<Task> showTillToday() {
-		// TODO Auto-generated method stub
-		return null;
+		return SOShowTillToday.execute(tasks);
 	}
 
 	public ArrayList<Task> getDoneTasks() {
