@@ -1,10 +1,16 @@
 package classes.task;
 
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 
 import classes.coworker.CoWorker;
 
-public class Task {
+public class Task implements Serializable, Comparable<Task> {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3523333824926124267L;
+	private int id;
 	private String taskTitle;
 	private GregorianCalendar date;
 	private CoWorker coWorker;
@@ -73,5 +79,34 @@ public class Task {
 	public void setDone(boolean done) {
 		this.done = done;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Task other = (Task) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+
+	@Override
+	public int compareTo(Task o) {
+		return this.getDate().compareTo(o.getDate());
+	}
+	
+	
 
 }
