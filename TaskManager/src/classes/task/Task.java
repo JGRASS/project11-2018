@@ -5,7 +5,7 @@ import java.util.GregorianCalendar;
 
 import classes.coworker.CoWorker;
 
-public class Task implements Serializable {
+public class Task implements Serializable, Comparable<Task> {
 	/**
 	 * 
 	 */
@@ -100,6 +100,11 @@ public class Task implements Serializable {
 		if (id != other.id)
 			return false;
 		return true;
+	}
+
+	@Override
+	public int compareTo(Task o) {
+		return this.getDate().compareTo(o.getDate());
 	}
 	
 	
