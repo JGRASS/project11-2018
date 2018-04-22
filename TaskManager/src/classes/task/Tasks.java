@@ -2,13 +2,9 @@ package classes.task;
 
 import java.util.ArrayList;
 
-import interfaces.ToDoInterface;
+import interfaces.TaskInterface;
 
-public class TasksToDo implements ToDoInterface{
-	/**
-	 * All tasks opened from data base
-	 */
-	private ArrayList<Task> allTasks = new ArrayList<Task>();
+public class Tasks implements TaskInterface{
 	/**
 	 * Tasks that user have completed before
 	 */
@@ -17,14 +13,6 @@ public class TasksToDo implements ToDoInterface{
 	 * Tasks user have to do
 	 */
 	private ArrayList<Task> tasks = new ArrayList<Task>();
-	
-	
-	public ArrayList<Task> getDoneTasks() {
-		return doneTasks;
-	}
-	public ArrayList<Task> getTasks() {
-		return tasks;
-	}
 	
 	
 	@Override
@@ -43,15 +31,27 @@ public class TasksToDo implements ToDoInterface{
 		
 	}
 	@Override
-	public void SaveAllTasks() {
+	public void SaveAllToDoTasks() {
 		// TODO Auto-generated method stub
 		
 	}
 	@Override
-	public void separateTasks() {
+	public void SaveAllDoneTasks() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void serializeTasks() {
 		// TODO Auto-generated method stub
 		
 	}
 	
 	
+	public ArrayList<Task> getDoneTasks() {
+		return doneTasks;
+	}
+	public ArrayList<Task> getTasks() {
+		return tasks;
+	}
+
 }
