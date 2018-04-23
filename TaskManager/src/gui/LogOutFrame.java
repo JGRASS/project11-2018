@@ -30,8 +30,9 @@ public class LogOutFrame extends JFrame {
 		setTitle("Good bye!");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
+		setFont(Fonts.candaraNormal);
 		contentPane = new JPanel();
-		contentPane.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Thanks for logging out.", TitledBorder.TRAILING, TitledBorder.ABOVE_BOTTOM, null, new Color(0, 0, 0)));
+		contentPane.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Thanks for logging out.", TitledBorder.TRAILING, TitledBorder.ABOVE_BOTTOM, Fonts.candaraNormal, new Color(0, 0, 0)));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		setContentPane(contentPane);
@@ -53,7 +54,8 @@ public class LogOutFrame extends JFrame {
 			lblHaveANice = new JLabel("Have a nice day!");
 			lblHaveANice.setForeground(Color.GRAY);
 			lblHaveANice.setHorizontalAlignment(SwingConstants.CENTER);
-			lblHaveANice.setFont(Fonts.candaraNormal);
+			lblHaveANice.setFont(new Font("Candara", Font.PLAIN, 25));
+			
 		}
 		return lblHaveANice;
 	}
