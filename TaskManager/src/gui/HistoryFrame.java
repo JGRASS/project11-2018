@@ -34,25 +34,22 @@ public class HistoryFrame extends JFrame {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JLabel lblDetails;
 	private JList list;
-	
-	private MainFrame mf;
-
+		
 
 	/**
 	 * Create the frame.
 	 */
-	public HistoryFrame(MainFrame mf) {
+	public HistoryFrame() {
 		setTitle("History");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 596, 379);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
-		setLocationRelativeTo(null);
+		
 		setContentPane(contentPane);
 		contentPane.add(getPanel(), BorderLayout.CENTER);
 		
-		this.mf = mf;
 	}
 
 	private JPanel getPanel() {

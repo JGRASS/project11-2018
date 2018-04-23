@@ -17,6 +17,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.border.TitledBorder;
 
 import gui.colors.Colors;
+import gui.fonts.Fonts;
 
 import javax.swing.UIManager;
 import java.awt.Color;
@@ -44,8 +45,8 @@ public class AddContactFrame extends JFrame {
 	private JButton btnAdd;
 	private JButton btnCancel;
 	
-	private AddContactFrame acf;
-	private ContactsFrame cntf;
+	
+	
 	private JLabel lblCompanyName;
 	private JLabel lblCountry;
 	private JTextField textFieldCompanyName;
@@ -57,7 +58,7 @@ public class AddContactFrame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AddContactFrame(ContactsFrame cntf) {
+	public AddContactFrame() {
 		
 		addWindowListener(new WindowAdapter() {
 			@Override
@@ -72,17 +73,17 @@ public class AddContactFrame extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
-		setLocationRelativeTo(null);
+		
 		setContentPane(contentPane);
 		contentPane.add(getPanel(), BorderLayout.CENTER);
 		
-		this.cntf = cntf;
+		
 	}
 
 	private JPanel getPanel() {
 		if (panel == null) {
 			panel = new JPanel();
-			panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Contact details", TitledBorder.RIGHT, TitledBorder.TOP, null, new Color(0, 0, 0)));
+			panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Contact details", TitledBorder.RIGHT, TitledBorder.TOP, Fonts.candaraNormal, new Color(0, 0, 0)));
 			panel.setLayout(null);
 			panel.add(getLblName());
 			panel.add(getTextFieldName());
@@ -175,7 +176,7 @@ public class AddContactFrame extends JFrame {
 		if (textAreaCompanyInfo == null) {
 			textAreaCompanyInfo = new JTextArea();
 			textAreaCompanyInfo.setBackground(SystemColor.menu);
-			textAreaCompanyInfo.setBorder(new TitledBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)), "Company details:", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+			textAreaCompanyInfo.setBorder(new TitledBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)), "Company details:", TitledBorder.LEADING, TitledBorder.TOP, Fonts.candaraNormal, new Color(0, 0, 0)));
 			textAreaCompanyInfo.setBounds(27, 271, 395, 84);
 		}
 		return textAreaCompanyInfo;

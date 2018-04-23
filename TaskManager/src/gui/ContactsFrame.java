@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -16,6 +17,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 
 import gui.colors.Colors;
+import gui.kontroler.GUIKontroler;
 
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -23,6 +25,8 @@ import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+
+
 
 public class ContactsFrame extends JFrame {
 
@@ -35,13 +39,11 @@ public class ContactsFrame extends JFrame {
 	private ContactsFrame cntf;
 	private JLabel lblContactList;
 
-	private MainFrame mf;
-	
 
 	/**
 	 * Create the frame.
 	 */
-	public ContactsFrame(MainFrame mf) {
+	public ContactsFrame() {
 		
 		addWindowListener(new WindowAdapter() {
 			@Override
@@ -55,11 +57,10 @@ public class ContactsFrame extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
-		setLocationRelativeTo(null);
+		
 		setContentPane(contentPane);
 		contentPane.add(getPanel(), BorderLayout.CENTER);
 		
-		this.mf = mf;
 	}
 	private JPanel getPanel() {
 		if (panel == null) {
@@ -77,8 +78,8 @@ public class ContactsFrame extends JFrame {
 			btnAddNewContact = new JButton("Add new contact");
 			btnAddNewContact.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					AddContactFrame acf = new AddContactFrame(cntf);
-					acf.setVisible(true);
+					GUIKontroler.addingContact();
+					
 				}
 			});
 			btnAddNewContact.setBackground(Colors.lightGreen);
@@ -112,7 +113,7 @@ public class ContactsFrame extends JFrame {
 		
 		if (opcija == JOptionPane.YES_OPTION)
 			dispose();
-}
+	}
 	private JLabel getLblContactList() {
 		if (lblContactList == null) {
 			lblContactList = new JLabel("List of contacts:");
