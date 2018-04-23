@@ -14,6 +14,9 @@ import javax.swing.ButtonGroup;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.event.ChangeListener;
+
+import gui.fonts.Fonts;
+
 import javax.swing.event.ChangeEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -43,6 +46,7 @@ public class HistoryFrame extends JFrame {
 		setTitle("History");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 596, 379);
+		setFont(Fonts.candaraNormal);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -71,6 +75,7 @@ public class HistoryFrame extends JFrame {
 	private JLabel getLblSelectDate() {
 		if (lblSelectDate == null) {
 			lblSelectDate = new JLabel("Select date:");
+			lblSelectDate.setFont(Fonts.candaraNormal);
 			lblSelectDate.setBounds(252, 40, 108, 16);
 		}
 		return lblSelectDate;
@@ -78,6 +83,7 @@ public class HistoryFrame extends JFrame {
 	private JLabel getLblSelectContact() {
 		if (lblSelectContact == null) {
 			lblSelectContact = new JLabel("Select contact:");
+			lblSelectContact.setFont(Fonts.candaraNormal);
 			lblSelectContact.setBounds(252, 63, 108, 16);
 		}
 		return lblSelectContact;
@@ -85,6 +91,7 @@ public class HistoryFrame extends JFrame {
 	private JComboBox getComboBoxDate() {
 		if (comboBoxDate == null) {
 			comboBoxDate = new JComboBox();
+			comboBoxDate.setFont(Fonts.candaraNormal);
 			comboBoxDate.setVisible(false);
 			comboBoxDate.setBounds(361, 36, 141, 19);
 		}
@@ -93,6 +100,7 @@ public class HistoryFrame extends JFrame {
 	private JComboBox getComboBoxContacts() {
 		if (comboBoxContacts == null) {
 			comboBoxContacts = new JComboBox();
+			comboBoxContacts.setFont(Fonts.candaraNormal);
 			comboBoxContacts.setVisible(false);
 			comboBoxContacts.setBounds(361, 60, 141, 22);
 		}
@@ -101,18 +109,10 @@ public class HistoryFrame extends JFrame {
 	private JRadioButton getRdbtnDate() {
 		if (rdbtnDate == null) {
 			rdbtnDate = new JRadioButton("Date");
+			rdbtnDate.setFont(Fonts.candaraNormal);
 			rdbtnDate.addChangeListener(new ChangeListener() {
 				public void stateChanged(ChangeEvent arg0) {
-					if(rdbtnDate.isSelected()) {
-						comboBoxDate.setVisible(true);
-						comboBoxDate.setEditable(true);
-						comboBoxContacts.setVisible(false);
-						lblSelectContact.setForeground(Color.GRAY);
-					}else {
-						comboBoxDate.setVisible(false);
-						comboBoxContacts.setVisible(false);
-						lblSelectContact.setForeground(Color.BLACK);
-					}
+					showDate();
 				}
 			});
 			
@@ -124,20 +124,12 @@ public class HistoryFrame extends JFrame {
 	private JRadioButton getRdbtnContact() {
 		if (rdbtnContact == null) {
 			rdbtnContact = new JRadioButton("Contact");
+			rdbtnContact.setFont(Fonts.candaraNormal);
 			rdbtnContact.addChangeListener(new ChangeListener() {
 				public void stateChanged(ChangeEvent arg0) {
-					if(rdbtnContact.isSelected()) {
-						comboBoxDate.setVisible(false);
-						comboBoxContacts.setVisible(true);
-						comboBoxDate.setEditable(false);
-						comboBoxContacts.setEditable(true);
-						lblSelectDate.setForeground(Color.GRAY);
-					}else {
-						comboBoxDate.setVisible(false);
-						comboBoxContacts.setVisible(false);
-						lblSelectDate.setForeground(Color.BLACK);
-					}
+					showContact();
 				}
+
 			});
 			buttonGroup.add(rdbtnContact);
 			rdbtnContact.setBounds(22, 59, 127, 25);
@@ -147,6 +139,7 @@ public class HistoryFrame extends JFrame {
 	private JLabel getLblSearchBy() {
 		if (lblSearchBy == null) {
 			lblSearchBy = new JLabel("Search by:");
+			lblSearchBy.setFont(Fonts.candaraNormal);
 			lblSearchBy.setBounds(22, 13, 75, 16);
 		}
 		return lblSearchBy;
@@ -154,6 +147,7 @@ public class HistoryFrame extends JFrame {
 	private JLabel getLblDetails() {
 		if (lblDetails == null) {
 			lblDetails = new JLabel("Details:");
+			lblDetails.setFont(Fonts.candaraNormal);
 			lblDetails.setBounds(32, 110, 56, 16);
 		}
 		return lblDetails;
@@ -162,8 +156,34 @@ public class HistoryFrame extends JFrame {
 		if (list == null) {
 			list = new JList();
 			list.setBackground(Color.LIGHT_GRAY);
+			list.setFont(Fonts.candaraNormal);
 			list.setBounds(42, 129, 484, 168);
 		}
 		return list;
+	}
+	private void showDate() {
+		if(rdbtnDate.isSelected()) {
+			comboBoxDate.setVisible(true);
+			comboBoxDate.setEditable(true);
+			comboBoxContacts.setVisible(false);
+			lblSelectContact.setForeground(Color.GRAY);
+		}else {
+			comboBoxDate.setVisible(false);
+			comboBoxContacts.setVisible(false);
+			lblSelectContact.setForeground(Color.BLACK);
+		}
+	}
+	private void showContact() {
+		if(rdbtnContact.isSelected()) {
+			comboBoxDate.setVisible(false);
+			comboBoxContacts.setVisible(true);
+			comboBoxDate.setEditable(false);
+			comboBoxContacts.setEditable(true);
+			lblSelectDate.setForeground(Color.GRAY);
+		}else {
+			comboBoxDate.setVisible(false);
+			comboBoxContacts.setVisible(false);
+			lblSelectDate.setForeground(Color.BLACK);
+		}
 	}
 }
