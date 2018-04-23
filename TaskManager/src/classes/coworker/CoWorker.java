@@ -1,6 +1,8 @@
 package classes.coworker;
 
-public class CoWorker {
+import java.io.Serializable;
+
+public class CoWorker implements Serializable, Comparable<CoWorker>{
 	private int id;
 	private String companyName;
 	private String country;
@@ -143,6 +145,11 @@ public class CoWorker {
 		if (id != other.id)
 			return false;
 		return true;
+	}
+
+	@Override
+	public int compareTo(CoWorker o) {
+		return this.getCompanyName().compareTo(o.getCompanyName());
 	}
 	
 	
