@@ -17,6 +17,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 
 import gui.colors.Colors;
+import gui.fonts.Fonts;
 import gui.kontroler.GUIKontroler;
 
 import java.awt.event.ActionListener;
@@ -52,6 +53,7 @@ public class ContactsFrame extends JFrame {
 			}
 		});
 		setTitle("Contacts");
+		setFont(Fonts.candaraNormal);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 450, 411);
 		contentPane = new JPanel();
@@ -83,6 +85,7 @@ public class ContactsFrame extends JFrame {
 				}
 			});
 			btnAddNewContact.setBackground(Colors.lightGreen);
+			btnAddNewContact.setFont(Fonts.candaraNormal);
 			btnAddNewContact.setBounds(12, 250, 146, 25);
 		}
 		return btnAddNewContact;
@@ -91,6 +94,7 @@ public class ContactsFrame extends JFrame {
 		if (list == null) {
 			list = new JList();
 			list.setBounds(170, 13, 240, 300);
+			list.setFont(Fonts.candaraNormal);
 			list.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), new EtchedBorder(EtchedBorder.RAISED, null, null)));
 		}
 		return list;
@@ -104,6 +108,7 @@ public class ContactsFrame extends JFrame {
 				}
 			});
 			btnCancel.setBackground(Colors.lightGreen);
+			btnCancel.setFont(Fonts.candaraNormal);
 			btnCancel.setBounds(12, 288, 146, 25);
 		}
 		return btnCancel;
@@ -119,6 +124,7 @@ public class ContactsFrame extends JFrame {
 			lblContactList = new JLabel("List of contacts:");
 			lblContactList.setHorizontalAlignment(SwingConstants.RIGHT);
 			lblContactList.setHorizontalTextPosition(SwingConstants.RIGHT);
+			lblContactList.setFont(Fonts.candaraNormal);
 			lblContactList.setBounds(40, 18, 118, 16);
 		}
 		return lblContactList;

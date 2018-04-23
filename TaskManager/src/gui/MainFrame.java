@@ -26,6 +26,8 @@ import java.awt.Toolkit;
 
 import javax.swing.KeyStroke;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
@@ -126,11 +128,17 @@ public class MainFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public MainFrame() {
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent arg0) {
+				exit();
+			}
+		});
 		setFont(new Font("Candara", Font.PLAIN, 12));
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrame.class.getResource("/icons/taskManager.jpg")));
 		setTitle("TaskManager");
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		//Toolkit tk = Toolkit.getDefaultToolkit();
 		//int width = (int) tk.getScreenSize().getWidth();
 		//int height = (int) tk.getScreenSize().getHeight();
@@ -695,10 +703,11 @@ public class MainFrame extends JFrame {
 		return listTasks;
 	}
 	
-	private void exit() throws HeadlessException {
-		int exit = JOptionPane.showConfirmDialog(mainFrame, "Do you want to quit TaskManager?", "Exit", JOptionPane.YES_NO_OPTION);
-		if (exit == JOptionPane.YES_OPTION)
-			System.exit(0);
+	private void exit() {
+		int opcija = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Exit", JOptionPane.YES_NO_CANCEL_OPTION);
+		
+		if (opcija == JOptionPane.YES_OPTION)
+			dispose();
 	}
 	
 	
