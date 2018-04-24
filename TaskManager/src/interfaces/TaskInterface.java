@@ -3,6 +3,7 @@ package interfaces;
 import java.util.ArrayList;
 
 import classes.task.Task;
+import classes.user.User;
 
 public interface TaskInterface {
 
@@ -16,6 +17,6 @@ public interface TaskInterface {
 	
 	public void sortTasksByDate();
 	
-	public ArrayList<Task> showTillToday();
+	public ArrayList<Task> showTillToday(User user);
 	
 }

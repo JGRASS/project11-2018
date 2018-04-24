@@ -2,6 +2,7 @@ package classes.task;
 
 import java.util.ArrayList;
 
+import classes.user.User;
 import interfaces.TaskInterface;
 import system_operations.SOAddTaskDone;
 import system_operations.SOAddTaskToDo;
@@ -82,8 +83,8 @@ public class Tasks implements TaskInterface {
 	 * @return listu zadataka za izvrsavanje
 	 */
 	@Override
-	public ArrayList<Task> showTillToday() {
-		return SOShowTillToday.execute(tasks);
+	public ArrayList<Task> showTillToday(User user) {
+		return SOShowTillToday.execute(tasks, user);
 	}
 
 	/**

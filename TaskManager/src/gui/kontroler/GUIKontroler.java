@@ -123,6 +123,6 @@ public class GUIKontroler {
 		conf.showContacts(ci.getContacts());
 	}
 	public static void showAllTasksToDo() {
-		mf.showTasks(ti.showTillToday());
+		mf.showTasks(ti.showTillToday(user1));
 	}
 }
