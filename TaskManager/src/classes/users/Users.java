@@ -1,52 +1,43 @@
 package classes.users;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import classes.user.User;
 import interfaces.UsersInterface;
+import system_operations.users.SOLoadUsers;
 
 public class Users implements UsersInterface{
 	
-	private LinkedList<User> users = new LinkedList<User>();
+	private ArrayList<User> users = new ArrayList<User>();
 
-	public LinkedList<User> getUsers() {
+
+	public ArrayList<User> getUsers() {
 		return users;
 	}
 
-	public void setUsers(LinkedList<User> users) {
-		this.users = users;
+	@Override
+	public void loadUsers(String file) {
+		users = SOLoadUsers.execute(file);
+		
 	}
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((users == null) ? 0 : users.hashCode());
-		return result;
+	public void saveUsers(String file) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Users other = (Users) obj;
-		if (users == null) {
-			if (other.users != null)
-				return false;
-		} else if (!users.equals(other.users))
-			return false;
-		return true;
+	public void addUser(User user) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
-	public boolean checkUsernamePassword(User user) {
-		if(users.contains(user))
-			return true;
-		return false;
+	public User checkUsernamePassword(User user) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
