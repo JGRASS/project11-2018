@@ -2,6 +2,10 @@ package gui.kontroler;
 
 import java.awt.EventQueue;
 
+import javax.swing.JOptionPane;
+
+import classes.coworker.CoWorker;
+import classes.coworker.Contacts;
 import classes.task.Tasks;
 import gui.AddContactFrame;
 import gui.ContactsFrame;
@@ -10,14 +14,17 @@ import gui.LogOutFrame;
 import gui.MainFrame;
 import gui.PasswordFrame;
 import interfaces.TaskInterface;
+import interfaces.ContactInterface;
 
 public class GUIKontroler {
 	
-	public static TaskInterface tm = new Tasks();
+	public static TaskInterface ti = new Tasks();
+	public static ContactInterface ci = new Contacts();
 	
 	public static PasswordFrame pf;
 	public static MainFrame mf;
 	public static ContactsFrame conf;
+	public static AddContactFrame acf;
 	
 	/**
 	 * Launch the application.
@@ -62,7 +69,7 @@ public class GUIKontroler {
 		hf.setVisible(true);
 	}
 	public static void addingContact() {
-		AddContactFrame acf = new AddContactFrame();
+		acf = new AddContactFrame();
 		acf.setLocationRelativeTo(conf);
 		acf.setVisible(true);
 	}
@@ -72,5 +79,24 @@ public class GUIKontroler {
 		pf.setLocationRelativeTo(mf);
 
 		mf.setVisible(false);
+	}
+	public static void saveContact(String ConName, String ConSurname, String ConPhone, String ConEmail, String ComName, String ComCountry, String ComInfo) {
+		try {
+			CoWorker contact = new CoWorker();
+			contact.setName(ConName);
+			contact.setSurname(ConSurname);
+			contact.setPhone(ConPhone);
+			contact.setEmail(ConEmail);
+			contact.setCompanyName(ComName);
+			contact.setCountry(ComCountry);
+			contact.setAboutCompany(ComInfo);
+			
+			ci.addContact(contact);
+			
+		} catch (Exception e1) {
+			JOptionPane.showMessageDialog(acf, e1.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
+			
+			
+		}
 	}
 }
