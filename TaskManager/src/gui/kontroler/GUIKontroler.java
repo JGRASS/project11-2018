@@ -43,6 +43,7 @@ public class GUIKontroler {
 		ContactsFrame conf = new ContactsFrame();
 		conf.setLocationRelativeTo(mf);
 		conf.setVisible(true);
+		
 	}
 	
 	public static void loggingOut() {

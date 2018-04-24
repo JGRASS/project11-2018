@@ -5,7 +5,10 @@ import java.util.LinkedList;
 
 import classes.user.User;
 import interfaces.UsersInterface;
+import system_operations.users.SOAddUser;
+import system_operations.users.SOCheckUsernamePassword;
 import system_operations.users.SOLoadUsers;
+import system_operations.users.SOSaveUsers;
 
 public class Users implements UsersInterface{
 	
@@ -24,20 +27,18 @@ public class Users implements UsersInterface{
 
 	@Override
 	public void saveUsers(String file) {
-		// TODO Auto-generated method stub
-		
+		SOSaveUsers.execute(file, users);	
 	}
 
 	@Override
 	public void addUser(User user) {
-		// TODO Auto-generated method stub
+		users = SOAddUser.execute(users, user);
 		
 	}
 
 	@Override
 	public User checkUsernamePassword(User user) {
-		// TODO Auto-generated method stub
-		return null;
+		return SOCheckUsernamePassword.execute(users, user);
 	}
 	
 	
