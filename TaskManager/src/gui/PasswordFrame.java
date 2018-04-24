@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import gui.colors.Colors;
+import gui.kontroler.GUIKontroler;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -33,21 +34,6 @@ public class PasswordFrame extends JFrame {
 	private JSeparator separator;
 	private JPasswordField passwordField;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PasswordFrame frame = new PasswordFrame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -115,6 +101,11 @@ public class PasswordFrame extends JFrame {
 	private JButton getBtnLogIn() {
 		if (btnLogIn == null) {
 			btnLogIn = new JButton("Log in");
+			btnLogIn.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					GUIKontroler.showMainFrame();
+				}
+			});
 			btnLogIn.setBackground(Colors.lightGreen);
 			btnLogIn.setBounds(271, 214, 90, 25);
 		}
@@ -142,10 +133,10 @@ public class PasswordFrame extends JFrame {
 	}
 	
 	private void exit() {
-		int opcija = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Exit", JOptionPane.YES_NO_CANCEL_OPTION);
+		int opcija = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Exit", JOptionPane.YES_NO_OPTION);
 		
 		if (opcija == JOptionPane.YES_OPTION)
-			System.exit(0);
+			GUIKontroler.loggingOut();
 	}
 	private JPasswordField getPasswordField() {
 		if (passwordField == null) {

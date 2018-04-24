@@ -8,12 +8,14 @@ import gui.ContactsFrame;
 import gui.HistoryFrame;
 import gui.LogOutFrame;
 import gui.MainFrame;
+import gui.PasswordFrame;
 import interfaces.TaskInterface;
 
 public class GUIKontroler {
 	
 	public static TaskInterface tm = new Tasks();
 	
+	public static PasswordFrame pf;
 	public static MainFrame mf;
 	public static ContactsFrame conf;
 	
@@ -24,13 +26,19 @@ public class GUIKontroler {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GUIKontroler.mf = new MainFrame();
-					GUIKontroler.mf.setVisible(true);
+					GUIKontroler.pf = new PasswordFrame();
+					GUIKontroler.pf.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
+	}
+	public static void showMainFrame() {
+		MainFrame mf = new MainFrame();
+		mf.setLocationRelativeTo(pf);
+		mf.setVisible(true);
+		
 	}
 	
 	public static void searchContacts() {
@@ -55,5 +63,9 @@ public class GUIKontroler {
 		acf.setLocationRelativeTo(conf);
 		acf.setVisible(true);
 	}
-
+	public static void loggingIn() {
+		PasswordFrame pf = new PasswordFrame();
+		pf.setLocationRelativeTo(mf);
+		pf.setVisible(true);
+	}
 }
