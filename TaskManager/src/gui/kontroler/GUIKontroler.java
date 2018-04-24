@@ -118,6 +118,7 @@ public class GUIKontroler {
 			
 		}
 	}
+	
 	public static void showAllContacts() {
 		conf.showContacts(ci.getContacts());
 	}
