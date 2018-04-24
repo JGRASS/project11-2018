@@ -1,7 +1,6 @@
 package classes.users;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 import classes.user.User;
 import interfaces.UsersInterface;
