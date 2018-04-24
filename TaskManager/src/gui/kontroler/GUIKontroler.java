@@ -1,16 +1,19 @@
 package gui.kontroler;
 
 import java.awt.EventQueue;
+import java.util.GregorianCalendar;
 
 import javax.swing.JOptionPane;
 
 
 import classes.coworker.CoWorker;
 import classes.coworker.Contacts;
+import classes.task.Task;
 import classes.task.Tasks;
 import classes.user.User;
 import classes.users.Users;
 import gui.AddContactFrame;
+import gui.AddTaskFrame;
 import gui.ContactsFrame;
 import gui.HistoryFrame;
 
@@ -42,6 +45,7 @@ public class GUIKontroler {
 	public static MainFrame mf;
 	public static ContactsFrame conf;
 	public static AddContactFrame acf;
+	public static AddTaskFrame atf;
 	
 	/**
 	 * Launch the application.
@@ -120,6 +124,32 @@ public class GUIKontroler {
 	}
 	public static void showAllContacts() {
 		conf.showContacts(ci.getContacts());
+	}
+	
+	public static void showCoWorkers() {
+		atf.showContacts(ci.getContacts());
+	}
+	
+	public static void saveTask(String title, CoWorker coworker, GregorianCalendar date, String description ) {
+		try {
+			Task task = new Task();
+			task.setTaskTitle(title);
+			task.setCoWorker(coworker);
+			task.setDate(date);
+			task.setComment("");
+			task.setDescription(description);
+			task.setDone(false);
+			
+			tm.AddTaskToDo(task);
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(atf, e.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
+		}
+	}
+	
+	public static void addingContactTask() {
+		acf = new AddContactFrame();
+		acf.setLocationRelativeTo(atf);
+		acf.setVisible(true);
 	}
 	
 }
