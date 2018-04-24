@@ -164,30 +164,6 @@ public class TestCoWorker {
 		cow.setPhone("098(djsi");
 	}
 	
-	@Test
-	public void testSetId() {
-		cow.setId(1);
-		assertEquals(1, cow.getId());
-	}
 	
-	@Test
-	public void testEqualsTrue() {
-		cow.setId(1);
-		
-		CoWorker cow2 = new CoWorker();
-		cow2.setId(1);
-		
-		assertTrue(cow.equals(cow2));
-	}
-	
-	@Test
-	public void testEqualsFalse() {
-		cow.setId(1);
-		
-		CoWorker cow2 = new CoWorker();
-		cow2.setId(2);
-		
-		assertFalse(cow.equals(cow2));
-	}
 }
 
