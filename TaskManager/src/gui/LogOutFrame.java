@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.Color;
@@ -27,6 +29,7 @@ public class LogOutFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public LogOutFrame() {
+		
 		setTitle("Good bye!");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -58,5 +61,11 @@ public class LogOutFrame extends JFrame {
 			
 		}
 		return lblHaveANice;
+	}
+	private void exit() {
+		int option = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Exit", JOptionPane.YES_NO_OPTION);
+		
+		if (option == JOptionPane.YES_OPTION)
+			dispose();
 	}
 }

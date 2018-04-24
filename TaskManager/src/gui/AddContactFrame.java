@@ -60,15 +60,9 @@ public class AddContactFrame extends JFrame {
 	 */
 	public AddContactFrame() {
 		
-		addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosing(WindowEvent arg0) {
-				exit1();
-			}
-		});
 		setVisible(true);
 		setTitle("Add contact");
-		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 480, 450);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -191,12 +185,7 @@ public class AddContactFrame extends JFrame {
 		}
 		return textAreaCompanyInfo;
 	}
-	private void exit1() {
-		int opcija = JOptionPane.showConfirmDialog(null, "Are you sure you want to quit?", "Exit", JOptionPane.YES_NO_CANCEL_OPTION);
-		
-		if (opcija == JOptionPane.YES_OPTION)
-			dispose();
-	}
+
 	private JButton getBtnAdd() {
 		if (btnAdd == null) {
 			btnAdd = new JButton("Add");
@@ -211,7 +200,7 @@ public class AddContactFrame extends JFrame {
 			btnCancel = new JButton("Cancel");
 			btnCancel.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					exit1();
+					dispose();
 				}
 			});
 			btnCancel.setBackground(Colors.lightGreen);
