@@ -18,6 +18,7 @@ import javax.swing.border.TitledBorder;
 
 import gui.colors.Colors;
 import gui.fonts.Fonts;
+import gui.kontroler.GUIKontroler;
 
 import javax.swing.UIManager;
 import java.awt.Color;
@@ -189,6 +190,12 @@ public class AddContactFrame extends JFrame {
 	private JButton getBtnAdd() {
 		if (btnAdd == null) {
 			btnAdd = new JButton("Add");
+			btnAdd.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					GUIKontroler.saveContact(textFieldName.getText(),textFieldSurname.getText(), textFieldPhoneNumber.getText(), textFieldEmail.getText(), textFieldCompanyName.getText(),textFieldCountry.getText(),textAreaCompanyInfo.getText());
+					dispose();
+				}
+			});
 			btnAdd.setBackground(Colors.lightGreen);
 			btnAdd.setFont(Fonts.candaraNormal);
 			btnAdd.setBounds(325, 45, 97, 25);

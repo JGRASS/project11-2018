@@ -117,7 +117,7 @@ public class MainFrame extends JFrame {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent arg0) {
-				exit();
+				exitLogOut();
 			}
 		});
 		setFont(new Font("Candara", Font.PLAIN, 12));
@@ -185,7 +185,7 @@ public class MainFrame extends JFrame {
 			mntmLogOut = new JMenuItem("Log out");
 			mntmLogOut.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					GUIKontroler.loggingOut();
+					exitLogOut();
 					
 				}
 			});
@@ -201,7 +201,7 @@ public class MainFrame extends JFrame {
 			mntmExit.setFont(new Font("Candara", Font.PLAIN, 13));
 			mntmExit.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					exit();
+					exitLogOut();
 				}
 			});
 		}
@@ -261,7 +261,7 @@ public class MainFrame extends JFrame {
 	}
 	private JLabel getLblHello() {
 		if (lblHello == null) {
-			lblHello = new JLabel("Hello, ");
+			lblHello = new JLabel("");
 			lblHello.setFont(new Font("Candara", Font.PLAIN, 15));
 			lblHello = new JLabel("Hello");
 		}
@@ -713,7 +713,7 @@ public class MainFrame extends JFrame {
 	}
 	
 	public void setHello(User user) {
-		lblHello.setText(lblHello.getText().concat(user.toString()));
+		lblHello.setText("Hello, "+ user.toString());
 	}
 	
 	
