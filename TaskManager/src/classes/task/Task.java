@@ -6,7 +6,7 @@ import java.util.GregorianCalendar;
 import classes.coworker.CoWorker;
 
 /**
- * Klasa koja predstavlja zadaktak
+ * Klasa koja predstavlja zadatak
  * @author vlajs16
  *
  */
@@ -19,6 +19,10 @@ public class Task implements Serializable, Comparable<Task> {
 	 * Naslov zadatka
 	 */
 	private String taskTitle;
+	/**
+	 * Username zaposenog
+	 */
+	private String username;
 	/**
 	 * Datum
 	 */
@@ -40,7 +44,7 @@ public class Task implements Serializable, Comparable<Task> {
 	 * Komentar zadatka
 	 */
 	private String comment;
-
+	
 	/**
 	 * Vraca String sa naslovom zadatka
 	 * @return taskTitle naslov zadatka
@@ -72,6 +76,20 @@ public class Task implements Serializable, Comparable<Task> {
 	 */
 	public void setComment(String comment) {
 		this.comment = comment;
+	}
+	/**
+	 * Vraca username zaposlenog
+	 * @return username zaposlenog
+	 */
+	public String getUsername() {
+		return username;
+	}
+	/**
+	 * Postavlja novu vrednost za username
+	 * @param username nova vrednost username-a
+	 */
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	/**
@@ -181,7 +199,24 @@ public class Task implements Serializable, Comparable<Task> {
 	public void setDone(boolean done) {
 		this.done = done;
 	}
-
+	/**
+	 * Proverava da li su dva zadatka ista
+	 * Poredi po atributu username
+	 * @return true ako su zadaci isti, a false ako nisu
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Task other = (Task) obj;
+		if (username != other.username)
+			return false;
+		return true;
+	}	
 	/**
 	 * Metoda iz interfejsa Comparable
 	 */
