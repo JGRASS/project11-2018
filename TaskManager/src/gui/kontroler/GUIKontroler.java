@@ -19,7 +19,7 @@ import interfaces.ContactInterface;
 public class GUIKontroler {
 	
 	public static TaskInterface ti = new Tasks();
-	public static ContactInterface ci = new Contacts();
+	public static Contacts ci = new Contacts();
 	
 	public static PasswordFrame pf;
 	public static MainFrame mf;
@@ -96,7 +96,9 @@ public class GUIKontroler {
 		} catch (Exception e1) {
 			JOptionPane.showMessageDialog(acf, e1.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
 			
-			
 		}
+	}
+	public static void showAllContacts() {
+		conf.showContacts(ci.getContacts());
 	}
 }

@@ -16,6 +16,7 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 
+import classes.coworker.CoWorker;
 import gui.colors.Colors;
 import gui.fonts.Fonts;
 import gui.kontroler.GUIKontroler;
@@ -23,6 +24,8 @@ import gui.kontroler.GUIKontroler;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -118,5 +121,9 @@ public class ContactsFrame extends JFrame {
 			lblContactList.setBounds(40, 18, 118, 16);
 		}
 		return lblContactList;
+	}
+	
+	public void showContacts(ArrayList<CoWorker> contacts) {
+		list.setListData(contacts.toArray());
 	}
 }
