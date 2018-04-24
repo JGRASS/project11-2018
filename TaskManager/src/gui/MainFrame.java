@@ -116,7 +116,7 @@ public class MainFrame extends JFrame {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent arg0) {
-				exit();
+				exitLogOut();
 			}
 		});
 		setFont(new Font("Candara", Font.PLAIN, 12));
@@ -200,7 +200,7 @@ public class MainFrame extends JFrame {
 			mntmExit.setFont(new Font("Candara", Font.PLAIN, 13));
 			mntmExit.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					exit();
+					exitLogOut();
 				}
 			});
 		}
