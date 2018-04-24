@@ -2,7 +2,11 @@ package gui.kontroler;
 
 import java.awt.EventQueue;
 
+import javax.swing.JOptionPane;
+
 import classes.task.Tasks;
+import classes.user.User;
+import classes.users.Users;
 import gui.AddContactFrame;
 import gui.ContactsFrame;
 import gui.HistoryFrame;
@@ -14,6 +18,7 @@ import interfaces.TaskInterface;
 public class GUIKontroler {
 	
 	public static TaskInterface tm = new Tasks();
+	public static Users users = new Users();
 	
 	public static PasswordFrame pf;
 	public static MainFrame mf;
@@ -34,10 +39,15 @@ public class GUIKontroler {
 			}
 		});
 	}
-	public static void showMainFrame() {
-		MainFrame mf = new MainFrame();
-		mf.setLocationRelativeTo(pf);
-		mf.setVisible(true);
+	public static void showMainFrame(User user) {
+		User newUser = users.checkUsernamePassword(user);
+		if(newUser!=null) {
+			mf = new MainFrame();
+			mf.setLocationRelativeTo(pf);
+			mf.setHello(newUser);
+			mf.setVisible(true);
+		}else {
+		}
 		
 	}
 	
@@ -45,7 +55,6 @@ public class GUIKontroler {
 		ContactsFrame conf = new ContactsFrame();
 		conf.setLocationRelativeTo(mf);
 		conf.setVisible(true);
-		
 	}
 	
 	public static void loggingOut() {
@@ -69,4 +78,5 @@ public class GUIKontroler {
 		pf.setLocationRelativeTo(mf);
 		pf.setVisible(true);
 	}
+	
 }

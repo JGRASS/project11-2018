@@ -35,6 +35,7 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.StyleConstants.FontConstants;
 
+import classes.user.User;
 import gui.colors.Colors;
 import gui.kontroler.GUIKontroler;
 
@@ -260,7 +261,7 @@ public class MainFrame extends JFrame {
 	}
 	private JLabel getLblHello() {
 		if (lblHello == null) {
-			lblHello = new JLabel("Hello, Teodora Acimov");
+			lblHello = new JLabel("Hello, ");
 			lblHello.setFont(new Font("Candara", Font.PLAIN, 15));
 			lblHello = new JLabel("Hello");
 		}
@@ -709,6 +710,10 @@ public class MainFrame extends JFrame {
 			GUIKontroler.loggingIn();
 			
 		}
+	}
+	
+	public void setHello(User user) {
+		lblHello.setText(lblHello.getText().concat(user.toString()));
 	}
 	
 	
