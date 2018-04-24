@@ -11,6 +11,11 @@ import java.io.Serializable;
 
 public class CoWorker implements Serializable, Comparable<CoWorker>{
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * ID saradnika
 	 */
 	private int id;
