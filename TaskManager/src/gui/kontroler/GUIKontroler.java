@@ -26,37 +26,39 @@ public class GUIKontroler {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GUIKontroler.pf = new PasswordFrame();
-					GUIKontroler.pf.setVisible(true);
+					pf = new PasswordFrame();
+					pf.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
 	}
+	
+	
 	public static void showMainFrame() {
-		MainFrame mf = new MainFrame();
+		mf = new MainFrame();
 		mf.setLocationRelativeTo(pf);
 		mf.setVisible(true);
-		
+		pf.setVisible(false);	
 	}
 	
 	public static void searchContacts() {
-		ContactsFrame conf = new ContactsFrame();
-		conf.setLocationRelativeTo(mf);
+		conf = new ContactsFrame();
+		conf.setLocationRelativeTo(pf);
 		conf.setVisible(true);
 		
 	}
 	
 	public static void loggingOut() {
 		LogOutFrame lof = new LogOutFrame();
-		lof.setLocationRelativeTo(mf);
+		lof.setLocationRelativeTo(pf);
 		lof.setVisible(true);
 	}
 
 	public static void searchHistory() {
 		HistoryFrame hf = new HistoryFrame();
-		hf.setLocationRelativeTo(mf);
+		hf.setLocationRelativeTo(pf);
 		hf.setVisible(true);
 	}
 	public static void addingContact() {
@@ -65,8 +67,10 @@ public class GUIKontroler {
 		acf.setVisible(true);
 	}
 	public static void loggingIn() {
-		PasswordFrame pf = new PasswordFrame();
-		pf.setLocationRelativeTo(mf);
+		pf = new PasswordFrame();
 		pf.setVisible(true);
+		pf.setLocationRelativeTo(mf);
+
+		mf.setVisible(false);
 	}
 }
