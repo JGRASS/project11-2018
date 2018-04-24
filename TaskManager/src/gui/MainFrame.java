@@ -302,6 +302,11 @@ public class MainFrame extends JFrame {
 	private JButton getBtnAddTask() {
 		if (btnAddTask == null) {
 			btnAddTask = new JButton("Add task");
+			btnAddTask.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					
+				}
+			});
 			btnAddTask.setFont(new Font("Candara", Font.PLAIN, 15));
 			btnAddTask.setBackground(Colors.lightGreen);
 			btnAddTask.setBounds(10, 37, 140, 34);

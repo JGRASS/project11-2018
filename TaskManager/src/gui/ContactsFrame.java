@@ -46,15 +46,10 @@ public class ContactsFrame extends JFrame {
 	 */
 	public ContactsFrame() {
 		
-		addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosing(WindowEvent arg0) {
-				exit1();
-			}
-		});
+				
 		setTitle("Contacts");
 		setFont(Fonts.candaraNormal);
-		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 411);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -104,7 +99,7 @@ public class ContactsFrame extends JFrame {
 			btnCancel = new JButton("Cancel");
 			btnCancel.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					exit1();
+					dispose();
 				}
 			});
 			btnCancel.setBackground(Colors.lightGreen);
@@ -113,12 +108,7 @@ public class ContactsFrame extends JFrame {
 		}
 		return btnCancel;
 	}
-	private void exit1() {
-		int opcija = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Exit", JOptionPane.YES_NO_CANCEL_OPTION);
-		
-		if (opcija == JOptionPane.YES_OPTION)
-			dispose();
-	}
+
 	private JLabel getLblContactList() {
 		if (lblContactList == null) {
 			lblContactList = new JLabel("List of contacts:");
