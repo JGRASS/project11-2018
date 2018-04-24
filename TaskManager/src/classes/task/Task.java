@@ -6,7 +6,7 @@ import java.util.GregorianCalendar;
 import classes.coworker.CoWorker;
 
 /**
- * Klasa koja predstavlja zadaktak
+ * Klasa koja predstavlja zadatak
  * @author vlajs16
  *
  */
@@ -16,13 +16,13 @@ public class Task implements Serializable, Comparable<Task> {
 	 */
 	private static final long serialVersionUID = -3523333824926124267L;
 	/**
-	 * ID zadatka
-	 */
-	private int id;
-	/**
 	 * Naslov zadatka
 	 */
 	private String taskTitle;
+	/**
+	 * Username zaposenog
+	 */
+	private String username;
 	/**
 	 * Datum
 	 */
@@ -39,11 +39,16 @@ public class Task implements Serializable, Comparable<Task> {
 	 * Da li je zadatak odradjen ili ne
 	 */
 	private boolean done;
-
+	
+	/**
+	 * Komentar zadatka
+	 */
+	private String comment;
+	
 	/**
 	 * Vraca String sa naslovom zadatka
 	 * @return taskTitle naslov zadatka
-	 */
+	 */	
 	@Override
 	public String toString() {
 		return taskTitle;
@@ -55,6 +60,36 @@ public class Task implements Serializable, Comparable<Task> {
 	 */
 	public String getTaskTitle() {
 		return taskTitle;
+	}
+	
+	/**
+	 * Vraca komentar zadatka
+	 * @return comment komentar zadatka
+	 */
+	public String getComment() {
+		return comment;
+	}
+
+	/**
+	 * Postavlja novu vrednost za komentar
+	 * @param comment nova vrednost komentara
+	 */
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+	/**
+	 * Vraca username zaposlenog
+	 * @return username zaposlenog
+	 */
+	public String getUsername() {
+		return username;
+	}
+	/**
+	 * Postavlja novu vrednost za username
+	 * @param username nova vrednost username-a
+	 */
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	/**
@@ -164,27 +199,10 @@ public class Task implements Serializable, Comparable<Task> {
 	public void setDone(boolean done) {
 		this.done = done;
 	}
-
-	/**
-	 * Vraca id zadatka
-	 * @return id zadatka
-	 */
-	public int getId() {
-		return id;
-	}
-
-	/**
-	 * Postavlja novu vrednost za id zadatka
-	 * @param id nova vrednost id
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	/**
 	 * Proverava da li su dva zadatka ista
-	 * Poredi po atributu id
-	 * @return true ako su isti, false ako nisu
+	 * Poredi po atributu username
+	 * @return true ako su zadaci isti, a false ako nisu
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -195,11 +213,10 @@ public class Task implements Serializable, Comparable<Task> {
 		if (getClass() != obj.getClass())
 			return false;
 		Task other = (Task) obj;
-		if (id != other.id)
+		if (username != other.username)
 			return false;
 		return true;
-	}
-
+	}	
 	/**
 	 * Metoda iz interfejsa Comparable
 	 */
@@ -207,7 +224,5 @@ public class Task implements Serializable, Comparable<Task> {
 	public int compareTo(Task o) {
 		return this.getDate().compareTo(o.getDate());
 	}
-	
-	
 
 }

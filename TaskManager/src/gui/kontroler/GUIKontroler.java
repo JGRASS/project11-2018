@@ -35,7 +35,7 @@ public class GUIKontroler {
 		users.addUser(user1);
 	}
 
-	public static TaskInterface ti = new Tasks();
+	public static Tasks ti = new Tasks();
 	public static Contacts ci = new Contacts();
 	
 	public static PasswordFrame pf;
@@ -118,8 +118,11 @@ public class GUIKontroler {
 			
 		}
 	}
+	
 	public static void showAllContacts() {
 		conf.showContacts(ci.getContacts());
 	}
-	
+	public static void showAllTasksToDo() {
+		mf.showTasks(ti.showTillToday());
+	}
 }
