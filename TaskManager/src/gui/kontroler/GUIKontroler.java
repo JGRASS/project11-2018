@@ -9,12 +9,6 @@ import gui.HistoryFrame;
 import gui.LogOutFrame;
 import gui.MainFrame;
 import interfaces.TaskInterface;
-import system_operations.SOAddTaskDone;
-import system_operations.SOAddTaskToDo;
-import system_operations.SOLoadTasks;
-import system_operations.SOShowTillToday;
-import system_operations.SOSaveTasks;
-import system_operations.SOSortByDate;
 
 public class GUIKontroler {
 	
