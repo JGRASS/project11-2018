@@ -3,6 +3,7 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -35,6 +36,7 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.StyleConstants.FontConstants;
 
+import classes.task.Task;
 import classes.user.User;
 import gui.colors.Colors;
 import gui.kontroler.GUIKontroler;
@@ -715,6 +717,8 @@ public class MainFrame extends JFrame {
 	public void setHello(User user) {
 		lblHello.setText("Hello, "+ user.toString());
 	}
-	
+	public void showTasks(ArrayList<Task> tasks) {
+		listTasks.setListData(tasks.toArray());
+	}
 	
 }
