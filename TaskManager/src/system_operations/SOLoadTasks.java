@@ -11,6 +11,7 @@ public class SOLoadTasks {
 	/**
 	 * Ucitavanje liste zadataka iz serijalizovanog fajla
 	 * @param file fajl sa zadacima
+	 * @throws java.lang.RuntimeException ukoliko je neuspesno ucitavanje iz datoteke
 	 * @return lista zadataka
 	 */
 	@SuppressWarnings("unchecked")

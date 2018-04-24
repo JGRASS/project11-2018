@@ -8,6 +8,12 @@ import classes.coworker.CoWorker;
 
 public class SOSaveContacts {
 	
+	/**
+	 * Upisivanje liste kontakata u fajl
+	 * @param file fajl u kojem cuvamo kontakte
+	 * @param contacts lista kontakata
+	 * @throws java.lang.RuntimeException ukoliko nije uspesno izvrseno upisivanje u falj
+	 */
 	public static void execute(String file, ArrayList<CoWorker> contacts) {
 		try(ObjectOutputStream out = 
 				new ObjectOutputStream(
