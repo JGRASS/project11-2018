@@ -156,7 +156,7 @@ public class PasswordFrame extends JFrame {
 		int opcija = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Exit", JOptionPane.YES_NO_OPTION);
 		
 		if (opcija == JOptionPane.YES_OPTION)
-			GUIKontroler.loggingOut();
+			System.exit(0);
 	}
 	private JPasswordField getPasswordField() {
 		if (passwordField == null) {
@@ -172,8 +172,7 @@ public class PasswordFrame extends JFrame {
 		int option = JOptionPane.showConfirmDialog(null, "Are you sure you want to log out?", "Logging out", JOptionPane.YES_NO_OPTION);
 		
 		if (option == JOptionPane.YES_OPTION) {
-			GUIKontroler.loggingIn();
-			
+			System.exit(0);
 		}
 	}
 	

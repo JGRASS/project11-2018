@@ -13,7 +13,7 @@ import classes.users.Users;
 import gui.AddContactFrame;
 import gui.ContactsFrame;
 import gui.HistoryFrame;
-import gui.LogOutFrame;
+
 import gui.MainFrame;
 import gui.PasswordFrame;
 import interfaces.TaskInterface;
@@ -81,11 +81,7 @@ public class GUIKontroler {
 		conf.setVisible(true);
 	}
 	
-	public static void loggingOut() {
-		LogOutFrame lof = new LogOutFrame();
-		lof.setLocationRelativeTo(pf);
-		lof.setVisible(true);
-	}
+	
 
 	public static void searchHistory() {
 		HistoryFrame hf = new HistoryFrame();
