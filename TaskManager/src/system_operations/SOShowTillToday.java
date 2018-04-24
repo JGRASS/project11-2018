@@ -7,6 +7,11 @@ import classes.task.Task;
 
 public class SOShowTillToday {
 	
+	/**
+	 * Prikaz svih zadataka koji treba da se odrade zakljucno sa danasnjim danom
+	 * @param tasks svi zadaci
+	 * @return tasks zadaci koji treba da se izvrse
+	 */
 	public static ArrayList<Task> execute(ArrayList<Task> tasks){
 		ArrayList<Task> n = new ArrayList<Task>();
 		for(int i = 0; i<tasks.size(); i++) {

@@ -8,6 +8,11 @@ import classes.task.Task;
 
 public class SOSaveTasks {
 	
+	/**
+	 * Cuvanje zadataka u fajlu
+	 * @param file fajl za cuvanje zadataka
+	 * @param tasks zadaci koji se cuvaju
+	 */
 	public static void execute(String file, ArrayList<Task> tasks) {
 		try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file))) {
 			out.writeObject(tasks);

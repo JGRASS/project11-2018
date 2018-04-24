@@ -6,6 +6,12 @@ import classes.coworker.CoWorker;
 
 public class SOFindContactByCompanyName {
 
+	/**
+	 * Pronalazi kontakt na osnovu zadatog imena kompanije
+	 * @param contacts lista kontakata
+	 * @param companyName naziv kompanije
+	 * @return found listu pronadjenih kontakata
+	 */
 	public static ArrayList<CoWorker> execute(ArrayList<CoWorker> contacts, String companyName){
 		ArrayList<CoWorker> found = new ArrayList<CoWorker>();
 		
