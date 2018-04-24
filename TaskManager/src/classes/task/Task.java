@@ -16,10 +16,6 @@ public class Task implements Serializable, Comparable<Task> {
 	 */
 	private static final long serialVersionUID = -3523333824926124267L;
 	/**
-	 * ID zadatka
-	 */
-	private int id;
-	/**
 	 * Naslov zadatka
 	 */
 	private String taskTitle;
@@ -39,11 +35,16 @@ public class Task implements Serializable, Comparable<Task> {
 	 * Da li je zadatak odradjen ili ne
 	 */
 	private boolean done;
+	
+	/**
+	 * Komentar zadatka
+	 */
+	private String comment;
 
 	/**
 	 * Vraca String sa naslovom zadatka
 	 * @return taskTitle naslov zadatka
-	 */
+	 */	
 	@Override
 	public String toString() {
 		return taskTitle;
@@ -55,6 +56,22 @@ public class Task implements Serializable, Comparable<Task> {
 	 */
 	public String getTaskTitle() {
 		return taskTitle;
+	}
+	
+	/**
+	 * Vraca komentar zadatka
+	 * @return comment komentar zadatka
+	 */
+	public String getComment() {
+		return comment;
+	}
+
+	/**
+	 * Postavlja novu vrednost za komentar
+	 * @param comment nova vrednost komentara
+	 */
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 
 	/**
@@ -166,48 +183,11 @@ public class Task implements Serializable, Comparable<Task> {
 	}
 
 	/**
-	 * Vraca id zadatka
-	 * @return id zadatka
-	 */
-	public int getId() {
-		return id;
-	}
-
-	/**
-	 * Postavlja novu vrednost za id zadatka
-	 * @param id nova vrednost id
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	/**
-	 * Proverava da li su dva zadatka ista
-	 * Poredi po atributu id
-	 * @return true ako su isti, false ako nisu
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Task other = (Task) obj;
-		if (id != other.id)
-			return false;
-		return true;
-	}
-
-	/**
 	 * Metoda iz interfejsa Comparable
 	 */
 	@Override
 	public int compareTo(Task o) {
 		return this.getDate().compareTo(o.getDate());
 	}
-	
-	
 
 }
