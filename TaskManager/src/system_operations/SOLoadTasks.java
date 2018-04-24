@@ -8,6 +8,11 @@ import classes.task.Task;
 
 public class SOLoadTasks {
 	
+	/**
+	 * Ucitavanje liste zadataka iz serijalizovanog fajla
+	 * @param file fajl sa zadacima
+	 * @return lista zadataka
+	 */
 	@SuppressWarnings("unchecked")
 	public static ArrayList<Task> execute(String file) {
 		try(ObjectInputStream in = 
