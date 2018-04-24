@@ -193,7 +193,7 @@ public class AddContactFrame extends JFrame {
 			btnAdd.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					GUIKontroler.saveContact(textFieldName.getText(),textFieldSurname.getText(), textFieldPhoneNumber.getText(), textFieldEmail.getText(), textFieldCompanyName.getText(),textFieldCountry.getText(),textAreaCompanyInfo.getText());
-					dispose();
+					
 				}
 			});
 			btnAdd.setBackground(Colors.lightGreen);
