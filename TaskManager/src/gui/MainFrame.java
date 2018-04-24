@@ -26,6 +26,8 @@ import java.awt.Toolkit;
 
 import javax.swing.KeyStroke;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
@@ -34,9 +36,12 @@ import javax.swing.border.TitledBorder;
 import javax.swing.text.StyleConstants.FontConstants;
 
 import gui.colors.Colors;
+import gui.kontroler.GUIKontroler;
 
 import javax.swing.JList;
 import java.awt.Font;
+import java.awt.HeadlessException;
+
 import javax.swing.UIManager;
 import java.awt.Color;
 
@@ -123,11 +128,17 @@ public class MainFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public MainFrame() {
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent arg0) {
+				exit();
+			}
+		});
 		setFont(new Font("Candara", Font.PLAIN, 12));
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrame.class.getResource("/icons/taskManager.jpg")));
 		setTitle("TaskManager");
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		//Toolkit tk = Toolkit.getDefaultToolkit();
 		//int width = (int) tk.getScreenSize().getWidth();
 		//int height = (int) tk.getScreenSize().getHeight();
@@ -188,7 +199,8 @@ public class MainFrame extends JFrame {
 			mntmLogOut = new JMenuItem("Log out");
 			mntmLogOut.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					loggingOut();
+					GUIKontroler.loggingOut();
+					
 				}
 			});
 			mntmLogOut.setFont(new Font("Candara", Font.PLAIN, 13));
@@ -203,9 +215,7 @@ public class MainFrame extends JFrame {
 			mntmExit.setFont(new Font("Candara", Font.PLAIN, 13));
 			mntmExit.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					int exit = JOptionPane.showConfirmDialog(mainFrame, "Do you want to quit TaskManager?", "Exit", JOptionPane.YES_NO_OPTION);
-					if (exit == JOptionPane.YES_OPTION)
-						System.exit(0);
+					exit();
 				}
 			});
 		}
@@ -216,7 +226,8 @@ public class MainFrame extends JFrame {
 			mntmNewContact = new JMenuItem("New contact");
 			mntmNewContact.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					searchContacts();
+					GUIKontroler.searchContacts();
+					
 				}
 			});
 			mntmNewContact.setFont(new Font("Candara", Font.PLAIN, 13));
@@ -308,7 +319,8 @@ public class MainFrame extends JFrame {
 			btnContacts.setBounds(10, 102, 140, 34);
 			btnContacts.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					searchContacts();
+					GUIKontroler.searchContacts();
+					
 				}
 			});
 		}
@@ -322,7 +334,8 @@ public class MainFrame extends JFrame {
 			btnHistory.setBounds(10, 167, 140, 34);
 			btnHistory.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					searchHistory();
+					GUIKontroler.searchHistory();
+					
 				}
 
 			});
@@ -335,7 +348,8 @@ public class MainFrame extends JFrame {
 			btnLogOut.setFont(new Font("Candara", Font.PLAIN, 15));
 			btnLogOut.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					loggingOut();
+					GUIKontroler.loggingOut();
+					
 				}
 
 			});
@@ -692,19 +706,12 @@ public class MainFrame extends JFrame {
 		return listTasks;
 	}
 	
-	private void searchContacts() {
-		ContactsFrame conf = new ContactsFrame(mainFrame);
-		conf.setVisible(true);
+	private void exit() {
+		int opcija = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Exit", JOptionPane.YES_NO_CANCEL_OPTION);
+		
+		if (opcija == JOptionPane.YES_OPTION)
+			dispose();
 	}
 	
-	private void loggingOut() {
-		LogOutFrame lof = new LogOutFrame(mainFrame);
-		lof.setVisible(true);
-	}
-
-	private void searchHistory() {
-		HistoryFrame hf = new HistoryFrame(mainFrame);
-		hf.setVisible(true);
-	}
 	
 }

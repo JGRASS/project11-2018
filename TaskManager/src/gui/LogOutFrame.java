@@ -11,6 +11,9 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import javax.swing.border.TitledBorder;
+
+import gui.fonts.Fonts;
+
 import javax.swing.UIManager;
 
 public class LogOutFrame extends JFrame {
@@ -19,23 +22,23 @@ public class LogOutFrame extends JFrame {
 	private JPanel panel;
 	private JLabel lblHaveANice;
 
-	private MainFrame mf;
-	
+		
 	/**
 	 * Create the frame.
 	 */
-	public LogOutFrame(MainFrame mf) {
+	public LogOutFrame() {
 		setTitle("Good bye!");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
+		setFont(Fonts.candaraNormal);
 		contentPane = new JPanel();
-		contentPane.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Thanks for logging out.", TitledBorder.TRAILING, TitledBorder.ABOVE_BOTTOM, null, new Color(0, 0, 0)));
+		contentPane.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Thanks for logging out.", TitledBorder.TRAILING, TitledBorder.ABOVE_BOTTOM, Fonts.candaraNormal, new Color(0, 0, 0)));
 		contentPane.setLayout(new BorderLayout(0, 0));
-		setLocationRelativeTo(null);
+		
 		setContentPane(contentPane);
 		contentPane.add(getPanel(), BorderLayout.CENTER);
 		
-		this.mf = mf;
+		
 	}
 
 	private JPanel getPanel() {
@@ -51,7 +54,8 @@ public class LogOutFrame extends JFrame {
 			lblHaveANice = new JLabel("Have a nice day!");
 			lblHaveANice.setForeground(Color.GRAY);
 			lblHaveANice.setHorizontalAlignment(SwingConstants.CENTER);
-			lblHaveANice.setFont(new Font("Tahoma", Font.BOLD, 25));
+			lblHaveANice.setFont(new Font("Candara", Font.PLAIN, 25));
+			
 		}
 		return lblHaveANice;
 	}

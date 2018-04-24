@@ -5,8 +5,11 @@ package classes.coworker;
  * @author vlajs16
  * @version 0.1 
  */
-public class CoWorker {
 	
+	
+import java.io.Serializable;
+
+public class CoWorker implements Serializable, Comparable<CoWorker>{
 	/**
 	 * ID saradnika
 	 */
@@ -295,6 +298,11 @@ public class CoWorker {
 		if (id != other.id)
 			return false;
 		return true;
+	}
+
+	@Override
+	public int compareTo(CoWorker o) {
+		return this.getCompanyName().compareTo(o.getCompanyName());
 	}
 	
 	
