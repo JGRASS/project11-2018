@@ -35,6 +35,7 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.StyleConstants.FontConstants;
 
+import classes.user.User;
 import gui.colors.Colors;
 import gui.kontroler.GUIKontroler;
 
@@ -108,21 +109,6 @@ public class MainFrame extends JFrame {
 	private JButton btnTaskCompleted;
 	private JList listTasks;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainFrame frame = new MainFrame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -131,7 +117,7 @@ public class MainFrame extends JFrame {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent arg0) {
-				exit();
+				exitLogOut();
 			}
 		});
 		setFont(new Font("Candara", Font.PLAIN, 12));
@@ -199,7 +185,7 @@ public class MainFrame extends JFrame {
 			mntmLogOut = new JMenuItem("Log out");
 			mntmLogOut.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					GUIKontroler.loggingOut();
+					exitLogOut();
 					
 				}
 			});
@@ -215,7 +201,7 @@ public class MainFrame extends JFrame {
 			mntmExit.setFont(new Font("Candara", Font.PLAIN, 13));
 			mntmExit.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					exit();
+					exitLogOut();
 				}
 			});
 		}
@@ -275,7 +261,7 @@ public class MainFrame extends JFrame {
 	}
 	private JLabel getLblHello() {
 		if (lblHello == null) {
-			lblHello = new JLabel("Hello, Teodora Acimov");
+			lblHello = new JLabel("");
 			lblHello.setFont(new Font("Candara", Font.PLAIN, 15));
 			lblHello = new JLabel("Hello");
 		}
@@ -305,6 +291,11 @@ public class MainFrame extends JFrame {
 	private JButton getBtnAddTask() {
 		if (btnAddTask == null) {
 			btnAddTask = new JButton("Add task");
+			btnAddTask.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					
+				}
+			});
 			btnAddTask.setFont(new Font("Candara", Font.PLAIN, 15));
 			btnAddTask.setBackground(Colors.lightGreen);
 			btnAddTask.setBounds(10, 37, 140, 34);
@@ -348,8 +339,8 @@ public class MainFrame extends JFrame {
 			btnLogOut.setFont(new Font("Candara", Font.PLAIN, 15));
 			btnLogOut.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					GUIKontroler.loggingOut();
-					
+					exitLogOut();
+
 				}
 
 			});
@@ -707,10 +698,22 @@ public class MainFrame extends JFrame {
 	}
 	
 	private void exit() {
-		int opcija = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Exit", JOptionPane.YES_NO_CANCEL_OPTION);
+		int option = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Exit", JOptionPane.YES_NO_OPTION);
 		
-		if (opcija == JOptionPane.YES_OPTION)
+		if (option == JOptionPane.YES_OPTION)
 			dispose();
+	}
+	private void exitLogOut() {
+		int option = JOptionPane.showConfirmDialog(null, "Are you sure you want to log out?", "Logging out", JOptionPane.YES_NO_OPTION);
+		
+		if (option == JOptionPane.YES_OPTION) {
+			GUIKontroler.loggingIn();
+			
+		}
+	}
+	
+	public void setHello(User user) {
+		lblHello.setText("Hello, "+ user.toString());
 	}
 	
 	

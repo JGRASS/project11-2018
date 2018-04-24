@@ -8,6 +8,12 @@ import classes.user.User;
 
 public class SOLoadUsers {
 	
+	/**
+	 * Ucitavanje liste zaposlenih iz datoteke
+	 * @param file datoteka sa podacima
+	 * @throws java.lang.RuntimeException ukoliko je neuspesno ucitavanje iz datoteke
+	 * @return listu zaposlenih
+	 */
 	@SuppressWarnings("unchecked")
 	public static ArrayList<User> execute(String file){
 		
