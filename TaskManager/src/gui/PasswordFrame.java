@@ -158,5 +158,14 @@ public class PasswordFrame extends JFrame {
 		}
 		return passwordField;
 	}
+	
+	private void exitLogOut() {
+		int option = JOptionPane.showConfirmDialog(null, "Are you sure you want to log out?", "Logging out", JOptionPane.YES_NO_OPTION);
+		
+		if (option == JOptionPane.YES_OPTION) {
+			GUIKontroler.loggingIn();
+			
+		}
+	}
 }
 

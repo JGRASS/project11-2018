@@ -184,7 +184,7 @@ public class MainFrame extends JFrame {
 			mntmLogOut = new JMenuItem("Log out");
 			mntmLogOut.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					GUIKontroler.loggingOut();
+					exitLogOut();
 					
 				}
 			});
