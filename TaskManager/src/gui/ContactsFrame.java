@@ -79,7 +79,7 @@ public class ContactsFrame extends JFrame {
 			btnAddNewContact.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					GUIKontroler.addingContact();
-					
+					dispose();
 				}
 			});
 			btnAddNewContact.setBackground(Colors.lightGreen);

@@ -15,6 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.event.ChangeListener;
 
+import classes.coworker.CoWorker;
 import gui.fonts.Fonts;
 
 import javax.swing.event.ChangeEvent;
@@ -22,6 +23,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.UIManager;
 import javax.swing.JList;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerDateModel;
+import java.util.Date;
+import java.util.ArrayList;
+import java.util.Calendar;
 
 public class HistoryFrame extends JFrame {
 
@@ -29,14 +35,14 @@ public class HistoryFrame extends JFrame {
 	private JPanel panel;
 	private JLabel lblSelectDate;
 	private JLabel lblSelectContact;
-	private JComboBox comboBoxDate;
-	private JComboBox comboBoxContacts;
 	private JRadioButton rdbtnDate;
 	private JRadioButton rdbtnContact;
 	private JLabel lblSearchBy;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JLabel lblDetails;
 	private JList list;
+	private JSpinner spinnerDate;
+	private JComboBox comboBoxContacts;
 		
 
 	/**
@@ -62,13 +68,13 @@ public class HistoryFrame extends JFrame {
 			panel.setLayout(null);
 			panel.add(getLblSelectDate());
 			panel.add(getLblSelectContact());
-			panel.add(getComboBoxDate());
-			panel.add(getComboBoxContacts());
 			panel.add(getRdbtnContact());
 			panel.add(getRdbtnDate());
 			panel.add(getLblSearchBy());
 			panel.add(getLblDetails());
 			panel.add(getList());
+			panel.add(getSpinnerDate());
+			panel.add(getComboBoxContacts());
 		}
 		return panel;
 	}
@@ -87,24 +93,6 @@ public class HistoryFrame extends JFrame {
 			lblSelectContact.setBounds(252, 63, 108, 16);
 		}
 		return lblSelectContact;
-	}
-	private JComboBox getComboBoxDate() {
-		if (comboBoxDate == null) {
-			comboBoxDate = new JComboBox();
-			comboBoxDate.setFont(Fonts.candaraNormal);
-			comboBoxDate.setVisible(true);
-			comboBoxDate.setBounds(361, 36, 141, 19);
-		}
-		return comboBoxDate;
-	}
-	private JComboBox getComboBoxContacts() {
-		if (comboBoxContacts == null) {
-			comboBoxContacts = new JComboBox();
-			comboBoxContacts.setFont(Fonts.candaraNormal);
-			comboBoxContacts.setVisible(false);
-			comboBoxContacts.setBounds(361, 60, 141, 22);
-		}
-		return comboBoxContacts;
 	}
 	private JRadioButton getRdbtnDate() {
 		if (rdbtnDate == null) {
@@ -164,27 +152,45 @@ public class HistoryFrame extends JFrame {
 	}
 	private void showDate() {
 		if(rdbtnDate.isSelected()) {
-			comboBoxDate.setVisible(true);
-			comboBoxDate.setEditable(true);
+			spinnerDate.setVisible(true);
+			
 			comboBoxContacts.setVisible(false);
 			lblSelectContact.setForeground(Color.GRAY);
 		}else {
-			comboBoxDate.setVisible(false);
+			spinnerDate.setVisible(false);
 			comboBoxContacts.setVisible(false);
 			lblSelectContact.setForeground(Color.BLACK);
 		}
 	}
 	private void showContact() {
 		if(rdbtnContact.isSelected()) {
-			comboBoxDate.setVisible(false);
+			spinnerDate.setVisible(false);
 			comboBoxContacts.setVisible(true);
-			comboBoxDate.setEditable(false);
+			
 			comboBoxContacts.setEditable(true);
 			lblSelectDate.setForeground(Color.GRAY);
 		}else {
-			comboBoxDate.setVisible(false);
+			spinnerDate.setVisible(false);
 			comboBoxContacts.setVisible(false);
 			lblSelectDate.setForeground(Color.BLACK);
 		}
+	}
+	private JSpinner getSpinnerDate() {
+		if (spinnerDate == null) {
+			spinnerDate = new JSpinner();
+			spinnerDate.setModel(new SpinnerDateModel(new Date(1524639600000L), new Date(1524607200000L), null, Calendar.DAY_OF_YEAR));
+			spinnerDate.setBounds(358, 38, 127, 16);
+		}
+		return spinnerDate;
+	}
+	private JComboBox getComboBoxContacts() {
+		if (comboBoxContacts == null) {
+			comboBoxContacts = new JComboBox();
+			comboBoxContacts.setBounds(358, 58, 127, 16);
+		}
+		return comboBoxContacts;
+	}
+	public void showContacts(ArrayList<CoWorker> contacts) {
+		comboBoxContacts.addItem(contacts.toArray());
 	}
 }
