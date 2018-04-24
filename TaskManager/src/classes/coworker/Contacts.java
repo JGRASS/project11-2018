@@ -43,7 +43,7 @@ public class Contacts implements ContactInterface{
 
 	/**
 	 * Cuvanje kontakata u datoteku
-	 * @param file Naziv fajla u koji upisujemo kontakte
+	 * @param file naziv fajla u koji upisujemo kontakte
 	 */
 	@Override
 	public void SaveContacts(String file) {
@@ -60,6 +60,7 @@ public class Contacts implements ContactInterface{
 
 	/**
 	 * Pronalazenje kontakta prema imenu saradnika
+	 * @param name ime kontakta koji trazimo
 	 * @return odgovarajuci kontakt
 	 */
 	@Override
@@ -69,6 +70,7 @@ public class Contacts implements ContactInterface{
 
 	/**
 	 * Pronalazenje kontakata prema drzavi 
+	 * @param country naziv zemlje za koju trazimo metode
 	 * @return listu odgovarajucih kontakata
 	 */
 	@Override
@@ -78,6 +80,7 @@ public class Contacts implements ContactInterface{
 
 	/**
 	 * Pronalazenje kontakta prema imenu kompanije
+	 * @param companyName naziv kompanije za koju trazimo 
 	 * @return listu odgovarajucih kontakata
 	 */
 	@Override
@@ -87,6 +90,7 @@ public class Contacts implements ContactInterface{
 
 	/**
 	 * Dodavanje novog kontakta
+	 * @param coWorker saradnik koga dodajemo u kontakte
 	 */
 	@Override
 	public void addContact(CoWorker coWorker) {
@@ -96,6 +100,7 @@ public class Contacts implements ContactInterface{
 
 	/**
 	 * Brisanje kontakta
+	 * @param coWorker saradnik koga brisemo iz kontakta
 	 */
 	@Override
 	public void removeContact(CoWorker coWorker) {
