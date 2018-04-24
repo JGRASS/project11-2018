@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import gui.colors.Colors;
+import gui.fonts.Fonts;
 import gui.kontroler.GUIKontroler;
 
 
@@ -49,6 +50,7 @@ public class PasswordFrame extends JFrame {
 		});
 		setResizable(false);
 		setVisible(true);
+		setFont(Fonts.candaraNormal);
 		setTitle("Login");
 		
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -79,6 +81,7 @@ public class PasswordFrame extends JFrame {
 	private JLabel getLblUsername() {
 		if (lblUsername == null) {
 			lblUsername = new JLabel("Username: ");
+			lblUsername.setFont(Fonts.candaraNormal);
 			lblUsername.setBounds(96, 71, 78, 21);
 		}
 		return lblUsername;
@@ -87,6 +90,7 @@ public class PasswordFrame extends JFrame {
 		if (textFieldUsername == null) {
 			textFieldUsername = new JTextField();
 			textFieldUsername.setToolTipText("Please, type your username here.");
+			textFieldUsername.setFont(Fonts.candaraNormal);
 			textFieldUsername.setBounds(186, 70, 175, 22);
 			textFieldUsername.setColumns(10);
 		}
@@ -95,19 +99,18 @@ public class PasswordFrame extends JFrame {
 	private JLabel getLblPassword() {
 		if (lblPassword == null) {
 			lblPassword = new JLabel("Password:");
+			lblPassword.setFont(Fonts.candaraNormal);
 			lblPassword.setBounds(96, 126, 78, 16);
 		}
 		return lblPassword;
 	}
-	private void goToMainFrame() {
-		MainFrame main = new MainFrame();
-		main.setVisible(true);
-	}
+
 	
 	private JButton getBtnLogIn() {
 		if (btnLogIn == null) {
 
 			btnLogIn = new JButton("Log in");
+			btnLogIn.setFont(Fonts.candaraNormal);
 			btnLogIn.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					GUIKontroler.showMainFrame();
@@ -121,6 +124,7 @@ public class PasswordFrame extends JFrame {
 	private JButton getBtnExit() {
 		if (btnExit == null) {
 			btnExit = new JButton("Exit");
+			btnExit.setFont(Fonts.candaraNormal);
 			btnExit.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					exit();
@@ -149,6 +153,7 @@ public class PasswordFrame extends JFrame {
 		if (passwordField == null) {
 			passwordField = new JPasswordField();
 			passwordField.setToolTipText("Please, type your password here.");
+			passwordField.setFont(Fonts.candaraNormal);
 			passwordField.setBounds(186, 123, 176, 21);
 		}
 		return passwordField;
