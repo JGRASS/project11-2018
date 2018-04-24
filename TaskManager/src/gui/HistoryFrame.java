@@ -92,7 +92,7 @@ public class HistoryFrame extends JFrame {
 		if (comboBoxDate == null) {
 			comboBoxDate = new JComboBox();
 			comboBoxDate.setFont(Fonts.candaraNormal);
-			comboBoxDate.setVisible(false);
+			comboBoxDate.setVisible(true);
 			comboBoxDate.setBounds(361, 36, 141, 19);
 		}
 		return comboBoxDate;
@@ -109,6 +109,7 @@ public class HistoryFrame extends JFrame {
 	private JRadioButton getRdbtnDate() {
 		if (rdbtnDate == null) {
 			rdbtnDate = new JRadioButton("Date");
+			rdbtnDate.setSelected(true);
 			rdbtnDate.setFont(Fonts.candaraNormal);
 			rdbtnDate.addChangeListener(new ChangeListener() {
 				public void stateChanged(ChangeEvent arg0) {
