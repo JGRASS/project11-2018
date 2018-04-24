@@ -27,11 +27,11 @@ public class User {
 	 */
 	private String password;
 	
-	
 	/**
 	 * Vraca String sa imenom i prezimenom zaposlenog
 	 * @return ime i prezime zaposlenog kao String
 	 */
+
 	@Override
 	public String toString() {
 		return this.name + " " + this.surname;

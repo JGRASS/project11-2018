@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import gui.colors.Colors;
 
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -112,10 +113,20 @@ public class PasswordFrame extends JFrame {
 		}
 		return lblPassword;
 	}
+	private void goToMainFrame() {
+		MainFrame main = new MainFrame();
+		main.setVisible(true);
+	}
+	
 	private JButton getBtnLogIn() {
 		if (btnLogIn == null) {
 			btnLogIn = new JButton("Log in");
 			btnLogIn.setBackground(Colors.lightGreen);
+			btnLogIn.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					goToMainFrame();
+				}
+			});
 			btnLogIn.setBounds(271, 214, 90, 25);
 		}
 		return btnLogIn;

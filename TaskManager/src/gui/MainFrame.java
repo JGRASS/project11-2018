@@ -144,6 +144,8 @@ public class MainFrame extends JFrame {
 		contentPane.add(getPanelNorth(), BorderLayout.NORTH);
 		contentPane.add(getPanelCenter(), BorderLayout.CENTER);
 		contentPane.add(getPanelSouth(), BorderLayout.SOUTH);
+		
+		mainFrame = this;
 	}
 
 	private JMenuBar getMenuBar_1() {
@@ -264,6 +266,7 @@ public class MainFrame extends JFrame {
 		if (lblHello == null) {
 			lblHello = new JLabel("Hello, Teodora Acimov");
 			lblHello.setFont(new Font("Candara", Font.PLAIN, 15));
+			lblHello = new JLabel("Hello");
 		}
 		return lblHello;
 	}
