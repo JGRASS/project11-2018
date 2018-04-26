@@ -37,6 +37,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.text.StyleConstants.FontConstants;
 
 import classes.task.Task;
+import classes.task.Tasks;
 import classes.user.User;
 import gui.colors.Colors;
 import gui.kontroler.GUIKontroler;
@@ -50,6 +51,10 @@ import java.awt.Color;
 
 public class MainFrame extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6968116630508984077L;
 	private JPanel contentPane;
 	private JMenuBar menuBar;
 	private JMenu mnFile;
@@ -110,6 +115,9 @@ public class MainFrame extends JFrame {
 	private JPanel panelLeftButton;
 	private JButton btnTaskCompleted;
 	private JList listTasks;
+	
+	private Tasks tasks;
+	private User user;
 
 
 	/**
@@ -145,6 +153,7 @@ public class MainFrame extends JFrame {
 		contentPane.add(getPanelSouth(), BorderLayout.SOUTH);
 		
 		mainFrame = this;
+		showTasks();
 	}
 
 	private JMenuBar getMenuBar_1() {
@@ -694,6 +703,7 @@ public class MainFrame extends JFrame {
 	}
 	private JList getListTasks() {
 		if (listTasks == null) {
+			ArrayList<Task> arr;
 			listTasks = new JList();
 		}
 		return listTasks;
@@ -717,8 +727,8 @@ public class MainFrame extends JFrame {
 	public void setHello(User user) {
 		lblHello.setText("Hello, "+ user.toString());
 	}
-	public void showTasks(ArrayList<Task> tasks) {
-		listTasks.setListData(tasks.toArray());
+	public void showTasks() {
+		listTasks.setListData(GUIKontroler.showAllTasksToDo().toArray());
 	}
 	
 }
