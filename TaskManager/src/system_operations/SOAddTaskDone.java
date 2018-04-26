@@ -13,10 +13,9 @@ import classes.task.Task;
 public class SOAddTaskDone {
 	public static ArrayList<Task> execute(Task task, ArrayList<Task> tasks) {
 		if(tasks.contains(task)) {
-			task.setDone(true);
 			tasks.remove(task);
-			return tasks;
+			task.setDone(true);
 		}
-		return null;
+		return tasks;
 	}
 }

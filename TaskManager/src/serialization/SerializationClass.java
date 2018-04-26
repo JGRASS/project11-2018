@@ -80,7 +80,7 @@ public class SerializationClass {
 				"Pozovi i poruci sokove", false);
 		Task t2 = new Task("Call Vanilica Company", "vlajs16", new GregorianCalendar(2018, GregorianCalendar.APRIL, 20), cow1,
 				"Pozovi i poruci kolace", false);
-		Task t3 = new Task("Call Vanilica Company", "vlajs16", new GregorianCalendar(2018, GregorianCalendar.MAY, 20), cow1,
+		Task t3 = new Task("Call Vanilica Company", "vlajs16", new GregorianCalendar(2015, GregorianCalendar.MAY, 20), cow1,
 				"Pozovi i poruci kolace", false);
 		Task t4 = new Task("Call Vanilica Company Tea", "acimovljeva", new GregorianCalendar(2018, GregorianCalendar.FEBRUARY, 20), cow1,
 				"Pozovi i poruci kolace", false);
@@ -91,20 +91,21 @@ public class SerializationClass {
 		tasks.AddTaskToDo(t2);
 		tasks.AddTaskToDo(t3);
 		tasks.AddTaskToDo(t4);
+		tasks.AddTaskToDo(t1);
 		
 		tasks.saveTasks(Paths.tasksPath, Paths.doneTasksPath);
 		tasks.LoadTasks(Paths.tasksPath, Paths.doneTasksPath);
-//		for(int i = 0; i<tasks.getTasks().size(); i++)
-//			System.out.println(tasks.getTasks().get(i).getUsername());
-		ArrayList<Task> tillToday = tasks.showTillToday(u3);
-		for(int i = 0; i<tillToday.size(); i++)
-			System.out.println(tillToday.get(i));
+		for(int i = 0; i<tasks.getTasks().size(); i++)
+			System.out.println(tasks.getTasks().get(i));
+//		ArrayList<Task> tillToday = tasks.showTillToday(u3);
+//		for(int i = 0; i<tillToday.size(); i++)
+//			System.out.println(tillToday.get(i));
 		
 //		System.out.println(u3.getUsername());
-		
+		System.out.println(".");
 		tasks.AddTaskDone(t1);
 		for(int i = 0; i<tasks.getDoneTasks().size(); i++)
-			System.out.println(tasks.getTasks().get(i));
+			System.out.println(tasks.getDoneTasks().get(i));
 		
 	}
 }
