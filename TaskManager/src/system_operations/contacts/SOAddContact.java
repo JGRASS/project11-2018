@@ -12,12 +12,11 @@ public class SOAddContact {
 	 * @param coWorker novi kontakt
 	 * @return contacts azurirana lista kontakata
 	 */
-	public static ArrayList<CoWorker> execute(ArrayList<CoWorker> contacts, CoWorker coWorker){
+	public static void execute(ArrayList<CoWorker> contacts, CoWorker coWorker){
 		if(!contacts.contains(coWorker)) {
 			contacts.add(coWorker);
-			return SOSortContacts.execute(contacts);
+			SOSortContacts.execute(contacts);
 		}
-		return contacts;
 	}
 	
 }

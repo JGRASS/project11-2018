@@ -127,8 +127,10 @@ public class AddTaskFrame extends JFrame {
 			btnAdd = new JButton("Add");
 			btnAdd.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-//					GUIKontroler.saveTask(textFieldTitle.getText(), (CoWorker)comboBoxCoWorker.getSelectedItem(), (GregorianCalendar)spinner.getValue(), textAreaDescription.getText());
+					String s = new SimpleDateFormat("yyyy/MM/dd").format(spinner.getValue());
+					GUIKontroler.saveTask(textFieldTitle.getText(), (CoWorker)comboBoxCoWorker.getSelectedItem(), searchByDate(s), textAreaDescription.getText());
 					GUIKontroler.refreshTasks();
+					dispose();
 				}
 			});
 			btnAdd.setFont(Fonts.candaraNormal);
@@ -196,8 +198,8 @@ public class AddTaskFrame extends JFrame {
 			spinner.addChangeListener(new ChangeListener() {
 				public void stateChanged(ChangeEvent arg0) {
 					String format = new SimpleDateFormat("yyyy/MM/dd").format(spinner.getValue());
-					System.out.println(format);
-					searchByDate(format);
+//					System.out.println(format);
+//					searchByDate(format);
 				}
 			});
 
@@ -206,14 +208,13 @@ public class AddTaskFrame extends JFrame {
 		return spinner;
 	}
 	
-	public void searchByDate(String s) {
+	public GregorianCalendar searchByDate(String s) {
 		int br = s.lastIndexOf("/");
 		int dd = Integer.parseInt(s.substring(br + 1,s.length()));
 		
 		int mm = Integer.parseInt(s.substring(6, 7));
 		int yy = Integer.parseInt(s.substring(0, 4)); 
 		//System.out.println("Datum: "+ dd+"."+mm+"."+yy+".");
-		GregorianCalendar datum = new GregorianCalendar(yy, mm, dd);
-		
+		return new GregorianCalendar(yy, mm, dd);
 	}
 }

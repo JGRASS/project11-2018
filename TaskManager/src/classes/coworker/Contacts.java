@@ -94,7 +94,7 @@ public class Contacts implements ContactInterface{
 	 */
 	@Override
 	public void addContact(CoWorker coWorker) {
-		contacts = SOAddContact.execute(contacts, coWorker);
+		SOAddContact.execute(contacts, coWorker);
 		
 	}
 

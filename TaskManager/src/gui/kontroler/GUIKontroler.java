@@ -114,36 +114,38 @@ public class GUIKontroler {
 	}
 	
 	public static void saveContact(String ConName, String ConSurname, String ConPhone, String ConEmail, String ComName, String ComCountry, String ComInfo) {
-		try {
-			CoWorker contact = new CoWorker();
-			contact.setName(ConName);
-			contact.setSurname(ConSurname);
-			contact.setPhone(ConPhone);
-			contact.setEmail(ConEmail);
-			contact.setCompanyName(ComName);
-			contact.setCountry(ComCountry);
-			contact.setAboutCompany(ComInfo);
+		
+			try {
+				CoWorker contact = new CoWorker();
+				contact.setName(ConName);
+				contact.setSurname(ConSurname);
+				contact.setPhone(ConPhone);
+				contact.setEmail(ConEmail);
+				contact.setCompanyName(ComName);
+				contact.setCountry(ComCountry);
+				contact.setAboutCompany(ComInfo);
+				
+				contacts.addContact(contact);
+				contacts.SaveContacts(Paths.contactsPath);
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
+			}
 			
-			contacts.addContact(contact);
-			contacts.SaveContacts(Paths.contactsPath);
-			
-		} catch (Exception e1) {
-			JOptionPane.showMessageDialog(acf, e1.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
-			
-		}
+		
 	}
 	
 	
 	public static void saveTask(String title, CoWorker coworker, GregorianCalendar date, String description ) {
 		try {
-			/*Task task = new Task();
+			Task task = new Task();
 			task.setTaskTitle(title);
 			task.setCoWorker(coworker);
 			task.setDate(date);
 			task.setDescription(description);
 			task.setDone(false);
-			System.out.println(task);
-			tm.AddTaskToDo(task);*/
+//			System.out.println(task);
+			tm.AddTaskToDo(task);
+			tm.saveTasks(Paths.tasksPath, Paths.doneTasksPath);
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(atf, e.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
 		}
@@ -151,6 +153,7 @@ public class GUIKontroler {
 	
 	public static void taskCompleted(Task task) {
 		tm.AddTaskDone(task);
+		tm.saveTasks(Paths.tasksPath, Paths.doneTasksPath);
 	}
 	
 	

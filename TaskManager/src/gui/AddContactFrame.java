@@ -200,11 +200,18 @@ public class AddContactFrame extends JFrame {
 			btnAdd = new JButton("Add");
 			btnAdd.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					GUIKontroler.saveContact(textFieldName.getText(), textFieldSurname.getText(),
-							textFieldPhoneNumber.getText(), textFieldEmail.getText(), textFieldCompanyName.getText(),
-							textFieldCountry.getText(), textAreaCompanyInfo.getText());
-					GUIKontroler.refreshContacts();
-					dispose();
+			
+						try {
+							GUIKontroler.saveContact(textFieldName.getText(), textFieldSurname.getText(),
+									textFieldPhoneNumber.getText(), textFieldEmail.getText(),
+									textFieldCompanyName.getText(), textFieldCountry.getText(),
+									textAreaCompanyInfo.getText());
+							GUIKontroler.refreshContacts();
+							dispose();
+						} catch (Exception e) {
+							JOptionPane.showMessageDialog(null, "Cao", "Error", JOptionPane.INFORMATION_MESSAGE);
+						}
+					
 				}
 			});
 			btnAdd.setBackground(Colors.lightGreen);

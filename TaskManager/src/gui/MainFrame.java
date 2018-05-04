@@ -701,8 +701,12 @@ public class MainFrame extends JFrame {
 			btnTaskCompleted.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					Task task = (Task) listTasks.getSelectedValue();
-					task.setComment(textAreaComments.getText());
-					GUIKontroler.taskCompleted(task);
+					if(task!= null) {
+						task.setComment(textAreaComments.getText());
+						clearWindow();
+						GUIKontroler.taskCompleted(task);
+						GUIKontroler.refreshTasks();
+					}
 				}
 			});
 			btnTaskCompleted.setFont(new Font("Candara", Font.PLAIN, 15));
@@ -746,8 +750,10 @@ public class MainFrame extends JFrame {
 	}
 	
 	private void showTaskDetails() {
-		Task task =(Task) listTasks.getSelectedValue();
-		CoWorker worker = task.getCoWorker();
+		Task task = (Task) listTasks.getSelectedValue();
+		if(task != null) {
+			CoWorker worker = task.getCoWorker();
+		
 		lblCOmpanyNameFilled.setText(worker.getCompanyName());
 		lblCoWorkerNAmeFilled.setText(worker.getName()+" "+worker.getSurname());
 		textFieldEmail.setText(worker.getEmail());
@@ -755,6 +761,17 @@ public class MainFrame extends JFrame {
 		textAreaTaskDescription.setText(task.getDescription());
 		textAreaAboutCompany.setText(worker.getAboutCompany());
 		lblNekaZemljaCuda.setText(worker.getCountry());
+		}
+	}
+	
+	private void clearWindow() {
+		lblCOmpanyNameFilled.setText("");
+		lblCoWorkerNAmeFilled.setText("");
+		textFieldEmail.setText("");
+		textFieldPhone.setText("");
+		textAreaTaskDescription.setText("");
+		textAreaAboutCompany.setText("");
+		lblNekaZemljaCuda.setText("");
 	}
 	
 	
