@@ -17,6 +17,7 @@ import javax.swing.event.ChangeListener;
 
 import classes.coworker.CoWorker;
 import gui.fonts.Fonts;
+import gui.kontroler.GUIKontroler;
 
 import javax.swing.event.ChangeEvent;
 import javax.swing.JScrollPane;
@@ -59,6 +60,7 @@ public class HistoryFrame extends JFrame {
 		
 		setContentPane(contentPane);
 		contentPane.add(getPanel(), BorderLayout.CENTER);
+		showContacts();
 		
 	}
 
@@ -190,7 +192,9 @@ public class HistoryFrame extends JFrame {
 		}
 		return comboBoxContacts;
 	}
-	public void showContacts(ArrayList<CoWorker> contacts) {
-		comboBoxContacts.addItem(contacts.toArray());
+	
+	public void showContacts() {
+		for(int i = 0; i < GUIKontroler.showAllContacts().size(); i++)
+			comboBoxContacts.addItem(GUIKontroler.showAllContacts().get(i));
 	}
 }
