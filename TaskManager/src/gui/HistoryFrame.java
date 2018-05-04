@@ -196,6 +196,7 @@ public class HistoryFrame extends JFrame {
 			}
 		return spinnerDate;
 	}
+	
 	private JComboBox getComboBoxContacts() {
 		if (comboBoxContacts == null) {
 			comboBoxContacts = new JComboBox();
@@ -208,14 +209,14 @@ public class HistoryFrame extends JFrame {
 		for(int i = 0; i < GUIKontroler.showAllContacts().size(); i++)
 			comboBoxContacts.addItem(GUIKontroler.showAllContacts().get(i));
 	}
-	public void searchByDate(String s) {
+	public GregorianCalendar searchByDate(String s) {
 		int br = s.lastIndexOf("/");
 		int dd = Integer.parseInt(s.substring(br + 1,s.length()));
 		//int br1 = s.indexOf("/");
 		int mm = Integer.parseInt(s.substring(6, 7));
 		int yy = Integer.parseInt(s.substring(0, 4)); 
 		//System.out.println("Datum: "+ dd+"."+mm+"."+yy+".");
-		GregorianCalendar datum = new GregorianCalendar(yy, mm, dd);
+		return new GregorianCalendar(yy, mm, dd);
 		
 	}
 }
