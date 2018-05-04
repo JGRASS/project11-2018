@@ -192,9 +192,7 @@ public class AddTaskFrame extends JFrame {
 	}
 	private JSpinner getSpinner() {
 		if (spinner == null) {
-
-			SpinnerDateModel dateModel = new SpinnerDateModel();
-			spinner = new JSpinner(new SpinnerDateModel(new Date(1524611088122L), new Date(1524611088122L), null, Calendar.DAY_OF_MONTH));
+			spinner = new JSpinner();
 			spinner.addChangeListener(new ChangeListener() {
 				public void stateChanged(ChangeEvent arg0) {
 					String format = new SimpleDateFormat("yyyy/MM/dd").format(spinner.getValue());
@@ -202,20 +200,22 @@ public class AddTaskFrame extends JFrame {
 					searchByDate(format);
 				}
 			});
-
-			spinner.setBounds(134, 81, 168, 16);
-		}
+			spinner.setModel(new SpinnerDateModel(new Date(1525417200000L), null, new Date(1525417200000L), Calendar.DAY_OF_MONTH));
+			
+			spinner.setBounds(134, 76, 168, 20);
+			
+			}
 		return spinner;
 	}
 	
-	public void searchByDate(String s) {
+	public GregorianCalendar searchByDate(String s) {
 		int br = s.lastIndexOf("/");
 		int dd = Integer.parseInt(s.substring(br + 1,s.length()));
 		
 		int mm = Integer.parseInt(s.substring(6, 7));
 		int yy = Integer.parseInt(s.substring(0, 4)); 
 		//System.out.println("Datum: "+ dd+"."+mm+"."+yy+".");
-		GregorianCalendar datum = new GregorianCalendar(yy, mm, dd);
+		return new GregorianCalendar(yy, mm, dd);
 		
 	}
 }
