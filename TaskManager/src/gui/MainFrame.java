@@ -293,7 +293,7 @@ public class MainFrame extends JFrame {
 			btnAddTask = new JButton("Add task");
 			btnAddTask.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					
+					GUIKontroler.addingNewTask();
 				}
 			});
 			btnAddTask.setFont(new Font("Candara", Font.PLAIN, 15));

@@ -97,6 +97,17 @@ public class GUIKontroler {
 		acf.setLocationRelativeTo(conf);
 		acf.setVisible(true);
 	}
+
+	public static void addingContactTask() {
+		acf = new AddContactFrame();
+		acf.setLocationRelativeTo(atf);
+		acf.setVisible(true);
+	}
+	public static void addingNewTask() {
+		atf = new AddTaskFrame();
+		atf.setLocationRelativeTo(mf);
+		atf.setVisible(true);
+	}
 	public static void loggingIn() {
 		pf = new PasswordFrame();
 		pf.setVisible(true);
@@ -132,24 +143,19 @@ public class GUIKontroler {
 	
 	public static void saveTask(String title, CoWorker coworker, GregorianCalendar date, String description ) {
 		try {
-			Task task = new Task();
+			/*Task task = new Task();
 			task.setTaskTitle(title);
 			task.setCoWorker(coworker);
 			task.setDate(date);
 			task.setComment("");
 			task.setDescription(description);
 			task.setDone(false);
-			
-			tm.AddTaskToDo(task);
+			System.out.println(task);
+			tm.AddTaskToDo(task);*/
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(atf, e.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 	
-	public static void addingContactTask() {
-		acf = new AddContactFrame();
-		acf.setLocationRelativeTo(atf);
-		acf.setVisible(true);
-	}
 	
 }

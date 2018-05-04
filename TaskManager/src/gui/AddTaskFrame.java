@@ -22,6 +22,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
@@ -49,21 +50,7 @@ public class AddTaskFrame extends JFrame {
 	private JScrollPane scrollPane;
 	private JSpinner spinner;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AddTaskFrame frame = new AddTaskFrame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the frame.
@@ -136,7 +123,10 @@ public class AddTaskFrame extends JFrame {
 			btnAdd = new JButton("Add");
 			btnAdd.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					GUIKontroler.saveTask(textFieldTitle.getText(), (CoWorker)comboBoxCoWorker.getSelectedItem(), (GregorianCalendar)spinner.getValue(), textAreaDescription.getText());
+//					GUIKontroler.saveTask(textFieldTitle.getText(), (CoWorker)comboBoxCoWorker.getSelectedItem(), (GregorianCalendar)spinner.getValue(), textAreaDescription.getText());
+					/*SimpleDateFormat sf = new SimpleDateFormat("dd.MM.yyy");
+					Calendar date = (Calendar)spinner.getValue();
+					System.out.println(sf.format(date.getTime()));*/
 				}
 			});
 			btnAdd.setFont(Fonts.candaraNormal);
