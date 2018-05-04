@@ -12,6 +12,7 @@ import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
 import javax.swing.event.ChangeListener;
 
@@ -27,6 +28,7 @@ import javax.swing.JList;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -180,9 +182,18 @@ public class HistoryFrame extends JFrame {
 	private JSpinner getSpinnerDate() {
 		if (spinnerDate == null) {
 			spinnerDate = new JSpinner();
-			spinnerDate.setModel(new SpinnerDateModel(new Date(1524639600000L), new Date(1524607200000L), null, Calendar.DAY_OF_YEAR));
+			spinnerDate.addChangeListener(new ChangeListener() {
+				public void stateChanged(ChangeEvent arg0) {
+					String format = new SimpleDateFormat("yyyy/MM/dd").format(spinnerDate.getValue());
+					System.out.println(format);
+					searchByDate(format);
+				}
+			});
+			spinnerDate.setModel(new SpinnerDateModel(new Date(1525417200000L), null, new Date(1525417200000L), Calendar.DAY_OF_MONTH));
+			
 			spinnerDate.setBounds(358, 38, 127, 16);
-		}
+			
+			}
 		return spinnerDate;
 	}
 	private JComboBox getComboBoxContacts() {
@@ -196,5 +207,15 @@ public class HistoryFrame extends JFrame {
 	public void showContacts() {
 		for(int i = 0; i < GUIKontroler.showAllContacts().size(); i++)
 			comboBoxContacts.addItem(GUIKontroler.showAllContacts().get(i));
+	}
+	public void searchByDate(String s) {
+		int br = s.lastIndexOf("/");
+		int dd = Integer.parseInt(s.substring(br + 1,s.length()));
+		//int br1 = s.indexOf("/");
+		int mm = Integer.parseInt(s.substring(6, 7));
+		int yy = Integer.parseInt(s.substring(0, 4)); 
+		//System.out.println("Datum: "+ dd+"."+mm+"."+yy+".");
+		GregorianCalendar datum = new GregorianCalendar(yy, mm, dd);
+		
 	}
 }
