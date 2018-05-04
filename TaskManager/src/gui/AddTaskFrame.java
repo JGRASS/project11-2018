@@ -34,6 +34,8 @@ import javax.swing.SpinnerDateModel;
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
 
 public class AddTaskFrame extends JFrame {
 
@@ -193,11 +195,27 @@ public class AddTaskFrame extends JFrame {
 
 			SpinnerDateModel dateModel = new SpinnerDateModel();
 			spinner = new JSpinner(new SpinnerDateModel(new Date(1524611088122L), new Date(1524611088122L), null, Calendar.DAY_OF_MONTH));
+			spinner.addChangeListener(new ChangeListener() {
+				public void stateChanged(ChangeEvent arg0) {
+					String format = new SimpleDateFormat("yyyy/MM/dd").format(spinner.getValue());
+					System.out.println(format);
+					searchByDate(format);
+				}
+			});
 
-			Calendar calendar = new GregorianCalendar();
-			spinner.setValue(calendar.getTime());
 			spinner.setBounds(134, 81, 168, 16);
 		}
 		return spinner;
+	}
+	
+	public void searchByDate(String s) {
+		int br = s.lastIndexOf("/");
+		int dd = Integer.parseInt(s.substring(br + 1,s.length()));
+		
+		int mm = Integer.parseInt(s.substring(6, 7));
+		int yy = Integer.parseInt(s.substring(0, 4)); 
+		//System.out.println("Datum: "+ dd+"."+mm+"."+yy+".");
+		GregorianCalendar datum = new GregorianCalendar(yy, mm, dd);
+		
 	}
 }
