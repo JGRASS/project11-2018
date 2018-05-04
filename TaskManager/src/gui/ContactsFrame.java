@@ -61,6 +61,8 @@ public class ContactsFrame extends JFrame {
 		setContentPane(contentPane);
 		contentPane.add(getPanel(), BorderLayout.CENTER);
 		
+		showContacts();
+		
 	}
 	private JPanel getPanel() {
 		if (panel == null) {
@@ -79,7 +81,7 @@ public class ContactsFrame extends JFrame {
 			btnAddNewContact.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					GUIKontroler.addingContact();
-					
+					dispose();
 				}
 			});
 			btnAddNewContact.setBackground(Colors.lightGreen);
@@ -123,7 +125,8 @@ public class ContactsFrame extends JFrame {
 		return lblContactList;
 	}
 	
-	public void showContacts(ArrayList<CoWorker> contacts) {
-		list.setListData(contacts.toArray());
+	public void showContacts() {
+		
+		list.setListData(GUIKontroler.showAllContacts().toArray());
 	}
 }

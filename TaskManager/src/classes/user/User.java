@@ -1,12 +1,19 @@
 package classes.user;
 
+import java.io.Serializable;
+
 /**
  * Klasa koja predstavlja zaposlenog
  * @author vlajs16
  * @version 0.1
  */
-public class User {
+public class User implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8811326673272297116L;
+
 	/**
 	 * Ime zaposlenog
 	 */
@@ -32,6 +39,18 @@ public class User {
 	 * @return ime i prezime zaposlenog kao String
 	 */
 
+	public User() {
+		
+	}
+	
+	public User(String name, String surname, String username, String password) {
+		this.setName(name);
+		this.setSurname(surname);
+		this.setUsername(username);
+		this.setPassword(password);
+	}
+	
+	
 	@Override
 	public String toString() {
 		return this.name + " " + this.surname;

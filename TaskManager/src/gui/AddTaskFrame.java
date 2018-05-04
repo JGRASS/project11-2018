@@ -75,6 +75,8 @@ public class AddTaskFrame extends JFrame {
 		contentPane.add(getBtnNewButton());
 		contentPane.add(getScrollPane());
 		contentPane.add(getSpinner());
+		
+		showContacts();
 	}
 	private JLabel getLblTitle() {
 		if (lblTitle == null) {
@@ -159,8 +161,9 @@ public class AddTaskFrame extends JFrame {
 		return comboBoxCoWorker;
 	}
 	
-	public void showContacts(ArrayList<CoWorker> contacts) {
-		comboBoxCoWorker.addItem(contacts.toArray());
+	public void showContacts() {
+		for(int i = 0; i < GUIKontroler.showAllContacts().size(); i++)
+		comboBoxCoWorker.addItem(GUIKontroler.showAllContacts().get(i));
 	}
 	
 	private JButton getBtnNewButton() {

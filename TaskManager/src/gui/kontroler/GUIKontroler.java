@@ -2,10 +2,11 @@ package gui.kontroler;
 
 import java.awt.EventQueue;
 import java.util.GregorianCalendar;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-
+import classes.Paths;
 import classes.coworker.CoWorker;
 import classes.coworker.Contacts;
 import classes.task.Task;
@@ -25,21 +26,11 @@ import interfaces.ContactInterface;
 public class GUIKontroler {
 	
 
-	public static TaskInterface tm = new Tasks();
+	public static Tasks tm = new Tasks();
 	public static Users users = new Users();
+	public static Contacts contacts = new Contacts();
 	
-	private static User user1 = new User();
-	
-	private static void metodica() {
-		user1.setName("Teodora");
-		user1.setSurname("Acimov");
-		user1.setUsername("IceTea");
-		user1.setPassword("Nemaspojma1");
-		users.addUser(user1);
-	}
-
-	public static TaskInterface ti = new Tasks();
-	public static Contacts ci = new Contacts();
+	public static User user;
 	
 	public static PasswordFrame pf;
 	public static MainFrame mf;
@@ -56,6 +47,8 @@ public class GUIKontroler {
 				try {
 					pf = new PasswordFrame();
 					pf.setVisible(true);
+					LoadTasks();
+					LoadContacts();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -63,15 +56,18 @@ public class GUIKontroler {
 		});
 	}
 
-	public static void showMainFrame(User user) {
-		metodica();
-		User newUser = users.checkUsernamePassword(user);
+	public static void showMainFrame(User userr) {
+		LoadUsers();
+		User newUser = users.checkUsernamePassword(userr);
+		
 		if(newUser!=null) {
+			user = newUser;
+			LoadTasks();
 			mf = new MainFrame();
 			mf.setLocationRelativeTo(pf);
 			mf.setHello(newUser);
 			mf.setVisible(true);
-			pf.setVisible(false);
+			pf.setVisible(false);	
 		}else {
 			JOptionPane.showMessageDialog(pf, "Invalid password or username", "Error", JOptionPane.ERROR_MESSAGE);
 			pf.clear();
@@ -126,20 +122,18 @@ public class GUIKontroler {
 			contact.setCountry(ComCountry);
 			contact.setAboutCompany(ComInfo);
 			
-			ci.addContact(contact);
+			contacts.addContact(contact);
 			
 		} catch (Exception e1) {
 			JOptionPane.showMessageDialog(acf, e1.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
 			
 		}
 	}
-	public static void showAllContacts() {
-		conf.showContacts(ci.getContacts());
+	
+	public static ArrayList<CoWorker> showAllContacts() {
+		return contacts.getContacts();
 	}
 	
-	public static void showCoWorkers() {
-		atf.showContacts(ci.getContacts());
-	}
 	
 	public static void saveTask(String title, CoWorker coworker, GregorianCalendar date, String description ) {
 		try {
@@ -158,4 +152,18 @@ public class GUIKontroler {
 	}
 	
 	
+	public static ArrayList<Task> showAllTasksToDo() {
+		return tm.showTillToday(user);
+	}
+	
+	//Funkcije koje ucitavaju juzere, kontakte i taskove iz fajlova
+	public static void LoadUsers() {
+		users.loadUsers(Paths.usersPath);
+	}	
+	public static void LoadContacts() {
+		contacts.LoadContacts(Paths.contactsPath);
+	}	
+	public static void LoadTasks() {
+		tm.LoadTasks(Paths.tasksPath, Paths.doneTasksPath);
+	}
 }

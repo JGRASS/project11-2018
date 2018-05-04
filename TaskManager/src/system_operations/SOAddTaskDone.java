@@ -15,8 +15,7 @@ public class SOAddTaskDone {
 		if(tasks.contains(task)) {
 			tasks.remove(task);
 			task.setDone(true);
-			return tasks;
 		}
-		return null;
+		return tasks;
 	}
 }

@@ -2,6 +2,7 @@ package classes.task;
 
 import java.util.ArrayList;
 
+import classes.user.User;
 import interfaces.TaskInterface;
 import system_operations.SOAddTaskDone;
 import system_operations.SOAddTaskToDo;
@@ -32,6 +33,7 @@ public class Tasks implements TaskInterface {
 	@Override
 	public void AddTaskToDo(Task task) {
 		tasks = SOAddTaskToDo.execute(task, tasks);
+		sortTasksByDate();
 	}
 
 	/**
@@ -40,10 +42,12 @@ public class Tasks implements TaskInterface {
 	 */
 	@Override
 	public void AddTaskDone(Task task) {
-		if(SOAddTaskDone.execute(task, tasks) != null) {
+		if(tasks.contains(task)) {
 			tasks = SOAddTaskDone.execute(task, tasks);
 			doneTasks = SOAddTaskToDo.execute(task, doneTasks);
+			sortTasksByDate();
 		}
+		
 	}
 
 	/**
@@ -55,6 +59,7 @@ public class Tasks implements TaskInterface {
 	public void LoadTasks(String file1, String file2) {
 		tasks = SOLoadTasks.execute(file1);
 		doneTasks = SOLoadTasks.execute(file2);
+		sortTasksByDate();
 	}
 
 	/**
@@ -64,6 +69,7 @@ public class Tasks implements TaskInterface {
 	 */
 	@Override
 	public void saveTasks(String file1, String file2) {
+		sortTasksByDate();
 		SOSaveTasks.execute(file1, tasks);
 		SOSaveTasks.execute(file2, doneTasks);
 	}
@@ -82,8 +88,8 @@ public class Tasks implements TaskInterface {
 	 * @return listu zadataka za izvrsavanje
 	 */
 	@Override
-	public ArrayList<Task> showTillToday() {
-		return SOShowTillToday.execute(tasks);
+	public ArrayList<Task> showTillToday(User user) {
+		return SOShowTillToday.execute(tasks, user);
 	}
 
 	/**

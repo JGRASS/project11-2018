@@ -6,7 +6,7 @@ import java.util.GregorianCalendar;
 import classes.coworker.CoWorker;
 
 /**
- * Klasa koja predstavlja zadaktak
+ * Klasa koja predstavlja zadatak
  * @author vlajs16
  *
  */
@@ -19,6 +19,10 @@ public class Task implements Serializable, Comparable<Task> {
 	 * Naslov zadatka
 	 */
 	private String taskTitle;
+	/**
+	 * Username zaposenog
+	 */
+	private String username;
 	/**
 	 * Datum
 	 */
@@ -40,7 +44,21 @@ public class Task implements Serializable, Comparable<Task> {
 	 * Komentar zadatka
 	 */
 	private String comment;
-
+	
+	public Task() {
+		
+	}
+	
+	public Task(String taskTitle, String username, GregorianCalendar date, CoWorker coWorker, 
+			String description, boolean done) {
+		this.setTaskTitle(taskTitle);
+		this.setUsername(username);
+		this.date = date;
+		this.setCoWorker(coWorker);
+		this.setDescription(description);
+		this.setDone(done);
+	}
+	
 	/**
 	 * Vraca String sa naslovom zadatka
 	 * @return taskTitle naslov zadatka
@@ -72,6 +90,20 @@ public class Task implements Serializable, Comparable<Task> {
 	 */
 	public void setComment(String comment) {
 		this.comment = comment;
+	}
+	/**
+	 * Vraca username zaposlenog
+	 * @return username zaposlenog
+	 */
+	public String getUsername() {
+		return username;
+	}
+	/**
+	 * Postavlja novu vrednost za username
+	 * @param username nova vrednost username-a
+	 */
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	/**
@@ -181,13 +213,59 @@ public class Task implements Serializable, Comparable<Task> {
 	public void setDone(boolean done) {
 		this.done = done;
 	}
-
+	
+	
 	/**
 	 * Metoda iz interfejsa Comparable
 	 */
 	@Override
 	public int compareTo(Task o) {
 		return this.getDate().compareTo(o.getDate());
+	}
+
+	
+	/**
+	 * Proverava da li su dva zadatka ista
+	 * Poredi po svim atributima
+	 * @return true ako su zadaci isti, a false ako nisu
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Task other = (Task) obj;
+		if (comment == null) {
+			if (other.comment != null)
+				return false;
+		} else if (!comment.equals(other.comment))
+			return false;
+		if (date == null) {
+			if (other.date != null)
+				return false;
+		} else if (!date.equals(other.date))
+			return false;
+		if (description == null) {
+			if (other.description != null)
+				return false;
+		} else if (!description.equals(other.description))
+			return false;
+		if (done != other.done)
+			return false;
+		if (taskTitle == null) {
+			if (other.taskTitle != null)
+				return false;
+		} else if (!taskTitle.equals(other.taskTitle))
+			return false;
+		if (username == null) {
+			if (other.username != null)
+				return false;
+		} else if (!username.equals(other.username))
+			return false;
+		return true;
 	}
 
 }
