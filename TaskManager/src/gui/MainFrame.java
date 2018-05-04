@@ -36,6 +36,7 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.StyleConstants.FontConstants;
 
+import classes.coworker.CoWorker;
 import classes.task.Task;
 import classes.task.Tasks;
 import classes.user.User;
@@ -48,6 +49,8 @@ import java.awt.HeadlessException;
 
 import javax.swing.UIManager;
 import java.awt.Color;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.event.ListSelectionEvent;
 
 public class MainFrame extends JFrame {
 
@@ -695,6 +698,11 @@ public class MainFrame extends JFrame {
 	private JButton getBtnTaskCompleted() {
 		if (btnTaskCompleted == null) {
 			btnTaskCompleted = new JButton("Task completed");
+			btnTaskCompleted.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					
+				}
+			});
 			btnTaskCompleted.setFont(new Font("Candara", Font.PLAIN, 15));
 			btnTaskCompleted.setBackground(Colors.lightGreen);
 			btnTaskCompleted.setBounds(56, 23, 140, 34);
@@ -703,8 +711,12 @@ public class MainFrame extends JFrame {
 	}
 	private JList getListTasks() {
 		if (listTasks == null) {
-			ArrayList<Task> arr;
 			listTasks = new JList();
+			listTasks.addListSelectionListener(new ListSelectionListener() {
+				public void valueChanged(ListSelectionEvent arg0) {
+					showTaskDetails();
+				}
+			});
 		}
 		return listTasks;
 	}
@@ -730,5 +742,18 @@ public class MainFrame extends JFrame {
 	public void showTasks() {
 		listTasks.setListData(GUIKontroler.showAllTasksToDo().toArray());
 	}
+	
+	private void showTaskDetails() {
+		Task task =(Task) listTasks.getSelectedValue();
+		CoWorker worker = task.getCoWorker();
+		lblCOmpanyNameFilled.setText(worker.getCompanyName());
+		lblCoWorkerNAmeFilled.setText(worker.getName()+" "+worker.getSurname());
+		textFieldEmail.setText(worker.getEmail());
+		textFieldPhone.setText(worker.getPhone());
+		textAreaTaskDescription.setText(task.getDescription());
+		textAreaAboutCompany.setText(worker.getAboutCompany());
+		lblNekaZemljaCuda.setText(worker.getCountry());
+	}
+	
 	
 }

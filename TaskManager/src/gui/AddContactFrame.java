@@ -45,22 +45,18 @@ public class AddContactFrame extends JFrame {
 	private JTextArea textAreaCompanyInfo;
 	private JButton btnAdd;
 	private JButton btnCancel;
-	
-	
-	
+
 	private JLabel lblCompanyName;
 	private JLabel lblCountry;
 	private JTextField textFieldCompanyName;
 	private JTextField textFieldCountry;
 	private JSeparator separator;
 
-
-
 	/**
 	 * Create the frame.
 	 */
 	public AddContactFrame() {
-		
+
 		setVisible(true);
 		setTitle("Add contact");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -68,17 +64,17 @@ public class AddContactFrame extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
-		
+
 		setContentPane(contentPane);
 		contentPane.add(getPanel(), BorderLayout.CENTER);
-		
-		
+
 	}
 
 	private JPanel getPanel() {
 		if (panel == null) {
 			panel = new JPanel();
-			panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Contact details", TitledBorder.RIGHT, TitledBorder.TOP, Fonts.candaraNormal, new Color(0, 0, 0)));
+			panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Contact details",
+					TitledBorder.RIGHT, TitledBorder.TOP, Fonts.candaraNormal, new Color(0, 0, 0)));
 			panel.setLayout(null);
 			panel.add(getLblName());
 			panel.add(getTextFieldName());
@@ -100,6 +96,7 @@ public class AddContactFrame extends JFrame {
 		}
 		return panel;
 	}
+
 	private JLabel getLblName() {
 		if (lblName == null) {
 			lblName = new JLabel("Name:");
@@ -108,6 +105,7 @@ public class AddContactFrame extends JFrame {
 		}
 		return lblName;
 	}
+
 	private JTextField getTextFieldName() {
 		if (textFieldName == null) {
 			textFieldName = new JTextField();
@@ -117,6 +115,7 @@ public class AddContactFrame extends JFrame {
 		}
 		return textFieldName;
 	}
+
 	private JLabel getLblSurname() {
 		if (lblSurname == null) {
 			lblSurname = new JLabel("Surname:");
@@ -125,6 +124,7 @@ public class AddContactFrame extends JFrame {
 		}
 		return lblSurname;
 	}
+
 	private JTextField getTextFieldSurname() {
 		if (textFieldSurname == null) {
 			textFieldSurname = new JTextField();
@@ -134,6 +134,7 @@ public class AddContactFrame extends JFrame {
 		}
 		return textFieldSurname;
 	}
+
 	private JLabel getLblPhoneNumber() {
 		if (lblPhoneNumber == null) {
 			lblPhoneNumber = new JLabel("Phone number:");
@@ -142,6 +143,7 @@ public class AddContactFrame extends JFrame {
 		}
 		return lblPhoneNumber;
 	}
+
 	private JTextField getTextFieldPhoneNumber() {
 		if (textFieldPhoneNumber == null) {
 			textFieldPhoneNumber = new JTextField();
@@ -151,6 +153,7 @@ public class AddContactFrame extends JFrame {
 		}
 		return textFieldPhoneNumber;
 	}
+
 	private JLabel getLblEmail() {
 		if (lblEmail == null) {
 			lblEmail = new JLabel("E-mail:");
@@ -159,6 +162,7 @@ public class AddContactFrame extends JFrame {
 		}
 		return lblEmail;
 	}
+
 	private JTextField getTextFieldEmail() {
 		if (textFieldEmail == null) {
 			textFieldEmail = new JTextField();
@@ -168,6 +172,7 @@ public class AddContactFrame extends JFrame {
 		}
 		return textFieldEmail;
 	}
+
 	private JLabel getLblCompanyInfo() {
 		if (lblCompanyInfo == null) {
 			lblCompanyInfo = new JLabel("Company info:");
@@ -176,11 +181,14 @@ public class AddContactFrame extends JFrame {
 		}
 		return lblCompanyInfo;
 	}
+
 	private JTextArea getTextAreaCompanyInfo() {
 		if (textAreaCompanyInfo == null) {
 			textAreaCompanyInfo = new JTextArea();
 			textAreaCompanyInfo.setBackground(SystemColor.menu);
-			textAreaCompanyInfo.setBorder(new TitledBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)), "Company details:", TitledBorder.LEADING, TitledBorder.TOP, Fonts.candaraNormal, new Color(0, 0, 0)));
+			textAreaCompanyInfo.setBorder(
+					new TitledBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)), "Company details:",
+							TitledBorder.LEADING, TitledBorder.TOP, Fonts.candaraNormal, new Color(0, 0, 0)));
 			textAreaCompanyInfo.setFont(Fonts.candaraNormal);
 			textAreaCompanyInfo.setBounds(27, 271, 395, 84);
 		}
@@ -192,8 +200,11 @@ public class AddContactFrame extends JFrame {
 			btnAdd = new JButton("Add");
 			btnAdd.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					GUIKontroler.saveContact(textFieldName.getText(),textFieldSurname.getText(), textFieldPhoneNumber.getText(), textFieldEmail.getText(), textFieldCompanyName.getText(),textFieldCountry.getText(),textAreaCompanyInfo.getText());
-					
+					GUIKontroler.saveContact(textFieldName.getText(), textFieldSurname.getText(),
+							textFieldPhoneNumber.getText(), textFieldEmail.getText(), textFieldCompanyName.getText(),
+							textFieldCountry.getText(), textAreaCompanyInfo.getText());
+					GUIKontroler.refreshContacts();
+					dispose();
 				}
 			});
 			btnAdd.setBackground(Colors.lightGreen);
@@ -202,6 +213,7 @@ public class AddContactFrame extends JFrame {
 		}
 		return btnAdd;
 	}
+
 	private JButton getBtnCancel() {
 		if (btnCancel == null) {
 			btnCancel = new JButton("Cancel");
@@ -216,6 +228,7 @@ public class AddContactFrame extends JFrame {
 		}
 		return btnCancel;
 	}
+
 	private JLabel getLblCompanyName() {
 		if (lblCompanyName == null) {
 			lblCompanyName = new JLabel("Name:");
@@ -224,6 +237,7 @@ public class AddContactFrame extends JFrame {
 		}
 		return lblCompanyName;
 	}
+
 	private JLabel getLblCountry() {
 		if (lblCountry == null) {
 			lblCountry = new JLabel("Country:");
@@ -232,6 +246,7 @@ public class AddContactFrame extends JFrame {
 		}
 		return lblCountry;
 	}
+
 	private JTextField getTextFieldCompanyName() {
 		if (textFieldCompanyName == null) {
 			textFieldCompanyName = new JTextField();
@@ -241,6 +256,7 @@ public class AddContactFrame extends JFrame {
 		}
 		return textFieldCompanyName;
 	}
+
 	private JTextField getTextFieldCountry() {
 		if (textFieldCountry == null) {
 			textFieldCountry = new JTextField();
@@ -250,6 +266,7 @@ public class AddContactFrame extends JFrame {
 		}
 		return textFieldCountry;
 	}
+
 	private JSeparator getSeparator() {
 		if (separator == null) {
 			separator = new JSeparator();

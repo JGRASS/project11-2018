@@ -81,7 +81,6 @@ public class ContactsFrame extends JFrame {
 			btnAddNewContact.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					GUIKontroler.addingContact();
-					dispose();
 				}
 			});
 			btnAddNewContact.setBackground(Colors.lightGreen);
@@ -126,7 +125,6 @@ public class ContactsFrame extends JFrame {
 	}
 	
 	public void showContacts() {
-		
 		list.setListData(GUIKontroler.showAllContacts().toArray());
 	}
 }

@@ -32,7 +32,7 @@ public class Tasks implements TaskInterface {
 	 */
 	@Override
 	public void AddTaskToDo(Task task) {
-		tasks = SOAddTaskToDo.execute(task, tasks);
+		SOAddTaskToDo.execute(task, tasks);
 		sortTasksByDate();
 	}
 
@@ -43,8 +43,8 @@ public class Tasks implements TaskInterface {
 	@Override
 	public void AddTaskDone(Task task) {
 		if(tasks.contains(task)) {
-			tasks = SOAddTaskDone.execute(task, tasks);
-			doneTasks = SOAddTaskToDo.execute(task, doneTasks);
+			SOAddTaskDone.execute(task, tasks);
+			SOAddTaskToDo.execute(task, doneTasks);
 			sortTasksByDate();
 		}
 		

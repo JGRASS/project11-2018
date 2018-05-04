@@ -11,11 +11,10 @@ import classes.task.Task;
  * @return tasks azuriranu listu zadataka
  */
 public class SOAddTaskDone {
-	public static ArrayList<Task> execute(Task task, ArrayList<Task> tasks) {
+	public static void execute(Task task, ArrayList<Task> tasks) {
 		if(tasks.contains(task)) {
 			tasks.remove(task);
 			task.setDone(true);
 		}
-		return tasks;
 	}
 }

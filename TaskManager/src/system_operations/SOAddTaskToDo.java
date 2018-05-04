@@ -13,10 +13,9 @@ public class SOAddTaskToDo {
 	 * @param tasks trenutna lista zadataka
 	 * @return tasks azurirana lista zadataka
 	 */
-	public static ArrayList<Task> execute(Task task, ArrayList<Task> tasks) {
+	public static void execute(Task task, ArrayList<Task> tasks) {
 		if (!tasks.contains(task))
 			tasks.add(task);
-		return tasks;
 	}
 	
 }

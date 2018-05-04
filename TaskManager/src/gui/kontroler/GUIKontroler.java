@@ -92,6 +92,7 @@ public class GUIKontroler {
 		acf = new AddContactFrame();
 		acf.setLocationRelativeTo(conf);
 		acf.setVisible(true);
+	
 	}
 
 	public static void addingContactTask() {
@@ -111,6 +112,7 @@ public class GUIKontroler {
 
 		mf.setVisible(false);
 	}
+	
 	public static void saveContact(String ConName, String ConSurname, String ConPhone, String ConEmail, String ComName, String ComCountry, String ComInfo) {
 		try {
 			CoWorker contact = new CoWorker();
@@ -123,15 +125,12 @@ public class GUIKontroler {
 			contact.setAboutCompany(ComInfo);
 			
 			contacts.addContact(contact);
+			contacts.SaveContacts(Paths.contactsPath);
 			
 		} catch (Exception e1) {
 			JOptionPane.showMessageDialog(acf, e1.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
 			
 		}
-	}
-	
-	public static ArrayList<CoWorker> showAllContacts() {
-		return contacts.getContacts();
 	}
 	
 	
@@ -151,6 +150,16 @@ public class GUIKontroler {
 		}
 	}
 	
+	
+	//Funkcije za prikazivanje podataka u listama i kombo boksevima
+	public static void refreshContacts() {
+		conf.showContacts();
+		atf.showContacts();
+	}
+	
+	public static ArrayList<CoWorker> showAllContacts() {
+		return contacts.getContacts();
+	}
 	
 	public static ArrayList<Task> showAllTasksToDo() {
 		return tm.showTillToday(user);
