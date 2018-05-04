@@ -126,9 +126,7 @@ public class AddTaskFrame extends JFrame {
 			btnAdd.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 //					GUIKontroler.saveTask(textFieldTitle.getText(), (CoWorker)comboBoxCoWorker.getSelectedItem(), (GregorianCalendar)spinner.getValue(), textAreaDescription.getText());
-					/*SimpleDateFormat sf = new SimpleDateFormat("dd.MM.yyy");
-					Calendar date = (Calendar)spinner.getValue();
-					System.out.println(sf.format(date.getTime()));*/
+					GUIKontroler.refreshTasks();
 				}
 			});
 			btnAdd.setFont(Fonts.candaraNormal);

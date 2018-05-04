@@ -700,7 +700,9 @@ public class MainFrame extends JFrame {
 			btnTaskCompleted = new JButton("Task completed");
 			btnTaskCompleted.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					
+					Task task = (Task) listTasks.getSelectedValue();
+					task.setComment(textAreaComments.getText());
+					GUIKontroler.taskCompleted(task);
 				}
 			});
 			btnTaskCompleted.setFont(new Font("Candara", Font.PLAIN, 15));

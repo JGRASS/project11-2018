@@ -140,7 +140,6 @@ public class GUIKontroler {
 			task.setTaskTitle(title);
 			task.setCoWorker(coworker);
 			task.setDate(date);
-			task.setComment("");
 			task.setDescription(description);
 			task.setDone(false);
 			System.out.println(task);
@@ -150,11 +149,19 @@ public class GUIKontroler {
 		}
 	}
 	
+	public static void taskCompleted(Task task) {
+		tm.AddTaskDone(task);
+	}
+	
 	
 	//Funkcije za prikazivanje podataka u listama i kombo boksevima
 	public static void refreshContacts() {
 		conf.showContacts();
 		atf.showContacts();
+	}
+	
+	public static void refreshTasks() {
+		mf.showTasks();
 	}
 	
 	public static ArrayList<CoWorker> showAllContacts() {
