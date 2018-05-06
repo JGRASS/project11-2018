@@ -177,6 +177,9 @@ public class GUIKontroler {
 	public static ArrayList<Task> showDoneTasks(){
 		return tm.getDoneTasks();
 	}
+	public static ArrayList<Task> showTasksToDo(){
+		return tm.getTasks();
+	}
 	
 	//Funkcije koje ucitavaju juzere, kontakte i taskove iz fajlova
 	public static void LoadUsers() {

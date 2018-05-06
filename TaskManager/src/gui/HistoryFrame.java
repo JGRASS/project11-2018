@@ -39,13 +39,15 @@ import javax.swing.border.EtchedBorder;
 import java.awt.SystemColor;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.event.ListSelectionEvent;
+import javax.swing.JButton;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
 
 public class HistoryFrame extends JFrame {
 
 	private JPanel contentPane;
 	private JPanel panel;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
-	private JList list;
 	private JLabel lblTaskName;
 	private JLabel lblCompany;
 	private JScrollPane scrollPane;
@@ -53,6 +55,13 @@ public class HistoryFrame extends JFrame {
 	private JLabel lblDoneTasks;
 	private JLabel lblTaskTitleFilled;
 	private JLabel lblCompanyFilled;
+	private JRadioButton rdbtnShowDoneTasks;
+	private JRadioButton rdbtnAllTasks;
+	private JButton btnCancel;
+	private JScrollPane scrollPane_1;
+	private JList list;
+	
+	private ArrayList<Task> tasks;
 
 	/**
 	 * Create the frame.
@@ -70,37 +79,28 @@ public class HistoryFrame extends JFrame {
 		setContentPane(contentPane);
 		contentPane.add(getPanel(), BorderLayout.CENTER);
 		setResizable(false);
-		showDone();
+//		showDone();
+		tasks = GUIKontroler.showTasksToDo();
 	}
 
 	private JPanel getPanel() {
 		if (panel == null) {
 			panel = new JPanel();
 			panel.setLayout(null);
-			panel.add(getList());
 			panel.add(getLblTaskName());
 			panel.add(getLblCompany());
 			panel.add(getScrollPane());
 			panel.add(getLblDoneTasks());
 			panel.add(getLblTaskTitleFilled());
 			panel.add(getLblCompanyFilled());
+			
+			panel.add(getBtnCancel());
+			panel.add(getScrollPane_1());
+			panel.add(getRdbtnShowDoneTasks());
+			panel.add(getRdbtnAllTasks());
+//			panel.add(getList_1());
 		}
 		return panel;
-	}
-
-	private JList getList() {
-		if (list == null) {
-			list = new JList();
-			list.addListSelectionListener(new ListSelectionListener() {
-				public void valueChanged(ListSelectionEvent arg0) {
-					showTaskDetails();
-				}
-			});
-			list.setBackground(SystemColor.text);
-			list.setFont(Fonts.candaraNormal);
-			list.setBounds(28, 48, 203, 257);
-		}
-		return list;
 	}
 
 
@@ -125,7 +125,8 @@ public class HistoryFrame extends JFrame {
 	private JScrollPane getScrollPane() {
 		if (scrollPane == null) {
 			scrollPane = new JScrollPane();
-			scrollPane.setBounds(261, 123, 283, 182);
+			scrollPane.setBorder(null);
+			scrollPane.setBounds(261, 123, 283, 157);
 			scrollPane.setViewportView(getTextAreaDescription());
 		}
 		return scrollPane;
@@ -145,7 +146,7 @@ public class HistoryFrame extends JFrame {
 
 	private JLabel getLblDoneTasks() {
 		if (lblDoneTasks == null) {
-			lblDoneTasks = new JLabel("Done tasks:");
+			lblDoneTasks = new JLabel("Tasks:");
 			lblDoneTasks.setFont(new Font("Candara", Font.PLAIN, 16));
 			lblDoneTasks.setBounds(28, 22, 97, 14);
 		}
@@ -172,12 +173,79 @@ public class HistoryFrame extends JFrame {
 		list.setListData(GUIKontroler.showDoneTasks().toArray());
 	}
 	
+	public void showAllTasks() {
+		list.setListData(tasks.toArray());
+	}
+	private JRadioButton getRdbtnShowDoneTasks() {
+		if (rdbtnShowDoneTasks == null) {
+			rdbtnShowDoneTasks = new JRadioButton("Done tasks");
+			rdbtnShowDoneTasks.addItemListener(new ItemListener() {
+				public void itemStateChanged(ItemEvent arg0) {
+					showDone();
+				}
+			});
+			rdbtnShowDoneTasks.setFont(new Font("Candara", Font.PLAIN, 13));
+			rdbtnShowDoneTasks.setSelected(true);
+			buttonGroup.add(rdbtnShowDoneTasks);
+			rdbtnShowDoneTasks.setBounds(28, 289, 85, 23);
+		}
+		return rdbtnShowDoneTasks;
+	}
+	private JRadioButton getRdbtnAllTasks() {
+		if (rdbtnAllTasks == null) {
+			rdbtnAllTasks = new JRadioButton("Tasks to do");
+			rdbtnAllTasks.addItemListener(new ItemListener() {
+				public void itemStateChanged(ItemEvent arg0) {
+					showAllTasks();
+				}
+			});
+			rdbtnAllTasks.setFont(new Font("Candara", Font.PLAIN, 13));
+			buttonGroup.add(rdbtnAllTasks);
+			rdbtnAllTasks.setBounds(125, 289, 89, 23);
+		}
+		return rdbtnAllTasks;
+	}
+	private void clear() {
+//		if(list.getComponentCount()!=0)
+//			list.removeAll();
+//		System.out.println(list.getComponentCount());
+	}
+	private JButton getBtnCancel() {
+		if (btnCancel == null) {
+			btnCancel = new JButton("Cancel");
+			btnCancel.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					dispose();
+				}
+			});
+			btnCancel.setBounds(455, 296, 89, 23);
+		}
+		return btnCancel;
+	}
+	private JScrollPane getScrollPane_1() {
+		if (scrollPane_1 == null) {
+			scrollPane_1 = new JScrollPane();
+			scrollPane_1.setBounds(28, 51, 186, 229);
+			scrollPane_1.setViewportView(getList_1());
+		}
+		return scrollPane_1;
+	}
+	private JList getList_1() {
+		if (list == null) {
+			list = new JList();
+			list.addListSelectionListener(new ListSelectionListener() {
+				public void valueChanged(ListSelectionEvent arg0) {
+					showTaskDetails();
+				}
+			});
+		}
+		return list;
+	}
+	
 	private void showTaskDetails() {
 		Task task = (Task)list.getSelectedValue();
-		if (task!=null) {
-			lblCompanyFilled.setText(task.getCoWorker().getCompanyName());
-			lblTaskTitleFilled.setText(task.getTaskTitle());
-			textAreaDescription.setText(task.getDescription());
-		}
+		lblCompanyFilled.setText(task.getCoWorker().getCompanyName());
+		lblTaskTitleFilled.setText(task.getTaskTitle());
+		textAreaDescription.setText(task.getDescription());
 	}
 }
