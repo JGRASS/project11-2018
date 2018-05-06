@@ -49,7 +49,7 @@ public class ContactsFrame extends JFrame {
 	 */
 	public ContactsFrame() {
 		
-				
+		setResizable(false);
 		setTitle("Contacts");
 		setFont(Fonts.candaraNormal);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

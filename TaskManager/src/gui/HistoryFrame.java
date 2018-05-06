@@ -3,6 +3,7 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -59,10 +60,12 @@ public class HistoryFrame extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
-		
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrame.class.getResource("/icons/history.png")));
+
 		setContentPane(contentPane);
 		contentPane.add(getPanel(), BorderLayout.CENTER);
 		showContacts();
+		setResizable(false);
 		
 	}
 
@@ -189,7 +192,7 @@ public class HistoryFrame extends JFrame {
 					searchByDate(format);
 				}
 			});
-			spinnerDate.setModel(new SpinnerDateModel(new Date(1525417200000L), null, new Date(1525417200000L), Calendar.DAY_OF_MONTH));
+			spinnerDate.setModel(new SpinnerDateModel(new Date(1525417200000L), null, new Date(1525590000000L), Calendar.DAY_OF_MONTH));
 			
 			spinnerDate.setBounds(358, 38, 127, 16);
 			

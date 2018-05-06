@@ -139,16 +139,16 @@ public class MainFrame extends JFrame {
 				exitLogOut();
 			}
 		});
-		setFont(new Font("Candara", Font.PLAIN, 12));
-		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrame.class.getResource("/icons/taskManager.jpg")));
+		setFont(new Font("Candara", Font.PLAIN, 15));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrame.class.getResource("/icons/taskDone2.png")));
 		setTitle("TaskManager");
 		
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		//Toolkit tk = Toolkit.getDefaultToolkit();
-		//int width = (int) tk.getScreenSize().getWidth();
-		//int height = (int) tk.getScreenSize().getHeight();
+//		Toolkit tk = Toolkit.getDefaultToolkit();
+//		int width = (int) tk.getScreenSize().getWidth();
+//		int height = (int) tk.getScreenSize().getHeight();
 		setBounds(100, 100, 1080, 1500);
-		//this.setSize(977, 668);
+//		this.setSize(977,700);
 		setJMenuBar(getMenuBar_1());
 		contentPane = new JPanel();
 		contentPane.setFont(new Font("Candara", Font.PLAIN, 13));

@@ -59,7 +59,6 @@ public class AddTaskFrame extends JFrame {
 	 */
 	public AddTaskFrame() {
 		setTitle("Add task");
-		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 550, 400);
 		setLocationRelativeTo(null);
@@ -77,6 +76,7 @@ public class AddTaskFrame extends JFrame {
 		contentPane.add(getBtnNewButton());
 		contentPane.add(getScrollPane());
 		contentPane.add(getSpinner());
+		setResizable(false);
 		
 		showContacts();
 	}
@@ -200,7 +200,7 @@ public class AddTaskFrame extends JFrame {
 //					searchByDate(format);
 				}
 			});
-			spinner.setModel(new SpinnerDateModel(new Date(1525417200000L), null, new Date(1525417200000L), Calendar.DAY_OF_MONTH));
+			spinner.setModel(new SpinnerDateModel(new Date(1525590000000L), new Date(1525590000000L), null, Calendar.DAY_OF_YEAR));
 			
 			spinner.setBounds(134, 76, 168, 20);
 			

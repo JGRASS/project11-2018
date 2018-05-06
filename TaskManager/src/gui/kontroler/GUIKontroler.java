@@ -115,7 +115,7 @@ public class GUIKontroler {
 	
 	public static void saveContact(String ConName, String ConSurname, String ConPhone, String ConEmail, String ComName, String ComCountry, String ComInfo) {
 		
-			try {
+//			try {
 				CoWorker contact = new CoWorker();
 				contact.setName(ConName);
 				contact.setSurname(ConSurname);
@@ -127,10 +127,10 @@ public class GUIKontroler {
 				
 				contacts.addContact(contact);
 				contacts.SaveContacts(Paths.contactsPath);
-			} catch (Exception e) {
-				JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
-			}
-			
+//			} catch (Exception e) {
+//				JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
+//			}
+//			
 		
 	}
 	

@@ -56,6 +56,7 @@ public class AddContactFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public AddContactFrame() {
+		setResizable(false);
 
 		setVisible(true);
 		setTitle("Add contact");
@@ -209,7 +210,7 @@ public class AddContactFrame extends JFrame {
 							GUIKontroler.refreshContacts();
 							dispose();
 						} catch (Exception e) {
-							JOptionPane.showMessageDialog(null, "Cao", "Error", JOptionPane.INFORMATION_MESSAGE);
+							JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
 						}
 					
 				}

@@ -87,16 +87,16 @@ public class SerializationClass {
 		
 		
 		Tasks tasks = new Tasks();
-//		tasks.AddTaskToDo(t1);
-//		tasks.AddTaskToDo(t2);
-//		tasks.AddTaskToDo(t3);
-//		tasks.AddTaskToDo(t4);
-//		tasks.AddTaskToDo(t1);
+		tasks.AddTaskToDo(t1);
+		tasks.AddTaskToDo(t2);
+		tasks.AddTaskToDo(t3);
+		tasks.AddTaskToDo(t4);
+		tasks.AddTaskToDo(t1);
 		
-//		tasks.saveTasks(Paths.tasksPath, Paths.doneTasksPath);
-		tasks.LoadTasks(Paths.tasksPath, Paths.doneTasksPath);
-		for(int i = 0; i<tasks.getTasks().size(); i++)
-			System.out.println(tasks.getTasks().get(i));
+		tasks.saveTasks(Paths.tasksPath, Paths.doneTasksPath);
+//		tasks.LoadTasks(Paths.tasksPath, Paths.doneTasksPath);
+//		for(int i = 0; i<tasks.getTasks().size(); i++)
+//			System.out.println(tasks.getTasks().get(i));
 //		System.out.println();
 //		ArrayList<Task> tillToday = tasks.showTillToday(u3);
 //		for(int i = 0; i<tillToday.size(); i++)

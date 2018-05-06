@@ -2,6 +2,7 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -42,6 +43,7 @@ public class PasswordFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public PasswordFrame() {
+		setResizable(false);
 		
 		addWindowListener(new WindowAdapter() {
 			@Override
@@ -49,11 +51,11 @@ public class PasswordFrame extends JFrame {
 				exit();
 			}
 		});
-		setResizable(false);
 		setVisible(true);
 		setFont(Fonts.candaraNormal);
 		setTitle("Login");
-		
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrame.class.getResource("/icons/taskDone2.png")));
+
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 459, 305);
 		contentPane = new JPanel();
