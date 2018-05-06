@@ -41,6 +41,7 @@ import classes.task.Task;
 import classes.task.Tasks;
 import classes.user.User;
 import gui.colors.Colors;
+import gui.fonts.Fonts;
 import gui.kontroler.GUIKontroler;
 
 import javax.swing.JList;
@@ -151,6 +152,7 @@ public class MainFrame extends JFrame {
 //		this.setSize(977,700);
 		setJMenuBar(getMenuBar_1());
 		contentPane = new JPanel();
+		contentPane.setBackground(Colors.gray);
 		contentPane.setFont(new Font("Candara", Font.PLAIN, 13));
 		contentPane.setBorder(new EmptyBorder(10, 20, 10, 10));
 		setContentPane(contentPane);
@@ -287,14 +289,17 @@ public class MainFrame extends JFrame {
 	private JLabel getLblHello() {
 		if (lblHello == null) {
 			lblHello = new JLabel("");
+			lblHello.setBackground(Colors.gray);
 			lblHello.setFont(new Font("Candara", Font.BOLD, 18));
 			lblHello = new JLabel("Hello");
+			lblHello.setForeground(Colors.blue);
 		}
 		return lblHello;
 	}
 	private JPanel getPanelWest() {
 		if (panelWest == null) {
 			panelWest = new JPanel();
+			panelWest.setBackground(Colors.gray);
 			panelWest.setPreferredSize(new Dimension(250, 0));
 			panelWest.setLayout(new BorderLayout(0, 10));
 			panelWest.add(getLblYourTasksFor(), BorderLayout.NORTH);
@@ -305,6 +310,7 @@ public class MainFrame extends JFrame {
 	private JPanel getPanelEast() {
 		if (panelEast == null) {
 			panelEast = new JPanel();
+			panelEast.setBackground(Colors.gray);
 			panelEast.setPreferredSize(new Dimension(150, 10));
 			panelEast.setLayout(null);
 			panelEast.add(getBtnAddTask());
@@ -322,7 +328,7 @@ public class MainFrame extends JFrame {
 				}
 			});
 			btnAddTask.setFont(new Font("Candara", Font.PLAIN, 15));
-			btnAddTask.setBackground(Colors.lightGreen);
+			btnAddTask.setBackground(Colors.green);
 			btnAddTask.setBounds(10, 37, 140, 34);
 		}
 		return btnAddTask;
@@ -331,7 +337,7 @@ public class MainFrame extends JFrame {
 		if (btnContacts == null) {
 			btnContacts = new JButton("Contacts");
 			btnContacts.setFont(new Font("Candara", Font.PLAIN, 15));
-			btnContacts.setBackground(Colors.lightGreen);
+			btnContacts.setBackground(Colors.green);
 			btnContacts.setBounds(10, 102, 140, 34);
 			btnContacts.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -346,7 +352,7 @@ public class MainFrame extends JFrame {
 		if (btnHistory == null) {
 			btnHistory = new JButton("History");
 			btnHistory.setFont(new Font("Candara", Font.PLAIN, 15));
-			btnHistory.setBackground(Colors.lightGreen);
+			btnHistory.setBackground(Colors.green);
 			btnHistory.setBounds(10, 167, 140, 34);
 			btnHistory.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -369,7 +375,7 @@ public class MainFrame extends JFrame {
 				}
 
 			});
-			btnLogOut.setBackground(Colors.lightGreen);
+			btnLogOut.setBackground(Colors.green);
 			btnLogOut.setBounds(10, 21, 140,34);
 		}
 		return btnLogOut;
@@ -378,6 +384,8 @@ public class MainFrame extends JFrame {
 		if (lblCUrrentDate == null) {
 			lblCUrrentDate = new JLabel("");
 			lblCUrrentDate.setFont(new Font("Candara", Font.PLAIN, 18));
+			lblCUrrentDate.setBackground(Colors.gray);
+			lblCUrrentDate.setForeground(Colors.blue);
 			
 			Calendar date = new GregorianCalendar();
 			int day = date.get(Calendar.DAY_OF_MONTH);
@@ -390,6 +398,7 @@ public class MainFrame extends JFrame {
 	private JPanel getPanelNorth() {
 		if (panelNorth == null) {
 			panelNorth = new JPanel();
+			panelNorth.setBackground(Colors.gray);
 			panelNorth.setPreferredSize(new Dimension(50, 80));
 			panelNorth.setLayout(new BorderLayout(5, 0));
 			panelNorth.add(getSeparator(), BorderLayout.SOUTH);
@@ -401,6 +410,7 @@ public class MainFrame extends JFrame {
 	private JPanel getPanelCenter() {
 		if (panelCenter == null) {
 			panelCenter = new JPanel();
+			panelCenter.setBackground(Colors.gray);
 			panelCenter.setLayout(new BorderLayout(1000,10));
 			panelCenter.add(getLblTasksDetails(), BorderLayout.NORTH);
 			panelCenter.add(getScrollPaneCenter());
@@ -410,6 +420,7 @@ public class MainFrame extends JFrame {
 	private JLabel getLblTasksDetails() {
 		if (lblTasksDetails == null) {
 			lblTasksDetails = new JLabel("  Task's details:");
+			lblTasksDetails.setBackground(Colors.gray);
 			lblTasksDetails.setFont(new Font("Candara", Font.PLAIN, 16));
 		}
 		return lblTasksDetails;
@@ -417,6 +428,7 @@ public class MainFrame extends JFrame {
 	private JScrollPane getScrollPaneCenter() {
 		if (scrollPaneCenter == null) {
 			scrollPaneCenter = new JScrollPane();
+			scrollPaneCenter.setBackground(Colors.gray);
 			scrollPaneCenter.setViewportView(getSplitPane());
 		}
 		return scrollPaneCenter;
@@ -424,6 +436,7 @@ public class MainFrame extends JFrame {
 	private JPanel getPanelSouth() {
 		if (panelSouth == null) {
 			panelSouth = new JPanel();
+			panelSouth.setBackground(Colors.gray);
 			panelSouth.setPreferredSize(new Dimension(50, 80));
 			panelSouth.setLayout(new BorderLayout(0, 0));
 			panelSouth.add(getPanelButton(), BorderLayout.EAST);
@@ -434,11 +447,15 @@ public class MainFrame extends JFrame {
 	private JSplitPane getSplitPane() {
 		if (splitPane == null) {
 			splitPane = new JSplitPane();
+//			splitPane.setBackground(Colors.gray);
+			
 			splitPane.setDividerSize(13);
 			splitPane.setBorder(new EmptyBorder(15, 15, 15, 15));
 			splitPane.setLeftComponent(getScrollPaneLeft());
 			splitPane.setRightComponent(getScrollPaneRight());
 			splitPane.setDividerLocation(415);
+			splitPane.setBackground(Colors.gray);
+			
 		}
 		return splitPane;
 	}
@@ -459,6 +476,7 @@ public class MainFrame extends JFrame {
 	private JSeparator getSeparator() {
 		if (separator == null) {
 			separator = new JSeparator();
+			separator.setBackground(Colors.gray);
 			separator.setPreferredSize(new Dimension(0, 15));
 			separator.setAlignmentX(Component.LEFT_ALIGNMENT);
 			separator.setAlignmentY(Component.BOTTOM_ALIGNMENT);
@@ -468,6 +486,7 @@ public class MainFrame extends JFrame {
 	private JPanel getPanelButton() {
 		if (panelButton == null) {
 			panelButton = new JPanel();
+			panelButton.setBackground(Colors.gray);
 			panelButton.setPreferredSize(new Dimension(150, 40));
 			panelButton.setLayout(null);
 			panelButton.add(getBtnLogOut());
@@ -550,10 +569,10 @@ public class MainFrame extends JFrame {
 	private JTextField getTextFieldEmail() {
 		if (textFieldEmail == null) {
 			textFieldEmail = new JTextField();
+			textFieldEmail.setBackground(Colors.lightGray);
 			textFieldEmail.setFont(new Font("Candara", Font.PLAIN, 15));
 			textFieldEmail.setBounds(163, 223, 225, 20);
 			textFieldEmail.setEditable(false);
-			textFieldEmail.setBackground(SystemColor.control);
 			textFieldEmail.setBorder(null);
 			textFieldEmail.setColumns(10);
 		}
@@ -562,12 +581,12 @@ public class MainFrame extends JFrame {
 	private JTextField getTextFieldPhone() {
 		if (textFieldPhone == null) {
 			textFieldPhone = new JTextField();
+			textFieldPhone.setBackground(Colors.lightGray);
 			textFieldPhone.setFont(new Font("Candara", Font.PLAIN, 15));
 			textFieldPhone.setBounds(163, 281, 225, 20);
 			textFieldPhone.setEditable(false);
 			textFieldPhone.setColumns(10);
 			textFieldPhone.setBorder(null);
-			textFieldPhone.setBackground(SystemColor.menu);
 		}
 		return textFieldPhone;
 	}
@@ -608,23 +627,27 @@ public class MainFrame extends JFrame {
 	private JTextArea getTextAreaTaskDescription() {
 		if (textAreaTaskDescription == null) {
 			textAreaTaskDescription = new JTextArea();
+			textAreaTaskDescription.setBackground(Colors.gray);
 			textAreaTaskDescription.setFont(new Font("Monospaced", Font.PLAIN, 15));
 			textAreaTaskDescription.setEditable(false);
-			textAreaTaskDescription.setBackground(SystemColor.control);
+			
 		}
 		return textAreaTaskDescription;
 	}
 	private JTextArea getTextAreaComments() {
 		if (textAreaComments == null) {
 			textAreaComments = new JTextArea();
+			textAreaComments.setBackground(Colors.lightGray);
 			textAreaComments.setFont(new Font("Monospaced", Font.PLAIN, 15));
-			textAreaComments.setBorder(new TitledBorder(null, "Comments", TitledBorder.LEADING, TitledBorder.TOP, new Font("Candara", Font.PLAIN, 15), null));
+			textAreaComments.setBorder(new TitledBorder(new MatteBorder(1, 1, 1, 1, (Color)Colors.gray),"Comments",
+					TitledBorder.LEADING, TitledBorder.TOP, Fonts.candaraNormal, Colors.gray));
 		}
 		return textAreaComments;
 	}
 	private JPanel getPanelPomocni() {
 		if (panelPomocni == null) {
 			panelPomocni = new JPanel();
+			panelPomocni.setBackground(Colors.gray);
 			panelPomocni.setLayout(new BorderLayout(0, 0));
 			panelPomocni.add(getListTasks(), BorderLayout.CENTER);
 		}
@@ -648,15 +671,17 @@ public class MainFrame extends JFrame {
 			textAreaAboutCompany = new JTextArea();
 			textAreaAboutCompany.setText("\r\n");
 			textAreaAboutCompany.setEditable(false);
+			textAreaAboutCompany.setBackground(Colors.gray);
 			textAreaAboutCompany.setFont(new Font("Candara", Font.PLAIN, 15));
-			textAreaAboutCompany.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "About company", TitledBorder.LEADING, TitledBorder.TOP,new Font("Candara", Font.PLAIN, 15), new Color(0, 0, 0)));
-			textAreaAboutCompany.setBackground(SystemColor.control);
+			textAreaAboutCompany.setBorder(new TitledBorder(new MatteBorder(1, 1, 1, 1, (Color)Colors.lightGray), "About company",
+			TitledBorder.LEADING, TitledBorder.TOP, Fonts.candaraNormal, Colors.lightGray));
 		}
 		return textAreaAboutCompany;
 	}
 	private JPanel getPanelNorthAbout() {
 		if (panelNorthAbout == null) {
 			panelNorthAbout = new JPanel();
+			panelNorthAbout.setBackground(Colors.gray);
 			panelNorthAbout.setPreferredSize(new Dimension(50, 12));
 		}
 		return panelNorthAbout;
@@ -665,6 +690,7 @@ public class MainFrame extends JFrame {
 	private JPanel getPanelSouthAbout() {
 		if (panelSouthAbout == null) {
 			panelSouthAbout = new JPanel();
+			panelSouthAbout.setBackground(Colors.gray);
 			panelSouthAbout.setPreferredSize(new Dimension(50, 12));
 		}
 		return panelSouthAbout;
@@ -672,6 +698,7 @@ public class MainFrame extends JFrame {
 	private JPanel getPanelWestAbout() {
 		if (panelWestAbout == null) {
 			panelWestAbout = new JPanel();
+			panelWestAbout.setBackground(Colors.gray);
 			panelWestAbout.setPreferredSize(new Dimension(20, 12));
 		}
 		return panelWestAbout;
@@ -679,6 +706,7 @@ public class MainFrame extends JFrame {
 	private JPanel getPanelEastAbout() {
 		if (panelEastAbout == null) {
 			panelEastAbout = new JPanel();
+			panelEastAbout.setBackground(Colors.gray);
 			panelEastAbout.setPreferredSize(new Dimension(20, 12));
 		}
 		return panelEastAbout;
@@ -686,6 +714,7 @@ public class MainFrame extends JFrame {
 	private JPanel getPanelContactDetails() {
 		if (panelContactDetails == null) {
 			panelContactDetails = new JPanel();
+			panelContactDetails.setBackground(Colors.gray);
 			panelContactDetails.setLayout(null);
 			panelContactDetails.add(getLblImportantContacts());
 			panelContactDetails.add(getLblCompanyName());
@@ -704,6 +733,7 @@ public class MainFrame extends JFrame {
 	private JPanel getPanelLeftButton() {
 		if (panelLeftButton == null) {
 			panelLeftButton = new JPanel();
+			panelLeftButton.setBackground(Colors.gray);
 			panelLeftButton.setPreferredSize(new Dimension(250, 100));
 			panelLeftButton.setLayout(null);
 			panelLeftButton.add(getBtnTaskCompleted());
@@ -725,7 +755,7 @@ public class MainFrame extends JFrame {
 				}
 			});
 			btnTaskCompleted.setFont(new Font("Candara", Font.PLAIN, 15));
-			btnTaskCompleted.setBackground(Colors.lightGreen);
+			btnTaskCompleted.setBackground(Colors.green);
 			btnTaskCompleted.setBounds(56, 23, 140, 34);
 		}
 		return btnTaskCompleted;
@@ -733,6 +763,7 @@ public class MainFrame extends JFrame {
 	private JList getListTasks() {
 		if (listTasks == null) {
 			listTasks = new JList();
+			listTasks.setBackground(Colors.lightGray);
 			listTasks.setFont(new Font("Candara", Font.PLAIN, 15));
 			listTasks.addListSelectionListener(new ListSelectionListener() {
 				public void valueChanged(ListSelectionEvent arg0) {

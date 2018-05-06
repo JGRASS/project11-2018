@@ -28,6 +28,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
+import javax.swing.JScrollPane;
 
 public class AddContactFrame extends JFrame {
 
@@ -51,6 +52,7 @@ public class AddContactFrame extends JFrame {
 	private JTextField textFieldCompanyName;
 	private JTextField textFieldCountry;
 	private JSeparator separator;
+	private JScrollPane scrollPane;
 
 	/**
 	 * Create the frame.
@@ -74,8 +76,8 @@ public class AddContactFrame extends JFrame {
 	private JPanel getPanel() {
 		if (panel == null) {
 			panel = new JPanel();
-			panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Contact details",
-					TitledBorder.RIGHT, TitledBorder.TOP, Fonts.candaraNormal, new Color(0, 0, 0)));
+			panel.setBackground(Colors.gray);
+			
 			panel.setLayout(null);
 			panel.add(getLblName());
 			panel.add(getTextFieldName());
@@ -86,7 +88,6 @@ public class AddContactFrame extends JFrame {
 			panel.add(getLblEmail());
 			panel.add(getTextFieldEmail());
 			panel.add(getLblCompanyInfo());
-			panel.add(getTextAreaCompanyInfo());
 			panel.add(getBtnAdd());
 			panel.add(getBtnCancel());
 			panel.add(getLblCompanyName());
@@ -94,6 +95,7 @@ public class AddContactFrame extends JFrame {
 			panel.add(getTextFieldCompanyName());
 			panel.add(getTextFieldCountry());
 			panel.add(getSeparator());
+			panel.add(getScrollPane());
 		}
 		return panel;
 	}
@@ -110,6 +112,7 @@ public class AddContactFrame extends JFrame {
 	private JTextField getTextFieldName() {
 		if (textFieldName == null) {
 			textFieldName = new JTextField();
+			textFieldName.setBackground(Colors.lightGray);
 			textFieldName.setBounds(156, 16, 116, 22);
 			textFieldName.setFont(Fonts.candaraNormal);
 			textFieldName.setColumns(10);
@@ -129,6 +132,7 @@ public class AddContactFrame extends JFrame {
 	private JTextField getTextFieldSurname() {
 		if (textFieldSurname == null) {
 			textFieldSurname = new JTextField();
+			textFieldSurname.setBackground(Colors.lightGray);
 			textFieldSurname.setBounds(156, 48, 116, 22);
 			textFieldSurname.setFont(Fonts.candaraNormal);
 			textFieldSurname.setColumns(10);
@@ -148,6 +152,7 @@ public class AddContactFrame extends JFrame {
 	private JTextField getTextFieldPhoneNumber() {
 		if (textFieldPhoneNumber == null) {
 			textFieldPhoneNumber = new JTextField();
+			textFieldPhoneNumber.setBackground(Colors.lightGray);
 			textFieldPhoneNumber.setBounds(156, 83, 116, 22);
 			textFieldPhoneNumber.setFont(Fonts.candaraNormal);
 			textFieldPhoneNumber.setColumns(10);
@@ -167,6 +172,7 @@ public class AddContactFrame extends JFrame {
 	private JTextField getTextFieldEmail() {
 		if (textFieldEmail == null) {
 			textFieldEmail = new JTextField();
+			textFieldEmail.setBackground(Colors.lightGray);
 			textFieldEmail.setBounds(156, 118, 116, 22);
 			textFieldEmail.setFont(Fonts.candaraNormal);
 			textFieldEmail.setColumns(10);
@@ -186,12 +192,11 @@ public class AddContactFrame extends JFrame {
 	private JTextArea getTextAreaCompanyInfo() {
 		if (textAreaCompanyInfo == null) {
 			textAreaCompanyInfo = new JTextArea();
-			textAreaCompanyInfo.setBackground(SystemColor.menu);
+			textAreaCompanyInfo.setBackground(Colors.gray);
 			textAreaCompanyInfo.setBorder(
-					new TitledBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)), "Company details:",
-							TitledBorder.LEADING, TitledBorder.TOP, Fonts.candaraNormal, new Color(0, 0, 0)));
+					new TitledBorder(new MatteBorder(1, 1, 1, 1, (Color)Colors.lightGray), "Company details:",
+							TitledBorder.LEADING, TitledBorder.TOP, Fonts.candaraNormal, Colors.lightGray));
 			textAreaCompanyInfo.setFont(Fonts.candaraNormal);
-			textAreaCompanyInfo.setBounds(27, 271, 395, 84);
 		}
 		return textAreaCompanyInfo;
 	}
@@ -215,7 +220,7 @@ public class AddContactFrame extends JFrame {
 					
 				}
 			});
-			btnAdd.setBackground(Colors.lightGreen);
+			btnAdd.setBackground(Colors.green);
 			btnAdd.setFont(Fonts.candaraNormal);
 			btnAdd.setBounds(325, 45, 97, 25);
 		}
@@ -230,7 +235,7 @@ public class AddContactFrame extends JFrame {
 					dispose();
 				}
 			});
-			btnCancel.setBackground(Colors.lightGreen);
+			btnCancel.setBackground(Colors.green);
 			btnCancel.setFont(Fonts.candaraNormal);
 			btnCancel.setBounds(325, 85, 97, 25);
 		}
@@ -258,6 +263,7 @@ public class AddContactFrame extends JFrame {
 	private JTextField getTextFieldCompanyName() {
 		if (textFieldCompanyName == null) {
 			textFieldCompanyName = new JTextField();
+			textFieldCompanyName.setBackground(Colors.lightGray);
 			textFieldCompanyName.setFont(Fonts.candaraNormal);
 			textFieldCompanyName.setBounds(156, 208, 116, 22);
 			textFieldCompanyName.setColumns(10);
@@ -268,6 +274,7 @@ public class AddContactFrame extends JFrame {
 	private JTextField getTextFieldCountry() {
 		if (textFieldCountry == null) {
 			textFieldCountry = new JTextField();
+			textFieldCountry.setBackground(Colors.lightGray);
 			textFieldCountry.setFont(Fonts.candaraNormal);
 			textFieldCountry.setBounds(156, 236, 116, 22);
 			textFieldCountry.setColumns(10);
@@ -278,8 +285,18 @@ public class AddContactFrame extends JFrame {
 	private JSeparator getSeparator() {
 		if (separator == null) {
 			separator = new JSeparator();
+			separator.setBackground(Colors.blue);
 			separator.setBounds(32, 164, 390, 16);
 		}
 		return separator;
+	}
+	private JScrollPane getScrollPane() {
+		if (scrollPane == null) {
+			scrollPane = new JScrollPane();
+			scrollPane.setBorder(null);
+			scrollPane.setBounds(24, 274, 408, 99);
+			scrollPane.setViewportView(getTextAreaCompanyInfo());
+		}
+		return scrollPane;
 	}
 }

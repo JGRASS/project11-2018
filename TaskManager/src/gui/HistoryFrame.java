@@ -18,6 +18,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.event.ChangeListener;
 
 import classes.coworker.CoWorker;
+import gui.colors.Colors;
 import gui.fonts.Fonts;
 import gui.kontroler.GUIKontroler;
 

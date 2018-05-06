@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.MatteBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.border.TitledBorder;
@@ -31,11 +32,14 @@ import java.time.DayOfWeek;
 import java.time.zone.ZoneOffsetTransitionRule.TimeDefinition;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
+import javax.swing.SpinnerNumberModel;
+
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
+import javax.swing.UIManager;
 
 public class AddTaskFrame extends JFrame {
 
@@ -63,6 +67,7 @@ public class AddTaskFrame extends JFrame {
 		setBounds(100, 100, 550, 400);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
+		contentPane.setBackground(Colors.gray);		
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -107,15 +112,17 @@ public class AddTaskFrame extends JFrame {
 	private JTextArea getTextAreaDescription() {
 		if (textAreaDescription == null) {
 			textAreaDescription = new JTextArea();
-			textAreaDescription.setLineWrap(true);
+			textAreaDescription.setBackground(Colors.gray);
 			textAreaDescription.setFont(Fonts.candaraNormal);
-			textAreaDescription.setBorder(new TitledBorder(null, "Description", TitledBorder.LEADING, TitledBorder.TOP, Fonts.candaraNormal, new Color(0, 128, 0)));
+			textAreaDescription.setBorder(new TitledBorder(new MatteBorder(1, 1, 1, 1, (Color)Colors.lightGray), "Description",
+					TitledBorder.LEADING, TitledBorder.TOP, Fonts.candaraNormal, Colors.lightGray));
 		}
 		return textAreaDescription;
 	}
 	private JTextField getTextFieldTitle() {
 		if (textFieldTitle == null) {
 			textFieldTitle = new JTextField();
+			textFieldTitle.setBackground(Colors.lightGray);
 			textFieldTitle.setFont(Fonts.candaraNormal);
 			textFieldTitle.setBounds(134, 28, 168, 20);
 			textFieldTitle.setColumns(10);
@@ -134,7 +141,7 @@ public class AddTaskFrame extends JFrame {
 				}
 			});
 			btnAdd.setFont(Fonts.candaraNormal);
-			btnAdd.setBackground(Colors.lightGreen);
+			btnAdd.setBackground(Colors.green);
 			btnAdd.setBounds(362, 222, 140, 23);
 		}
 		return btnAdd;
@@ -148,7 +155,7 @@ public class AddTaskFrame extends JFrame {
 				}
 			});
 			btnCancel.setFont(Fonts.candaraNormal);
-			btnCancel.setBackground(Colors.lightGreen);
+			btnCancel.setBackground(Colors.green);
 			btnCancel.setBounds(362, 272, 140, 23);
 		}
 		return btnCancel;
@@ -156,6 +163,7 @@ public class AddTaskFrame extends JFrame {
 	private JComboBox getComboBoxCoWorker() {
 		if (comboBoxCoWorker == null) {
 			comboBoxCoWorker = new JComboBox();
+			comboBoxCoWorker.setBackground(Colors.lightGray);
 			comboBoxCoWorker.setToolTipText("Choose CoWorker");
 			comboBoxCoWorker.setFont(Fonts.candaraNormal);
 			comboBoxCoWorker.setBounds(134, 133, 168, 22);
@@ -177,7 +185,7 @@ public class AddTaskFrame extends JFrame {
 				}
 			});
 			btnNewButton.setFont(Fonts.candaraNormal);
-			btnNewButton.setBackground(Colors.lightGreen);
+			btnNewButton.setBackground(Colors.green);
 			btnNewButton.setBounds(362, 133, 140, 23);
 		}
 		return btnNewButton;
@@ -185,6 +193,7 @@ public class AddTaskFrame extends JFrame {
 	private JScrollPane getScrollPane() {
 		if (scrollPane == null) {
 			scrollPane = new JScrollPane();
+			scrollPane.setBorder(null);
 			scrollPane.setBounds(30, 190, 295, 140);
 			scrollPane.setViewportView(getTextAreaDescription());
 		}
@@ -193,6 +202,7 @@ public class AddTaskFrame extends JFrame {
 	private JSpinner getSpinner() {
 		if (spinner == null) {
 			spinner = new JSpinner();
+			
 			spinner.addChangeListener(new ChangeListener() {
 				public void stateChanged(ChangeEvent arg0) {
 					String format = new SimpleDateFormat("yyyy/MM/dd").format(spinner.getValue());
@@ -201,9 +211,13 @@ public class AddTaskFrame extends JFrame {
 				}
 			});
 			spinner.setModel(new SpinnerDateModel(new Date(1525590000000L), new Date(1525590000000L), null, Calendar.DAY_OF_YEAR));
-			
+//			spinner.setForeground(Colors.lightGray);
+			spinner.setFont(Fonts.candaraNormal);
+//			spinner.setBackground(Colors.lightGray);
 			spinner.setBounds(134, 76, 168, 20);
-			
+//			SpinnerNumberModel nummodel = new SpinnerNumberModel(5, 0, 10, 1); 
+//			JSpinner numspinner = new JSpinner(nummodel); 
+//			numspinner.getEditor().getComponent(0).setBackground(Color.green); 
 			}
 		return spinner;
 	}

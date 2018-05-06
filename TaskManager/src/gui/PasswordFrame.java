@@ -53,6 +53,7 @@ public class PasswordFrame extends JFrame {
 		});
 		setVisible(true);
 		setFont(Fonts.candaraNormal);
+		setForeground(Colors.gray);
 		setTitle("Login");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrame.class.getResource("/icons/taskDone2.png")));
 
@@ -70,6 +71,7 @@ public class PasswordFrame extends JFrame {
 		if (panel == null) {
 			panel = new JPanel();
 			panel.setBounds(0, 0, 453, 270);
+			panel.setBackground(Colors.gray);
 			panel.setLayout(null);
 			panel.add(getLblUsername());
 			panel.add(getTextFieldUsername());
@@ -92,6 +94,7 @@ public class PasswordFrame extends JFrame {
 	private JTextField getTextFieldUsername() {
 		if (textFieldUsername == null) {
 			textFieldUsername = new JTextField();
+			textFieldUsername.setBackground(Colors.lightGray);
 			textFieldUsername.setToolTipText("Please, type your username here.");
 			textFieldUsername.setFont(Fonts.candaraNormal);
 			textFieldUsername.setBounds(186, 70, 175, 22);
@@ -127,7 +130,7 @@ public class PasswordFrame extends JFrame {
 					}
 				}
 			});
-			btnLogIn.setBackground(Colors.lightGreen);
+			btnLogIn.setBackground(Colors.green);
 			btnLogIn.setBounds(271, 214, 90, 25);
 		}
 		return btnLogIn;
@@ -141,7 +144,7 @@ public class PasswordFrame extends JFrame {
 					exit();
 				}
 			});
-			btnExit.setBackground(Colors.lightGreen);
+			btnExit.setBackground(Colors.green);
 			btnExit.setBounds(96, 214, 97, 25);
 		}
 		return btnExit;
@@ -160,6 +163,7 @@ public class PasswordFrame extends JFrame {
 	private JPasswordField getPasswordField() {
 		if (passwordField == null) {
 			passwordField = new JPasswordField();
+			passwordField.setBackground(Colors.lightGray);
 			passwordField.setToolTipText("Please, type your password here.");
 			passwordField.setFont(Fonts.candaraNormal);
 			passwordField.setBounds(186, 123, 176, 21);
