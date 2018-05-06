@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.border.TitledBorder;
 
@@ -135,9 +136,13 @@ public class AddTaskFrame extends JFrame {
 			btnAdd.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					String s = new SimpleDateFormat("yyyy/MM/dd").format(spinner.getValue());
-					GUIKontroler.saveTask(textFieldTitle.getText(), (CoWorker)comboBoxCoWorker.getSelectedItem(), searchByDate(s), textAreaDescription.getText());
-					GUIKontroler.refreshTasks();
-					dispose();
+					try {
+						GUIKontroler.saveTask(textFieldTitle.getText(), (CoWorker)comboBoxCoWorker.getSelectedItem(), searchByDate(s), textAreaDescription.getText());
+						GUIKontroler.refreshTasks();
+						dispose();
+					} catch (Exception e) {
+						JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
+					}
 				}
 			});
 			btnAdd.setFont(Fonts.candaraNormal);

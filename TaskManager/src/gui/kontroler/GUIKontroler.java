@@ -136,19 +136,20 @@ public class GUIKontroler {
 	
 	
 	public static void saveTask(String title, CoWorker coworker, GregorianCalendar date, String description ) {
-		try {
+//		try {
 			Task task = new Task();
 			task.setTaskTitle(title);
 			task.setCoWorker(coworker);
 			task.setDate(date);
+			task.setUsername(user.getUsername());
 			task.setDescription(description);
 			task.setDone(false);
 //			System.out.println(task);
 			tm.AddTaskToDo(task);
 			tm.saveTasks(Paths.tasksPath, Paths.doneTasksPath);
-		} catch (Exception e) {
-			JOptionPane.showMessageDialog(atf, e.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
-		}
+//		} catch (Exception e) {
+//			JOptionPane.showMessageDialog(atf, e.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
+//		}
 	}
 	
 	public static void taskCompleted(Task task) {

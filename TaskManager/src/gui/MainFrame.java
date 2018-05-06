@@ -290,7 +290,7 @@ public class MainFrame extends JFrame {
 		if (lblHello == null) {
 			lblHello = new JLabel("");
 			lblHello.setBackground(Colors.gray);
-			lblHello.setFont(new Font("Candara", Font.BOLD, 18));
+			lblHello.setFont(Fonts.candaraTitle1);
 			lblHello = new JLabel("Hello");
 			lblHello.setForeground(Colors.blue);
 		}
@@ -383,7 +383,7 @@ public class MainFrame extends JFrame {
 	private JLabel getLblCUrrentDate() {
 		if (lblCUrrentDate == null) {
 			lblCUrrentDate = new JLabel("");
-			lblCUrrentDate.setFont(new Font("Candara", Font.PLAIN, 18));
+			lblCUrrentDate.setFont(Fonts.candaraTitle1);
 			lblCUrrentDate.setBackground(Colors.gray);
 			lblCUrrentDate.setForeground(Colors.blue);
 			
@@ -791,7 +791,7 @@ public class MainFrame extends JFrame {
 	
 	public void setHello(User user) {
 		lblHello.setText("Hello, "+ user.toString());
-		lblHello.setFont(new Font("Candara", Font.PLAIN, 18));
+		lblHello.setFont(Fonts.candaraTitle1);
 	}
 	public void showTasks() {
 		listTasks.setListData(GUIKontroler.showAllTasksToDo().toArray());
