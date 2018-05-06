@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
 
@@ -86,6 +87,7 @@ public class PasswordFrame extends JFrame {
 	private JLabel getLblUsername() {
 		if (lblUsername == null) {
 			lblUsername = new JLabel("Username: ");
+			lblUsername.setForeground(Color.WHITE);
 			lblUsername.setFont(Fonts.candaraNormal);
 			lblUsername.setBounds(96, 71, 78, 21);
 		}
@@ -95,6 +97,7 @@ public class PasswordFrame extends JFrame {
 		if (textFieldUsername == null) {
 			textFieldUsername = new JTextField();
 			textFieldUsername.setBackground(Colors.lightGray);
+			textFieldUsername.setForeground(Color.WHITE);
 			textFieldUsername.setToolTipText("Please, type your username here.");
 			textFieldUsername.setFont(Fonts.candaraNormal);
 			textFieldUsername.setBounds(186, 70, 175, 22);
@@ -105,6 +108,7 @@ public class PasswordFrame extends JFrame {
 	private JLabel getLblPassword() {
 		if (lblPassword == null) {
 			lblPassword = new JLabel("Password:");
+			lblPassword.setForeground(Color.WHITE);
 			lblPassword.setFont(Fonts.candaraNormal);
 			lblPassword.setBounds(96, 126, 78, 16);
 		}
@@ -152,6 +156,7 @@ public class PasswordFrame extends JFrame {
 	private JSeparator getSeparator() {
 		if (separator == null) {
 			separator = new JSeparator();
+			separator.setBackground(Colors.blue);
 			separator.setBounds(64, 178, 326, 28);
 		}
 		return separator;
@@ -164,6 +169,7 @@ public class PasswordFrame extends JFrame {
 		if (passwordField == null) {
 			passwordField = new JPasswordField();
 			passwordField.setBackground(Colors.lightGray);
+			passwordField.setForeground(Color.WHITE);
 			passwordField.setToolTipText("Please, type your password here.");
 			passwordField.setFont(Fonts.candaraNormal);
 			passwordField.setBounds(186, 123, 176, 21);

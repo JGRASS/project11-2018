@@ -1,7 +1,7 @@
 package gui;
 
 import java.awt.BorderLayout;
-
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -93,6 +93,7 @@ public class ContactsFrame extends JFrame {
 	private JList getList() {
 		if (list == null) {
 			list = new JList();
+			list.setForeground(Color.WHITE);
 			list.setBackground(Colors.lightGray);
 			list.setBounds(170, 13, 240, 300);
 			list.setFont(Fonts.candaraNormal);

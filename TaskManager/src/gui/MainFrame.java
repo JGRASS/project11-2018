@@ -275,6 +275,7 @@ public class MainFrame extends JFrame {
 	private JLabel getLblYourTasksFor() {
 		if (lblYourTasksFor == null) {
 			lblYourTasksFor = new JLabel("Your tasks for today:");
+			lblYourTasksFor.setForeground(Color.WHITE);
 			lblYourTasksFor.setFont(new Font("Candara", Font.PLAIN, 16));
 		}
 		return lblYourTasksFor;
@@ -420,6 +421,7 @@ public class MainFrame extends JFrame {
 	private JLabel getLblTasksDetails() {
 		if (lblTasksDetails == null) {
 			lblTasksDetails = new JLabel("  Task's details:");
+			lblTasksDetails.setForeground(Color.WHITE);
 			lblTasksDetails.setBackground(Colors.gray);
 			lblTasksDetails.setFont(new Font("Candara", Font.PLAIN, 16));
 		}
@@ -505,6 +507,7 @@ public class MainFrame extends JFrame {
 	private JLabel getLblImportantContacts() {
 		if (lblImportantContacts == null) {
 			lblImportantContacts = new JLabel("Contacts:");
+			lblImportantContacts.setForeground(Color.WHITE);
 			lblImportantContacts.setFont(new Font("Candara", Font.PLAIN, 16));
 			lblImportantContacts.setBounds(10, 33, 113, 14);
 		}
@@ -513,6 +516,7 @@ public class MainFrame extends JFrame {
 	private JLabel getLblCompanyName() {
 		if (lblCompanyName == null) {
 			lblCompanyName = new JLabel("Company name:");
+			lblCompanyName.setForeground(Color.WHITE);
 			lblCompanyName.setFont(new Font("Candara", Font.PLAIN, 14));
 			lblCompanyName.setBounds(24, 116, 99, 14);
 		}
@@ -521,6 +525,7 @@ public class MainFrame extends JFrame {
 	private JLabel getLblCoworkerName() {
 		if (lblCoworkerName == null) {
 			lblCoworkerName = new JLabel("Co-worker name:");
+			lblCoworkerName.setForeground(Color.WHITE);
 			lblCoworkerName.setFont(new Font("Candara", Font.PLAIN, 15));
 			lblCoworkerName.setBounds(24, 172, 113, 14);
 		}
@@ -529,6 +534,7 @@ public class MainFrame extends JFrame {
 	private JLabel getLblEmail() {
 		if (lblEmail == null) {
 			lblEmail = new JLabel("E-mail:");
+			lblEmail.setForeground(Color.WHITE);
 			lblEmail.setFont(new Font("Candara", Font.PLAIN, 15));
 			lblEmail.setBounds(24, 226, 46, 14);
 		}
@@ -537,6 +543,7 @@ public class MainFrame extends JFrame {
 	private JLabel getLblPhone() {
 		if (lblPhone == null) {
 			lblPhone = new JLabel("Phone:");
+			lblPhone.setForeground(Color.WHITE);
 			lblPhone.setFont(new Font("Candara", Font.PLAIN, 15));
 			lblPhone.setBounds(24, 284, 46, 14);
 		}
@@ -545,6 +552,7 @@ public class MainFrame extends JFrame {
 	private JLabel getLblCountry() {
 		if (lblCountry == null) {
 			lblCountry = new JLabel("Country:");
+			lblCountry.setForeground(Color.WHITE);
 			lblCountry.setFont(new Font("Candara", Font.PLAIN, 15));
 			lblCountry.setBounds(24, 344, 99, 14);
 		}
@@ -553,6 +561,7 @@ public class MainFrame extends JFrame {
 	private JLabel getLblCOmpanyNameFilled() {
 		if (lblCOmpanyNameFilled == null) {
 			lblCOmpanyNameFilled = new JLabel("");
+			lblCOmpanyNameFilled.setForeground(Color.WHITE);
 			lblCOmpanyNameFilled.setFont(new Font("Candara", Font.PLAIN, 15));
 			lblCOmpanyNameFilled.setBounds(163, 116, 225, 14);
 		}
@@ -561,6 +570,7 @@ public class MainFrame extends JFrame {
 	private JLabel getLblCoWorkerNAmeFilled() {
 		if (lblCoWorkerNAmeFilled == null) {
 			lblCoWorkerNAmeFilled = new JLabel("");
+			lblCoWorkerNAmeFilled.setForeground(Color.WHITE);
 			lblCoWorkerNAmeFilled.setFont(new Font("Candara", Font.PLAIN, 15));
 			lblCoWorkerNAmeFilled.setBounds(163, 172, 225, 14);
 		}
@@ -570,6 +580,7 @@ public class MainFrame extends JFrame {
 		if (textFieldEmail == null) {
 			textFieldEmail = new JTextField();
 			textFieldEmail.setBackground(Colors.lightGray);
+			textFieldEmail.setForeground(Color.WHITE);
 			textFieldEmail.setFont(new Font("Candara", Font.PLAIN, 15));
 			textFieldEmail.setBounds(163, 223, 225, 20);
 			textFieldEmail.setEditable(false);
@@ -582,6 +593,7 @@ public class MainFrame extends JFrame {
 		if (textFieldPhone == null) {
 			textFieldPhone = new JTextField();
 			textFieldPhone.setBackground(Colors.lightGray);
+			textFieldPhone.setForeground(Color.WHITE);
 			textFieldPhone.setFont(new Font("Candara", Font.PLAIN, 15));
 			textFieldPhone.setBounds(163, 281, 225, 20);
 			textFieldPhone.setEditable(false);
@@ -593,6 +605,7 @@ public class MainFrame extends JFrame {
 	private JLabel getLblNekaZemljaCuda() {
 		if (lblNekaZemljaCuda == null) {
 			lblNekaZemljaCuda = new JLabel("");
+			lblNekaZemljaCuda.setForeground(Color.WHITE);
 			lblNekaZemljaCuda.setFont(new Font("Canadra", Font.PLAIN, 15));
 			
 			lblNekaZemljaCuda.setBounds(163, 344, 225, 14);
@@ -602,6 +615,7 @@ public class MainFrame extends JFrame {
 	private JPanel getPanelDetailsOfTask() {
 		if (panelDetailsOfTask == null) {
 			panelDetailsOfTask = new JPanel();
+			panelDetailsOfTask.setForeground(Color.WHITE);
 			panelDetailsOfTask.setLayout(new BorderLayout(0, 0));
 			panelDetailsOfTask.add(getPanelTaskDescription(), BorderLayout.NORTH);
 			panelDetailsOfTask.add(getTextAreaComments(), BorderLayout.CENTER);
@@ -627,6 +641,7 @@ public class MainFrame extends JFrame {
 	private JTextArea getTextAreaTaskDescription() {
 		if (textAreaTaskDescription == null) {
 			textAreaTaskDescription = new JTextArea();
+			textAreaTaskDescription.setForeground(Color.WHITE);
 			textAreaTaskDescription.setBackground(Colors.gray);
 			textAreaTaskDescription.setFont(new Font("Monospaced", Font.PLAIN, 15));
 			textAreaTaskDescription.setEditable(false);
@@ -637,10 +652,11 @@ public class MainFrame extends JFrame {
 	private JTextArea getTextAreaComments() {
 		if (textAreaComments == null) {
 			textAreaComments = new JTextArea();
+			textAreaComments.setForeground(Color.WHITE);
 			textAreaComments.setBackground(Colors.lightGray);
 			textAreaComments.setFont(new Font("Monospaced", Font.PLAIN, 15));
-			textAreaComments.setBorder(new TitledBorder(new MatteBorder(1, 1, 1, 1, (Color)Colors.gray),"Comments",
-					TitledBorder.LEADING, TitledBorder.TOP, Fonts.candaraNormal, Colors.gray));
+			textAreaComments.setBorder(new TitledBorder(new MatteBorder(1, 1, 1, 1, (Color)Color.WHITE),"Comments",
+					TitledBorder.LEADING, TitledBorder.TOP, Fonts.candaraNormal, Color.WHITE));
 		}
 		return textAreaComments;
 	}
@@ -672,9 +688,10 @@ public class MainFrame extends JFrame {
 			textAreaAboutCompany.setText("\r\n");
 			textAreaAboutCompany.setEditable(false);
 			textAreaAboutCompany.setBackground(Colors.gray);
+			textAreaAboutCompany.setForeground(Color.WHITE);
 			textAreaAboutCompany.setFont(new Font("Candara", Font.PLAIN, 15));
-			textAreaAboutCompany.setBorder(new TitledBorder(new MatteBorder(1, 1, 1, 1, (Color)Colors.lightGray), "About company",
-			TitledBorder.LEADING, TitledBorder.TOP, Fonts.candaraNormal, Colors.lightGray));
+			textAreaAboutCompany.setBorder(new TitledBorder(new MatteBorder(1, 1, 1, 1, (Color)Color.WHITE), "About company",
+			TitledBorder.LEADING, TitledBorder.TOP, Fonts.candaraNormal, Color.WHITE));
 		}
 		return textAreaAboutCompany;
 	}
@@ -764,6 +781,7 @@ public class MainFrame extends JFrame {
 		if (listTasks == null) {
 			listTasks = new JList();
 			listTasks.setBackground(Colors.lightGray);
+			listTasks.setForeground(Color.WHITE);
 			listTasks.setFont(new Font("Candara", Font.PLAIN, 15));
 			listTasks.addListSelectionListener(new ListSelectionListener() {
 				public void valueChanged(ListSelectionEvent arg0) {

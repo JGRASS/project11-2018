@@ -89,43 +89,48 @@ public class AddTaskFrame extends JFrame {
 	private JLabel getLblTitle() {
 		if (lblTitle == null) {
 			lblTitle = new JLabel("Title:");
+			lblTitle.setForeground(Color.WHITE);
 			lblTitle.setFont(Fonts.candaraNormal);
-			lblTitle.setBounds(44, 31, 46, 14);
+			lblTitle.setBounds(30, 31, 46, 14);
 		}
 		return lblTitle;
 	}
 	private JLabel getLblCoworker() {
 		if (lblCoworker == null) {
 			lblCoworker = new JLabel("CoWorker:");
+			lblCoworker.setForeground(Color.WHITE);
 			lblCoworker.setFont(Fonts.candaraNormal);
-			lblCoworker.setBounds(44, 137, 88, 14);
+			lblCoworker.setBounds(30, 137, 88, 14);
 		}
 		return lblCoworker;
 	}
 	private JLabel getLblDate() {
 		if (lblDate == null) {
 			lblDate = new JLabel("Date:");
+			lblDate.setForeground(Color.WHITE);
 			lblDate.setFont(Fonts.candaraNormal);
-			lblDate.setBounds(44, 83, 46, 14);
+			lblDate.setBounds(30, 79, 46, 14);
 		}
 		return lblDate;
 	}
 	private JTextArea getTextAreaDescription() {
 		if (textAreaDescription == null) {
 			textAreaDescription = new JTextArea();
+			textAreaDescription.setForeground(Color.WHITE);
 			textAreaDescription.setBackground(Colors.gray);
 			textAreaDescription.setFont(Fonts.candaraNormal);
-			textAreaDescription.setBorder(new TitledBorder(new MatteBorder(1, 1, 1, 1, (Color)Colors.lightGray), "Description",
-					TitledBorder.LEADING, TitledBorder.TOP, Fonts.candaraNormal, Colors.lightGray));
+			textAreaDescription.setBorder(new TitledBorder(new MatteBorder(1, 1, 1, 1, (Color)Color.WHITE), "Description",
+					TitledBorder.LEADING, TitledBorder.TOP, Fonts.candaraNormal, Color.WHITE));
 		}
 		return textAreaDescription;
 	}
 	private JTextField getTextFieldTitle() {
 		if (textFieldTitle == null) {
 			textFieldTitle = new JTextField();
+			textFieldTitle.setForeground(Color.WHITE);
 			textFieldTitle.setBackground(Colors.lightGray);
 			textFieldTitle.setFont(Fonts.candaraNormal);
-			textFieldTitle.setBounds(134, 28, 168, 20);
+			textFieldTitle.setBounds(102, 28, 223, 20);
 			textFieldTitle.setColumns(10);
 		}
 		return textFieldTitle;
@@ -147,7 +152,7 @@ public class AddTaskFrame extends JFrame {
 			});
 			btnAdd.setFont(Fonts.candaraNormal);
 			btnAdd.setBackground(Colors.green);
-			btnAdd.setBounds(362, 222, 140, 23);
+			btnAdd.setBounds(376, 220, 140, 23);
 		}
 		return btnAdd;
 	}
@@ -161,17 +166,18 @@ public class AddTaskFrame extends JFrame {
 			});
 			btnCancel.setFont(Fonts.candaraNormal);
 			btnCancel.setBackground(Colors.green);
-			btnCancel.setBounds(362, 272, 140, 23);
+			btnCancel.setBounds(376, 256, 140, 23);
 		}
 		return btnCancel;
 	}
 	private JComboBox getComboBoxCoWorker() {
 		if (comboBoxCoWorker == null) {
 			comboBoxCoWorker = new JComboBox();
-			comboBoxCoWorker.setBackground(Colors.lightGray);
+			comboBoxCoWorker.setBackground(Colors.gray);
+			comboBoxCoWorker.setForeground(Color.WHITE);
 			comboBoxCoWorker.setToolTipText("Choose CoWorker");
 			comboBoxCoWorker.setFont(Fonts.candaraNormal);
-			comboBoxCoWorker.setBounds(134, 133, 168, 22);
+			comboBoxCoWorker.setBounds(102, 133, 223, 22);
 		}
 		return comboBoxCoWorker;
 	}
@@ -191,7 +197,7 @@ public class AddTaskFrame extends JFrame {
 			});
 			btnNewButton.setFont(Fonts.candaraNormal);
 			btnNewButton.setBackground(Colors.green);
-			btnNewButton.setBounds(362, 133, 140, 23);
+			btnNewButton.setBounds(376, 133, 140, 23);
 		}
 		return btnNewButton;
 	}
@@ -216,10 +222,10 @@ public class AddTaskFrame extends JFrame {
 				}
 			});
 			spinner.setModel(new SpinnerDateModel(new Date(1525590000000L), new Date(1525590000000L), null, Calendar.DAY_OF_YEAR));
-//			spinner.setForeground(Colors.lightGray);
 			spinner.setFont(Fonts.candaraNormal);
-//			spinner.setBackground(Colors.lightGray);
-			spinner.setBounds(134, 76, 168, 20);
+			spinner.setForeground(Color.WHITE);
+			spinner.setBackground(Colors.lightGray);
+			spinner.setBounds(102, 76, 223, 20);
 //			SpinnerNumberModel nummodel = new SpinnerNumberModel(5, 0, 10, 1); 
 //			JSpinner numspinner = new JSpinner(nummodel); 
 //			numspinner.getEditor().getComponent(0).setBackground(Color.green); 

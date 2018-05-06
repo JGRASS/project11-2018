@@ -87,6 +87,7 @@ public class HistoryFrame extends JFrame {
 	private JPanel getPanel() {
 		if (panel == null) {
 			panel = new JPanel();
+			panel.setBackground(Colors.gray);
 			panel.setLayout(null);
 			panel.add(getLblTaskName());
 			panel.add(getLblCompany());
@@ -108,6 +109,7 @@ public class HistoryFrame extends JFrame {
 	private JLabel getLblTaskName() {
 		if (lblTaskName == null) {
 			lblTaskName = new JLabel("Task title:");
+			lblTaskName.setForeground(Color.WHITE);
 			lblTaskName.setFont(new Font("Candara", Font.PLAIN, 15));
 			lblTaskName.setBounds(271, 51, 85, 14);
 		}
@@ -117,6 +119,7 @@ public class HistoryFrame extends JFrame {
 	private JLabel getLblCompany() {
 		if (lblCompany == null) {
 			lblCompany = new JLabel("Company:");
+			lblCompany.setForeground(Color.WHITE);
 			lblCompany.setFont(new Font("Candara", Font.PLAIN, 15));
 			lblCompany.setBounds(271, 88, 111, 14);
 		}
@@ -136,11 +139,12 @@ public class HistoryFrame extends JFrame {
 	private JTextArea getTextAreaDescription() {
 		if (textAreaDescription == null) {
 			textAreaDescription = new JTextArea();
-			textAreaDescription.setBackground(SystemColor.control);
 			textAreaDescription.setBorder(new TitledBorder(
-					new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)),
+					new EtchedBorder(EtchedBorder.LOWERED, Colors.gray, Color.WHITE),
 					"Description", TitledBorder.LEFT, TitledBorder.TOP, new Font("Candara", Font.PLAIN, 15),
-					new Color(0, 0, 0)));
+					Color.WHITE));
+			textAreaDescription.setBackground(Colors.gray);
+			textAreaDescription.setForeground(Color.WHITE);
 		}
 		return textAreaDescription;
 	}
@@ -148,6 +152,7 @@ public class HistoryFrame extends JFrame {
 	private JLabel getLblDoneTasks() {
 		if (lblDoneTasks == null) {
 			lblDoneTasks = new JLabel("Tasks:");
+			lblDoneTasks.setForeground(Colors.blue);
 			lblDoneTasks.setFont(new Font("Candara", Font.PLAIN, 16));
 			lblDoneTasks.setBounds(28, 22, 97, 14);
 		}
@@ -157,6 +162,7 @@ public class HistoryFrame extends JFrame {
 	private JLabel getLblTaskTitleFilled() {
 		if (lblTaskTitleFilled == null) {
 			lblTaskTitleFilled = new JLabel("");
+			lblTaskTitleFilled.setForeground(Color.WHITE);
 			lblTaskTitleFilled.setBounds(350, 51, 210, 14);
 		}
 		return lblTaskTitleFilled;
@@ -165,6 +171,7 @@ public class HistoryFrame extends JFrame {
 	private JLabel getLblCompanyFilled() {
 		if (lblCompanyFilled == null) {
 			lblCompanyFilled = new JLabel("");
+			lblCompanyFilled.setForeground(Color.WHITE);
 			lblCompanyFilled.setBounds(350, 88, 210, 14);
 		}
 		return lblCompanyFilled;
@@ -188,7 +195,9 @@ public class HistoryFrame extends JFrame {
 			rdbtnShowDoneTasks.setFont(new Font("Candara", Font.PLAIN, 13));
 			rdbtnShowDoneTasks.setSelected(true);
 			buttonGroup.add(rdbtnShowDoneTasks);
-			rdbtnShowDoneTasks.setBounds(28, 289, 85, 23);
+			rdbtnShowDoneTasks.setBounds(28, 289, 89, 23);
+			rdbtnShowDoneTasks.setBackground(Colors.gray);
+			rdbtnShowDoneTasks.setForeground(Color.WHITE);
 		}
 		return rdbtnShowDoneTasks;
 	}
@@ -202,7 +211,9 @@ public class HistoryFrame extends JFrame {
 			});
 			rdbtnAllTasks.setFont(new Font("Candara", Font.PLAIN, 13));
 			buttonGroup.add(rdbtnAllTasks);
-			rdbtnAllTasks.setBounds(125, 289, 89, 23);
+			rdbtnAllTasks.setBounds(121, 289, 89, 23);
+			rdbtnAllTasks.setBackground(Colors.gray);
+			rdbtnAllTasks.setForeground(Color.WHITE);
 		}
 		return rdbtnAllTasks;
 	}
@@ -220,6 +231,7 @@ public class HistoryFrame extends JFrame {
 				}
 			});
 			btnCancel.setBounds(455, 296, 89, 23);
+			btnCancel.setBackground(Colors.blue);
 		}
 		return btnCancel;
 	}
@@ -234,6 +246,8 @@ public class HistoryFrame extends JFrame {
 	private JList getList_1() {
 		if (list == null) {
 			list = new JList();
+			list.setBackground(Colors.lightGray);
+			list.setForeground(Color.WHITE);
 			list.addListSelectionListener(new ListSelectionListener() {
 				public void valueChanged(ListSelectionEvent arg0) {
 					showTaskDetails();
@@ -245,8 +259,10 @@ public class HistoryFrame extends JFrame {
 	
 	private void showTaskDetails() {
 		Task task = (Task)list.getSelectedValue();
-		lblCompanyFilled.setText(task.getCoWorker().getCompanyName());
-		lblTaskTitleFilled.setText(task.getTaskTitle());
-		textAreaDescription.setText(task.getDescription());
+		if(task != null){
+			lblCompanyFilled.setText(task.getCoWorker().getCompanyName());
+			lblTaskTitleFilled.setText(task.getTaskTitle());
+			textAreaDescription.setText(task.getDescription());
+		}
 	}
 }
