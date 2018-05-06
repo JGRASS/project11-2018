@@ -103,6 +103,7 @@ public class AddContactFrame extends JFrame {
 	private JLabel getLblName() {
 		if (lblName == null) {
 			lblName = new JLabel("Name:");
+			lblName.setForeground(Color.WHITE);
 			lblName.setFont(Fonts.candaraNormal);
 			lblName.setBounds(32, 22, 56, 16);
 		}
@@ -112,6 +113,7 @@ public class AddContactFrame extends JFrame {
 	private JTextField getTextFieldName() {
 		if (textFieldName == null) {
 			textFieldName = new JTextField();
+			textFieldName.setForeground(Color.WHITE);
 			textFieldName.setBackground(Colors.lightGray);
 			textFieldName.setBounds(156, 16, 116, 22);
 			textFieldName.setFont(Fonts.candaraNormal);
@@ -123,6 +125,7 @@ public class AddContactFrame extends JFrame {
 	private JLabel getLblSurname() {
 		if (lblSurname == null) {
 			lblSurname = new JLabel("Surname:");
+			lblSurname.setForeground(Color.WHITE);
 			lblSurname.setFont(Fonts.candaraNormal);
 			lblSurname.setBounds(32, 54, 72, 16);
 		}
@@ -132,6 +135,7 @@ public class AddContactFrame extends JFrame {
 	private JTextField getTextFieldSurname() {
 		if (textFieldSurname == null) {
 			textFieldSurname = new JTextField();
+			textFieldSurname.setForeground(Color.WHITE);
 			textFieldSurname.setBackground(Colors.lightGray);
 			textFieldSurname.setBounds(156, 48, 116, 22);
 			textFieldSurname.setFont(Fonts.candaraNormal);
@@ -143,6 +147,7 @@ public class AddContactFrame extends JFrame {
 	private JLabel getLblPhoneNumber() {
 		if (lblPhoneNumber == null) {
 			lblPhoneNumber = new JLabel("Phone number:");
+			lblPhoneNumber.setForeground(Color.WHITE);
 			lblPhoneNumber.setFont(Fonts.candaraNormal);
 			lblPhoneNumber.setBounds(32, 89, 108, 16);
 		}
@@ -152,6 +157,7 @@ public class AddContactFrame extends JFrame {
 	private JTextField getTextFieldPhoneNumber() {
 		if (textFieldPhoneNumber == null) {
 			textFieldPhoneNumber = new JTextField();
+			textFieldPhoneNumber.setForeground(Color.WHITE);
 			textFieldPhoneNumber.setBackground(Colors.lightGray);
 			textFieldPhoneNumber.setBounds(156, 83, 116, 22);
 			textFieldPhoneNumber.setFont(Fonts.candaraNormal);
@@ -163,6 +169,7 @@ public class AddContactFrame extends JFrame {
 	private JLabel getLblEmail() {
 		if (lblEmail == null) {
 			lblEmail = new JLabel("E-mail:");
+			lblEmail.setForeground(Color.WHITE);
 			lblEmail.setFont(Fonts.candaraNormal);
 			lblEmail.setBounds(32, 124, 56, 16);
 		}
@@ -172,6 +179,7 @@ public class AddContactFrame extends JFrame {
 	private JTextField getTextFieldEmail() {
 		if (textFieldEmail == null) {
 			textFieldEmail = new JTextField();
+			textFieldEmail.setForeground(Color.WHITE);
 			textFieldEmail.setBackground(Colors.lightGray);
 			textFieldEmail.setBounds(156, 118, 116, 22);
 			textFieldEmail.setFont(Fonts.candaraNormal);
@@ -183,6 +191,7 @@ public class AddContactFrame extends JFrame {
 	private JLabel getLblCompanyInfo() {
 		if (lblCompanyInfo == null) {
 			lblCompanyInfo = new JLabel("Company info:");
+			lblCompanyInfo.setForeground(Color.WHITE);
 			lblCompanyInfo.setFont(Fonts.candaraNormal);
 			lblCompanyInfo.setBounds(32, 182, 108, 16);
 		}
@@ -193,9 +202,10 @@ public class AddContactFrame extends JFrame {
 		if (textAreaCompanyInfo == null) {
 			textAreaCompanyInfo = new JTextArea();
 			textAreaCompanyInfo.setBackground(Colors.gray);
+			textAreaCompanyInfo.setForeground(Color.WHITE);
 			textAreaCompanyInfo.setBorder(
-					new TitledBorder(new MatteBorder(1, 1, 1, 1, (Color)Colors.lightGray), "Company details:",
-							TitledBorder.LEADING, TitledBorder.TOP, Fonts.candaraNormal, Colors.lightGray));
+					new TitledBorder(new MatteBorder(1, 1, 1, 1, (Color)Color.WHITE), "Company details:",
+							TitledBorder.LEADING, TitledBorder.TOP, Fonts.candaraNormal,Color.WHITE));
 			textAreaCompanyInfo.setFont(Fonts.candaraNormal);
 		}
 		return textAreaCompanyInfo;
@@ -245,6 +255,7 @@ public class AddContactFrame extends JFrame {
 	private JLabel getLblCompanyName() {
 		if (lblCompanyName == null) {
 			lblCompanyName = new JLabel("Name:");
+			lblCompanyName.setForeground(Color.WHITE);
 			lblCompanyName.setFont(Fonts.candaraNormal);
 			lblCompanyName.setBounds(32, 211, 56, 16);
 		}
@@ -254,6 +265,7 @@ public class AddContactFrame extends JFrame {
 	private JLabel getLblCountry() {
 		if (lblCountry == null) {
 			lblCountry = new JLabel("Country:");
+			lblCountry.setForeground(Color.WHITE);
 			lblCountry.setFont(Fonts.candaraNormal);
 			lblCountry.setBounds(32, 239, 56, 16);
 		}
@@ -263,6 +275,7 @@ public class AddContactFrame extends JFrame {
 	private JTextField getTextFieldCompanyName() {
 		if (textFieldCompanyName == null) {
 			textFieldCompanyName = new JTextField();
+			textFieldCompanyName.setForeground(Color.WHITE);
 			textFieldCompanyName.setBackground(Colors.lightGray);
 			textFieldCompanyName.setFont(Fonts.candaraNormal);
 			textFieldCompanyName.setBounds(156, 208, 116, 22);
@@ -274,6 +287,7 @@ public class AddContactFrame extends JFrame {
 	private JTextField getTextFieldCountry() {
 		if (textFieldCountry == null) {
 			textFieldCountry = new JTextField();
+			textFieldCountry.setForeground(Color.WHITE);
 			textFieldCountry.setBackground(Colors.lightGray);
 			textFieldCountry.setFont(Fonts.candaraNormal);
 			textFieldCountry.setBounds(156, 236, 116, 22);
