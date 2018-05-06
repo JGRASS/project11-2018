@@ -59,36 +59,6 @@ public class Contacts implements ContactInterface{
 	}
 
 	/**
-	 * Pronalazenje kontakta prema imenu saradnika
-	 * @param name ime kontakta koji trazimo
-	 * @return odgovarajuci kontakt
-	 */
-	@Override
-	public ArrayList<CoWorker> FindContactByName(String name) {
-		return SOFindContactByName.execute(contacts, name);
-	}
-
-	/**
-	 * Pronalazenje kontakata prema drzavi 
-	 * @param country naziv zemlje za koju trazimo metode
-	 * @return listu odgovarajucih kontakata
-	 */
-	@Override
-	public ArrayList<CoWorker> FindContactByCountry(String country) {
-		return SOFindContactByCountry.execute(country, contacts);
-	}
-
-	/**
-	 * Pronalazenje kontakta prema imenu kompanije
-	 * @param companyName naziv kompanije za koju trazimo 
-	 * @return listu odgovarajucih kontakata
-	 */
-	@Override
-	public ArrayList<CoWorker> FindContactByCompanyName(String companyName) {
-		return SOFindContactByCompanyName.execute(contacts, companyName);
-	}
-
-	/**
 	 * Dodavanje novog kontakta
 	 * @param coWorker saradnik koga dodajemo u kontakte
 	 */
@@ -104,7 +74,7 @@ public class Contacts implements ContactInterface{
 	 */
 	@Override
 	public void removeContact(CoWorker coWorker) {
-		contacts = SORemoveContact.execute(contacts, coWorker);
+		SORemoveContact.execute(contacts, coWorker);
 		
 	}
 }

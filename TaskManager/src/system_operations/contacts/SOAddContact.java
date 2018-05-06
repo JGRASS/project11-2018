@@ -10,7 +10,6 @@ public class SOAddContact {
 	 * Dodaje kontakt u listu kontakata
 	 * @param contacts lista kontakata
 	 * @param coWorker novi kontakt
-	 * @return contacts azurirana lista kontakata
 	 */
 	public static void execute(ArrayList<CoWorker> contacts, CoWorker coWorker){
 		if(!contacts.contains(coWorker)) {
