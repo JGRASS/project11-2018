@@ -135,7 +135,7 @@ public class AddTaskFrame extends JFrame {
 			});
 			btnAdd.setFont(Fonts.candaraNormal);
 			btnAdd.setBackground(Colors.lightGreen);
-			btnAdd.setBounds(362, 222, 123, 23);
+			btnAdd.setBounds(362, 222, 140, 23);
 		}
 		return btnAdd;
 	}
@@ -149,7 +149,7 @@ public class AddTaskFrame extends JFrame {
 			});
 			btnCancel.setFont(Fonts.candaraNormal);
 			btnCancel.setBackground(Colors.lightGreen);
-			btnCancel.setBounds(362, 272, 123, 23);
+			btnCancel.setBounds(362, 272, 140, 23);
 		}
 		return btnCancel;
 	}
@@ -178,7 +178,7 @@ public class AddTaskFrame extends JFrame {
 			});
 			btnNewButton.setFont(Fonts.candaraNormal);
 			btnNewButton.setBackground(Colors.lightGreen);
-			btnNewButton.setBounds(362, 133, 123, 23);
+			btnNewButton.setBounds(362, 133, 140, 23);
 		}
 		return btnNewButton;
 	}
