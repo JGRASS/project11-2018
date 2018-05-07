@@ -586,6 +586,8 @@ public class MainFrame extends JFrame {
 			textFieldEmail.setEditable(false);
 			textFieldEmail.setBorder(null);
 			textFieldEmail.setColumns(10);
+			textFieldEmail.setBorder(null);
+			textFieldEmail.setBackground(Colors.gray);
 		}
 		return textFieldEmail;
 	}
@@ -599,6 +601,7 @@ public class MainFrame extends JFrame {
 			textFieldPhone.setEditable(false);
 			textFieldPhone.setColumns(10);
 			textFieldPhone.setBorder(null);
+			textFieldPhone.setBackground(Colors.gray);
 		}
 		return textFieldPhone;
 	}
@@ -643,7 +646,7 @@ public class MainFrame extends JFrame {
 			textAreaTaskDescription = new JTextArea();
 			textAreaTaskDescription.setForeground(Color.WHITE);
 			textAreaTaskDescription.setBackground(Colors.gray);
-			textAreaTaskDescription.setFont(new Font("Monospaced", Font.PLAIN, 15));
+			textAreaTaskDescription.setFont(new Font("Candara", Font.PLAIN, 15));
 			textAreaTaskDescription.setEditable(false);
 			
 		}
@@ -654,7 +657,7 @@ public class MainFrame extends JFrame {
 			textAreaComments = new JTextArea();
 			textAreaComments.setForeground(Color.WHITE);
 			textAreaComments.setBackground(Colors.lightGray);
-			textAreaComments.setFont(new Font("Monospaced", Font.PLAIN, 15));
+			textAreaComments.setFont(new Font("Candara", Font.PLAIN, 15));
 			textAreaComments.setBorder(new TitledBorder(new MatteBorder(1, 1, 1, 1, (Color)Color.WHITE),"Comments",
 					TitledBorder.LEADING, TitledBorder.TOP, Fonts.candaraNormal, Color.WHITE));
 		}

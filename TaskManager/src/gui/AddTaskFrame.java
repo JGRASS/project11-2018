@@ -64,7 +64,7 @@ public class AddTaskFrame extends JFrame {
 	public AddTaskFrame() {
 		setTitle("Add task");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 550, 400);
+		setBounds(100, 100, 480, 450);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBackground(Colors.gray);		
@@ -90,7 +90,7 @@ public class AddTaskFrame extends JFrame {
 			lblTitle = new JLabel("Title:");
 			lblTitle.setForeground(Color.WHITE);
 			lblTitle.setFont(Fonts.candaraNormal);
-			lblTitle.setBounds(30, 31, 46, 14);
+			lblTitle.setBounds(83, 31, 46, 14);
 		}
 		return lblTitle;
 	}
@@ -99,7 +99,7 @@ public class AddTaskFrame extends JFrame {
 			lblCoworker = new JLabel("CoWorker:");
 			lblCoworker.setForeground(Color.WHITE);
 			lblCoworker.setFont(Fonts.candaraNormal);
-			lblCoworker.setBounds(30, 137, 88, 14);
+			lblCoworker.setBounds(83, 137, 88, 14);
 		}
 		return lblCoworker;
 	}
@@ -108,7 +108,7 @@ public class AddTaskFrame extends JFrame {
 			lblDate = new JLabel("Date:");
 			lblDate.setForeground(Color.WHITE);
 			lblDate.setFont(Fonts.candaraNormal);
-			lblDate.setBounds(30, 79, 46, 14);
+			lblDate.setBounds(83, 79, 46, 14);
 		}
 		return lblDate;
 	}
@@ -129,7 +129,7 @@ public class AddTaskFrame extends JFrame {
 			textFieldTitle.setForeground(Color.WHITE);
 			textFieldTitle.setBackground(Colors.lightGray);
 			textFieldTitle.setFont(Fonts.candaraNormal);
-			textFieldTitle.setBounds(102, 28, 223, 20);
+			textFieldTitle.setBounds(170, 28, 223, 20);
 			textFieldTitle.setColumns(10);
 		}
 		return textFieldTitle;
@@ -147,7 +147,7 @@ public class AddTaskFrame extends JFrame {
 			});
 			btnAdd.setFont(Fonts.candaraNormal);
 			btnAdd.setBackground(Colors.green);
-			btnAdd.setBounds(376, 220, 140, 23);
+			btnAdd.setBounds(302, 307, 140, 23);
 		}
 		return btnAdd;
 	}
@@ -161,7 +161,7 @@ public class AddTaskFrame extends JFrame {
 			});
 			btnCancel.setFont(Fonts.candaraNormal);
 			btnCancel.setBackground(Colors.green);
-			btnCancel.setBounds(376, 256, 140, 23);
+			btnCancel.setBounds(302, 354, 140, 23);
 		}
 		return btnCancel;
 	}
@@ -172,7 +172,7 @@ public class AddTaskFrame extends JFrame {
 			comboBoxCoWorker.setForeground(Color.WHITE);
 			comboBoxCoWorker.setToolTipText("Choose CoWorker");
 			comboBoxCoWorker.setFont(Fonts.candaraNormal);
-			comboBoxCoWorker.setBounds(102, 133, 223, 22);
+			comboBoxCoWorker.setBounds(170, 133, 223, 22);
 		}
 		return comboBoxCoWorker;
 	}
@@ -192,7 +192,7 @@ public class AddTaskFrame extends JFrame {
 			});
 			btnNewButton.setFont(Fonts.candaraNormal);
 			btnNewButton.setBackground(Colors.green);
-			btnNewButton.setBounds(376, 133, 140, 23);
+			btnNewButton.setBounds(302, 208, 140, 23);
 		}
 		return btnNewButton;
 	}
@@ -200,7 +200,7 @@ public class AddTaskFrame extends JFrame {
 		if (scrollPane == null) {
 			scrollPane = new JScrollPane();
 			scrollPane.setBorder(null);
-			scrollPane.setBounds(30, 190, 295, 140);
+			scrollPane.setBounds(30, 189, 243, 188);
 			scrollPane.setViewportView(getTextAreaDescription());
 		}
 		return scrollPane;
@@ -220,7 +220,7 @@ public class AddTaskFrame extends JFrame {
 			spinner.setFont(Fonts.candaraNormal);
 			spinner.setForeground(Color.WHITE);
 			spinner.setBackground(Colors.lightGray);
-			spinner.setBounds(102, 76, 223, 20);
+			spinner.setBounds(170, 76, 223, 20);
 //			SpinnerNumberModel nummodel = new SpinnerNumberModel(5, 0, 10, 1); 
 //			JSpinner numspinner = new JSpinner(nummodel); 
 //			numspinner.getEditor().getComponent(0).setBackground(Color.green); 

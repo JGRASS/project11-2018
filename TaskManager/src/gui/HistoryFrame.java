@@ -70,7 +70,7 @@ public class HistoryFrame extends JFrame {
 	public HistoryFrame() {
 		setTitle("History");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 596, 379);
+		setBounds(100, 100, 480, 450);
 		setFont(Fonts.candaraNormal);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -111,7 +111,7 @@ public class HistoryFrame extends JFrame {
 			lblTaskName = new JLabel("Task title:");
 			lblTaskName.setForeground(Color.WHITE);
 			lblTaskName.setFont(new Font("Candara", Font.PLAIN, 15));
-			lblTaskName.setBounds(271, 51, 85, 14);
+			lblTaskName.setBounds(219, 51, 85, 14);
 		}
 		return lblTaskName;
 	}
@@ -121,7 +121,7 @@ public class HistoryFrame extends JFrame {
 			lblCompany = new JLabel("Company:");
 			lblCompany.setForeground(Color.WHITE);
 			lblCompany.setFont(new Font("Candara", Font.PLAIN, 15));
-			lblCompany.setBounds(271, 88, 111, 14);
+			lblCompany.setBounds(219, 98, 111, 14);
 		}
 		return lblCompany;
 	}
@@ -130,7 +130,7 @@ public class HistoryFrame extends JFrame {
 		if (scrollPane == null) {
 			scrollPane = new JScrollPane();
 			scrollPane.setBorder(null);
-			scrollPane.setBounds(261, 123, 283, 157);
+			scrollPane.setBounds(214, 160, 230, 175);
 			scrollPane.setViewportView(getTextAreaDescription());
 		}
 		return scrollPane;
@@ -139,6 +139,7 @@ public class HistoryFrame extends JFrame {
 	private JTextArea getTextAreaDescription() {
 		if (textAreaDescription == null) {
 			textAreaDescription = new JTextArea();
+			textAreaDescription.setEditable(false);
 			textAreaDescription.setBorder(new TitledBorder(
 					new EtchedBorder(EtchedBorder.LOWERED, Colors.gray, Color.WHITE),
 					"Description", TitledBorder.LEFT, TitledBorder.TOP, new Font("Candara", Font.PLAIN, 15),
@@ -163,7 +164,7 @@ public class HistoryFrame extends JFrame {
 		if (lblTaskTitleFilled == null) {
 			lblTaskTitleFilled = new JLabel("");
 			lblTaskTitleFilled.setForeground(Color.WHITE);
-			lblTaskTitleFilled.setBounds(350, 51, 210, 14);
+			lblTaskTitleFilled.setBounds(219, 73, 225, 14);
 		}
 		return lblTaskTitleFilled;
 	}
@@ -172,7 +173,7 @@ public class HistoryFrame extends JFrame {
 		if (lblCompanyFilled == null) {
 			lblCompanyFilled = new JLabel("");
 			lblCompanyFilled.setForeground(Color.WHITE);
-			lblCompanyFilled.setBounds(350, 88, 210, 14);
+			lblCompanyFilled.setBounds(219, 123, 225, 14);
 		}
 		return lblCompanyFilled;
 	}
@@ -195,7 +196,7 @@ public class HistoryFrame extends JFrame {
 			rdbtnShowDoneTasks.setFont(new Font("Candara", Font.PLAIN, 13));
 			rdbtnShowDoneTasks.setSelected(true);
 			buttonGroup.add(rdbtnShowDoneTasks);
-			rdbtnShowDoneTasks.setBounds(28, 289, 89, 23);
+			rdbtnShowDoneTasks.setBounds(20, 347, 89, 23);
 			rdbtnShowDoneTasks.setBackground(Colors.gray);
 			rdbtnShowDoneTasks.setForeground(Color.WHITE);
 		}
@@ -211,7 +212,7 @@ public class HistoryFrame extends JFrame {
 			});
 			rdbtnAllTasks.setFont(new Font("Candara", Font.PLAIN, 13));
 			buttonGroup.add(rdbtnAllTasks);
-			rdbtnAllTasks.setBounds(121, 289, 89, 23);
+			rdbtnAllTasks.setBounds(115, 347, 89, 23);
 			rdbtnAllTasks.setBackground(Colors.gray);
 			rdbtnAllTasks.setForeground(Color.WHITE);
 		}
@@ -230,7 +231,7 @@ public class HistoryFrame extends JFrame {
 					dispose();
 				}
 			});
-			btnCancel.setBounds(455, 296, 89, 23);
+			btnCancel.setBounds(288, 346, 89, 23);
 			btnCancel.setBackground(Colors.blue);
 		}
 		return btnCancel;
@@ -238,7 +239,7 @@ public class HistoryFrame extends JFrame {
 	private JScrollPane getScrollPane_1() {
 		if (scrollPane_1 == null) {
 			scrollPane_1 = new JScrollPane();
-			scrollPane_1.setBounds(28, 51, 186, 229);
+			scrollPane_1.setBounds(20, 51, 184, 279);
 			scrollPane_1.setViewportView(getList_1());
 		}
 		return scrollPane_1;
