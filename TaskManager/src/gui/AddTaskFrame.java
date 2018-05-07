@@ -19,6 +19,8 @@ import gui.fonts.Fonts;
 import gui.kontroler.GUIKontroler;
 
 import java.awt.Color;
+import java.awt.Toolkit;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -88,6 +90,9 @@ public class AddTaskFrame extends JFrame {
 		contentPane.add(getScrollPane());
 		contentPane.add(getSpinner());
 		setResizable(false);
+		
+		setIconImage(Toolkit.getDefaultToolkit().getImage(AddTaskFrame.class.getResource("/icons/AddTask.png")));
+
 		
 		showContacts();
 	}

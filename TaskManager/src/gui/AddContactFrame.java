@@ -24,6 +24,8 @@ import javax.swing.UIManager;
 import java.awt.Color;
 import javax.swing.border.MatteBorder;
 import java.awt.SystemColor;
+import java.awt.Toolkit;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -67,6 +69,8 @@ public class AddContactFrame extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(AddContactFrame.class.getResource("/icons/Contacts.png")));
+
 
 		setContentPane(contentPane);
 		contentPane.add(getPanel(), BorderLayout.CENTER);
