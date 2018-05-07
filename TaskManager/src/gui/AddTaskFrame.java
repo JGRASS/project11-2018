@@ -1,7 +1,7 @@
 package gui;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+//import java.awt.BorderLayout;
+//import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -13,7 +13,7 @@ import javax.swing.JTextArea;
 import javax.swing.border.TitledBorder;
 
 import classes.coworker.CoWorker;
-import classes.coworker.Contacts;
+//import classes.coworker.Contacts;
 import gui.colors.Colors;
 import gui.fonts.Fonts;
 import gui.kontroler.GUIKontroler;
@@ -22,28 +22,32 @@ import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import java.awt.Font;
+//import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
-import javax.swing.DefaultComboBoxModel;
-import java.time.DayOfWeek;
-import java.time.zone.ZoneOffsetTransitionRule.TimeDefinition;
+//import javax.swing.DefaultComboBoxModel;
+//import java.time.DayOfWeek;
+//import java.time.zone.ZoneOffsetTransitionRule.TimeDefinition;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
-import javax.swing.SpinnerNumberModel;
+//import javax.swing.SpinnerNumberModel;
 
 import java.util.Date;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
-import javax.swing.UIManager;
+//import javax.swing.UIManager;
 
 public class AddTaskFrame extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 897739113371485843L;
 	private JPanel contentPane;
 	private JLabel lblTitle;
 	private JLabel lblCoworker;
@@ -52,6 +56,7 @@ public class AddTaskFrame extends JFrame {
 	private JTextField textFieldTitle;
 	private JButton btnAdd;
 	private JButton btnCancel;
+	@SuppressWarnings("rawtypes")
 	private JComboBox comboBoxCoWorker;
 	private JButton btnNewButton;
 	private JScrollPane scrollPane;
@@ -116,6 +121,7 @@ public class AddTaskFrame extends JFrame {
 	private JTextArea getTextAreaDescription() {
 		if (textAreaDescription == null) {
 			textAreaDescription = new JTextArea();
+			textAreaDescription.setLineWrap(true);
 			textAreaDescription.setForeground(Color.WHITE);
 			textAreaDescription.setBackground(Colors.gray);
 			textAreaDescription.setFont(Fonts.candaraNormal);
@@ -170,6 +176,7 @@ public class AddTaskFrame extends JFrame {
 		}
 		return btnCancel;
 	}
+	@SuppressWarnings("rawtypes")
 	private JComboBox getComboBoxCoWorker() {
 		if (comboBoxCoWorker == null) {
 			comboBoxCoWorker = new JComboBox();
@@ -182,6 +189,7 @@ public class AddTaskFrame extends JFrame {
 		return comboBoxCoWorker;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void showContacts() {
 		for(int i = 0; i < GUIKontroler.showAllContacts().size(); i++)
 		comboBoxCoWorker.addItem(GUIKontroler.showAllContacts().get(i));
@@ -216,6 +224,7 @@ public class AddTaskFrame extends JFrame {
 			
 			spinner.addChangeListener(new ChangeListener() {
 				public void stateChanged(ChangeEvent arg0) {
+					@SuppressWarnings("unused")
 					String format = new SimpleDateFormat("yyyy/MM/dd").format(spinner.getValue());
 //					System.out.println(format);
 //					searchByDate(format);
@@ -235,7 +244,7 @@ public class AddTaskFrame extends JFrame {
 		int dd = Integer.parseInt(s.substring(br + 1,s.length()));
 		int mm = Integer.parseInt(s.substring(6, 7));
 		int yy = Integer.parseInt(s.substring(0, 4)); 
-		return new GregorianCalendar(yy, mm, dd);
+		return new GregorianCalendar(yy, mm-1, dd);
 
 	}
 }

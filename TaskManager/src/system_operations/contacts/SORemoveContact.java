@@ -13,6 +13,8 @@ public class SORemoveContact {
 	 * @throws java.lang.RuntimeException ako je vrednost unetog saradnika null
 	 */
 	public static void execute(ArrayList<CoWorker> contacts, CoWorker coWorker){
+		if(coWorker.equals(null))
+			throw new RuntimeException("CoWorker is null");
 		if(contacts.contains(coWorker)) 
 			contacts.remove(coWorker);
 	}

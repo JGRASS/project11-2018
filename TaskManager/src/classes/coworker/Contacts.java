@@ -5,9 +5,6 @@ import java.util.ArrayList;
 
 import interfaces.ContactInterface;
 import system_operations.contacts.SOAddContact;
-import system_operations.contacts.SOFindContactByCompanyName;
-import system_operations.contacts.SOFindContactByCountry;
-import system_operations.contacts.SOFindContactByName;
 import system_operations.contacts.SOLoadContacts;
 import system_operations.contacts.SORemoveContact;
 import system_operations.contacts.SOSaveContacts;
@@ -65,7 +62,6 @@ public class Contacts implements ContactInterface{
 	@Override
 	public void addContact(CoWorker coWorker) {
 		SOAddContact.execute(contacts, coWorker);
-		
 	}
 
 	/**

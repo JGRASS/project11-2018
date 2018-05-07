@@ -138,7 +138,9 @@ public class HistoryFrame extends JFrame {
 	private JTextArea getTextAreaDescription() {
 		if (textAreaDescription == null) {
 			textAreaDescription = new JTextArea();
+			textAreaDescription.setLineWrap(true);
 			textAreaDescription.setEditable(false);
+			textAreaDescription.setFont(Fonts.candaraNormal);
 			textAreaDescription.setBorder(new TitledBorder(
 					new EtchedBorder(EtchedBorder.LOWERED, Colors.gray, Color.WHITE),
 					"Description", TitledBorder.LEFT, TitledBorder.TOP, new Font("Candara", Font.PLAIN, 15),

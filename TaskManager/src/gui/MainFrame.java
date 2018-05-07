@@ -58,6 +58,7 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.ScrollPaneConstants;
 
 public class MainFrame extends JFrame {
 
@@ -146,11 +147,7 @@ public class MainFrame extends JFrame {
 		setTitle("TaskManager");
 		
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-//		Toolkit tk = Toolkit.getDefaultToolkit();
-//		int width = (int) tk.getScreenSize().getWidth();
-//		int height = (int) tk.getScreenSize().getHeight();
 		setBounds(100, 100, 1080, 1500);
-//		this.setSize(977,700);
 		setJMenuBar(getMenuBar_1());
 		contentPane = new JPanel();
 		contentPane.setBackground(Colors.gray);
@@ -166,6 +163,7 @@ public class MainFrame extends JFrame {
 		
 		mainFrame = this;
 		showTasks();
+//		setExtendedState(JFrame.MAXIMIZED_BOTH);		
 	}
 
 	private JMenuBar getMenuBar_1() {
@@ -477,6 +475,7 @@ public class MainFrame extends JFrame {
 	private JScrollPane getScrollPaneLeft() {
 		if (scrollPaneLeft == null) {
 			scrollPaneLeft = new JScrollPane();
+			scrollPaneLeft.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 			scrollPaneLeft.setViewportView(getPanelContact());
 		}
 		return scrollPaneLeft;
@@ -650,6 +649,7 @@ public class MainFrame extends JFrame {
 	private JScrollPane getScrollPaneTaskDescription() {
 		if (scrollPaneTaskDescription == null) {
 			scrollPaneTaskDescription = new JScrollPane();
+			scrollPaneTaskDescription.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 			scrollPaneTaskDescription.setViewportView(getTextAreaTaskDescription());
 		}
 		return scrollPaneTaskDescription;
@@ -657,6 +657,7 @@ public class MainFrame extends JFrame {
 	private JTextArea getTextAreaTaskDescription() {
 		if (textAreaTaskDescription == null) {
 			textAreaTaskDescription = new JTextArea();
+			textAreaTaskDescription.setLineWrap(true);
 			textAreaTaskDescription.setForeground(Color.WHITE);
 			textAreaTaskDescription.setBackground(Colors.gray);
 			textAreaTaskDescription.setFont(new Font("Candara", Font.PLAIN, 15));
@@ -701,6 +702,7 @@ public class MainFrame extends JFrame {
 	private JTextArea getTextAreaAboutCompany() {
 		if (textAreaAboutCompany == null) {
 			textAreaAboutCompany = new JTextArea();
+			textAreaAboutCompany.setLineWrap(true);
 			textAreaAboutCompany.setText("\r\n");
 			textAreaAboutCompany.setEditable(false);
 			textAreaAboutCompany.setBackground(Colors.gray);
@@ -784,6 +786,7 @@ public class MainFrame extends JFrame {
 						clearWindow();
 						GUIKontroler.taskCompleted(task);
 						GUIKontroler.refreshTasks();
+						textAreaComments.setText("");
 					}
 				}
 			});

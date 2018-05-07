@@ -1,6 +1,7 @@
 package gui.kontroler;
 
 import java.awt.EventQueue;
+import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 import java.util.ArrayList;
 
@@ -20,27 +21,24 @@ import gui.HistoryFrame;
 
 import gui.MainFrame;
 import gui.PasswordFrame;
-import interfaces.TaskInterface;
-import interfaces.ContactInterface;
 
 public class GUIKontroler {
-	
 
 	public static Tasks tm = new Tasks();
 	public static Users users = new Users();
 	public static Contacts contacts = new Contacts();
-	
+
 	public static User user;
-	
+
 	public static PasswordFrame pf;
 	public static MainFrame mf;
 	public static ContactsFrame conf;
 	public static AddContactFrame acf;
 	public static AddTaskFrame atf;
-	
+
 	/**
 	 * Launch the application.
-	*/
+	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -59,40 +57,39 @@ public class GUIKontroler {
 	public static void showMainFrame(User userr) {
 		LoadUsers();
 		User newUser = users.checkUsernamePassword(userr);
-		
-		if(newUser!=null) {
+
+		if (newUser != null) {
 			user = newUser;
 			LoadTasks();
 			mf = new MainFrame();
 			mf.setLocationRelativeTo(pf);
 			mf.setHello(newUser);
 			mf.setVisible(true);
-			pf.setVisible(false);	
-		}else {
+			pf.setVisible(false);
+		} else {
 			JOptionPane.showMessageDialog(pf, "Invalid password or username", "Error", JOptionPane.ERROR_MESSAGE);
 			pf.clear();
 		}
-	
+
 	}
-	
+
 	public static void searchContacts() {
 		conf = new ContactsFrame();
 		conf.setLocationRelativeTo(pf);
 		conf.setVisible(true);
 	}
-	
-	
 
 	public static void searchHistory() {
 		HistoryFrame hf = new HistoryFrame();
 		hf.setLocationRelativeTo(pf);
 		hf.setVisible(true);
 	}
+
 	public static void addingContact() {
 		acf = new AddContactFrame();
 		acf.setLocationRelativeTo(conf);
 		acf.setVisible(true);
-	
+
 	}
 
 	public static void addingContactTask() {
@@ -100,6 +97,7 @@ public class GUIKontroler {
 		acf.setLocationRelativeTo(atf);
 		acf.setVisible(true);
 	}
+
 	public static void addingNewTask() {
 		atf = new AddTaskFrame();
 		atf.setLocationRelativeTo(mf);
@@ -128,9 +126,10 @@ public class GUIKontroler {
 	public static void showError(Exception e) {
 		JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
 	}
-	
+
 	public static void saveContact(String ConName, String ConSurname, String ConPhone, String ConEmail, String ComName,
 			String ComCountry, String ComInfo) {
+
 		CoWorker contact = new CoWorker();
 		contact.setName(ConName);
 		contact.setSurname(ConSurname);
@@ -143,9 +142,9 @@ public class GUIKontroler {
 		contacts.addContact(contact);
 		contacts.SaveContacts(Paths.contactsPath);
 	}
-	
-	
-	public static void saveTask(String title, CoWorker coworker, GregorianCalendar date, String description ) {
+
+
+	public static void saveTask(String title, CoWorker coworker, GregorianCalendar date, String description) {
 		Task task = new Task();
 		task.setTaskTitle(title);
 		task.setCoWorker(coworker);
@@ -153,48 +152,51 @@ public class GUIKontroler {
 		task.setUsername(user.getUsername());
 		task.setDescription(description);
 		task.setDone(false);
-
+		
 		tm.AddTaskToDo(task);
 		tm.saveTasks(Paths.tasksPath, Paths.doneTasksPath);
 	}
-	
+
 	public static void taskCompleted(Task task) {
 		tm.AddTaskDone(task);
 		tm.saveTasks(Paths.tasksPath, Paths.doneTasksPath);
 	}
-	
-	
-	//Funkcije za prikazivanje podataka u listama i kombo boksevima
+
+	// Funkcije za prikazivanje podataka u listama i kombo boksevima
 	public static void refreshContacts() {
 		conf.showContacts();
 		atf.showContacts();
 	}
-	
+
 	public static void refreshTasks() {
 		mf.showTasks();
 	}
-	
+
 	public static ArrayList<CoWorker> showAllContacts() {
 		return contacts.getContacts();
 	}
-	
+
 	public static ArrayList<Task> showAllTasksToDo() {
 		return tm.showTillToday(user);
 	}
-	public static ArrayList<Task> showDoneTasks(){
+
+	public static ArrayList<Task> showDoneTasks() {
 		return tm.getDoneTasks();
 	}
-	public static ArrayList<Task> showTasksToDo(){
+
+	public static ArrayList<Task> showTasksToDo() {
 		return tm.getTasks();
 	}
-	
-	//Funkcije koje ucitavaju juzere, kontakte i taskove iz fajlova
+
+	// Funkcije koje ucitavaju juzere, kontakte i taskove iz fajlova
 	public static void LoadUsers() {
 		users.loadUsers(Paths.usersPath);
-	}	
+	}
+
 	public static void LoadContacts() {
 		contacts.LoadContacts(Paths.contactsPath);
-	}	
+	}
+
 	public static void LoadTasks() {
 		tm.LoadTasks(Paths.tasksPath, Paths.doneTasksPath);
 	}

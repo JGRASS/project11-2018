@@ -201,6 +201,7 @@ public class AddContactFrame extends JFrame {
 	private JTextArea getTextAreaCompanyInfo() {
 		if (textAreaCompanyInfo == null) {
 			textAreaCompanyInfo = new JTextArea();
+			textAreaCompanyInfo.setLineWrap(true);
 			textAreaCompanyInfo.setBackground(Colors.gray);
 			textAreaCompanyInfo.setForeground(Color.WHITE);
 			textAreaCompanyInfo.setBorder(

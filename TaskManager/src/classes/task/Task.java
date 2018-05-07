@@ -1,6 +1,8 @@
 package classes.task;
 
 import java.io.Serializable;
+import java.time.Year;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import classes.coworker.CoWorker;
@@ -157,7 +159,10 @@ public class Task implements Serializable, Comparable<Task> {
 	public void setDate(GregorianCalendar date) {
 		if (date.equals(null))
 			throw new RuntimeException("Date is null");
-		if (date.before(new GregorianCalendar()))
+		int day = date.get(Calendar.DAY_OF_MONTH)-1;
+		int month = date.get(Calendar.MONTH);
+		int year = date.get(Calendar.YEAR);
+		if (date.before(new GregorianCalendar(year,month,day)))
 			throw new RuntimeException("You cannot schedule a task in the past");
 		this.date = date;
 	}
