@@ -2,6 +2,11 @@ package gui.colors;
 
 import java.awt.Color;
 
+/**
+ * Klasa sa definisanim bojama
+ * @author vlajs16
+ *
+ */
 public class Colors {
 	//public static final Color lightGreen = new Color(133, 183, 70);
 	public static final Color lightGray = new Color(109,116,124);

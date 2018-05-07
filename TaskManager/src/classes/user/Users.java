@@ -1,8 +1,7 @@
-package classes.users;
+package classes.user;
 
 import java.util.ArrayList;
 
-import classes.user.User;
 import interfaces.UsersInterface;
 import system_operations.users.SOAddUser;
 import system_operations.users.SOCheckUsernamePassword;
@@ -31,15 +30,16 @@ public class Users implements UsersInterface{
 
 	/**
 	 * Ucitavanje liste zaposlenih
+	 * @param file datoteka sa listom zaposlenih
 	 */
 	@Override
 	public void loadUsers(String file) {
 		users = SOLoadUsers.execute(file);
-		
 	}
 
 	/**
 	 * Cuvanje liste zaposlenih u datoteku
+	 * @param file datoteka sa listom zaposlenih
 	 */
 	@Override
 	public void saveUsers(String file) {
@@ -48,21 +48,19 @@ public class Users implements UsersInterface{
 
 	/**
 	 * Dodavanje novog zaposlenog u listu
+	 * @param user novi zaposleni
 	 */
 	@Override
 	public void addUser(User user) {
-		users = SOAddUser.execute(users, user);
-		
+		SOAddUser.execute(users, user);
 	}
 
 	/**
 	 * Provera username-a i lozinke
+	 * @param user zaposleni
 	 */
 	@Override
 	public User checkUsernamePassword(User user) {
 		return SOCheckUsernamePassword.execute(users, user);
 	}
-	
-	
-
 }

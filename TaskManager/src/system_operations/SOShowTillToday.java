@@ -10,9 +10,8 @@ public class SOShowTillToday {
 
 	/**
 	 * Prikaz svih zadataka koji treba da se odrade zakljucno sa danasnjim danom
-	 * 
 	 * @param tasks svi zadaci
-	 * @return tasks zadaci koji treba da se izvrse
+	 * @return n zadaci koji treba da se izvrse
 	 */
 	public static ArrayList<Task> execute(ArrayList<Task> tasks, User user) {
 		ArrayList<Task> n = new ArrayList<Task>();

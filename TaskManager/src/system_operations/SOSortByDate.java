@@ -8,7 +8,7 @@ import classes.task.Task;
 public class SOSortByDate {
 	
 	/**
-	 * Redjanje zadataka po datumu
+	 * Sortiranje zadataka po datumu
 	 * @param tasks zadaci koji treba da se odrade
 	 * @return tasks sortirani zadaci po datumu
 	 */

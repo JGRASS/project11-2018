@@ -1,6 +1,7 @@
 package gui.kontroler;
 
 import java.awt.EventQueue;
+import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 import java.util.ArrayList;
 
@@ -12,7 +13,7 @@ import classes.coworker.Contacts;
 import classes.task.Task;
 import classes.task.Tasks;
 import classes.user.User;
-import classes.users.Users;
+import classes.user.Users;
 import gui.AddContactFrame;
 import gui.AddTaskFrame;
 import gui.ContactsFrame;
@@ -102,13 +103,28 @@ public class GUIKontroler {
 		atf.setLocationRelativeTo(mf);
 		atf.setVisible(true);
 	}
-
-	public static void loggingIn() {
+	public static void loggingOut() {
 		pf = new PasswordFrame();
 		pf.setVisible(true);
 		pf.setLocationRelativeTo(mf);
 
 		mf.setVisible(false);
+	}
+	
+	public static void showAboutTaskManager() {
+		JOptionPane.showMessageDialog(mf.getContentPane(), "Authors:  Vladimir Belca, Kristina Dekic, Teodora Acimov", "About TaskManager",
+				JOptionPane.INFORMATION_MESSAGE);
+	}
+	public static void logOut() {
+		int option = JOptionPane.showConfirmDialog(null, "Are you sure you want to log out?", "Logging out",
+				JOptionPane.YES_NO_OPTION);
+
+		if (option == JOptionPane.YES_OPTION) {
+			loggingOut();
+		}
+	}
+	public static void showError(Exception e) {
+		JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	public static void saveContact(String ConName, String ConSurname, String ConPhone, String ConEmail, String ComName,
@@ -125,9 +141,8 @@ public class GUIKontroler {
 
 		contacts.addContact(contact);
 		contacts.SaveContacts(Paths.contactsPath);
-
-
 	}
+
 
 	public static void saveTask(String title, CoWorker coworker, GregorianCalendar date, String description) {
 		Task task = new Task();
@@ -137,6 +152,7 @@ public class GUIKontroler {
 		task.setUsername(user.getUsername());
 		task.setDescription(description);
 		task.setDone(false);
+		
 		tm.AddTaskToDo(task);
 		tm.saveTasks(Paths.tasksPath, Paths.doneTasksPath);
 	}

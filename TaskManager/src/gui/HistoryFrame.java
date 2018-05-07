@@ -100,7 +100,6 @@ public class HistoryFrame extends JFrame {
 			panel.add(getScrollPane_1());
 			panel.add(getRdbtnShowDoneTasks());
 			panel.add(getRdbtnAllTasks());
-//			panel.add(getList_1());
 		}
 		return panel;
 	}
@@ -139,7 +138,9 @@ public class HistoryFrame extends JFrame {
 	private JTextArea getTextAreaDescription() {
 		if (textAreaDescription == null) {
 			textAreaDescription = new JTextArea();
+			textAreaDescription.setLineWrap(true);
 			textAreaDescription.setEditable(false);
+			textAreaDescription.setFont(Fonts.candaraNormal);
 			textAreaDescription.setBorder(new TitledBorder(
 					new EtchedBorder(EtchedBorder.LOWERED, Colors.gray, Color.WHITE),
 					"Description", TitledBorder.LEFT, TitledBorder.TOP, new Font("Candara", Font.PLAIN, 15),
@@ -217,11 +218,6 @@ public class HistoryFrame extends JFrame {
 			rdbtnAllTasks.setForeground(Color.WHITE);
 		}
 		return rdbtnAllTasks;
-	}
-	private void clear() {
-//		if(list.getComponentCount()!=0)
-//			list.removeAll();
-//		System.out.println(list.getComponentCount());
 	}
 	private JButton getBtnCancel() {
 		if (btnCancel == null) {

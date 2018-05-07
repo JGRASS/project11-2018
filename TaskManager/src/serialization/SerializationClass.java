@@ -13,8 +13,13 @@ import classes.Paths;
 import classes.coworker.CoWorker;
 //import classes.coworker.Contacts;
 import classes.user.User;
-import classes.users.Users;
+import classes.user.Users;
 
+/**
+ * Klasa za serijalizaciju podataka u datoteke
+ * @author vlajs16
+ *
+ */
 public class SerializationClass {
 
 	// public static String path = "src/Files/contacts.serialized";

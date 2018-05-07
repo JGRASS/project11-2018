@@ -205,6 +205,7 @@ public class AddContactFrame extends JFrame {
 	private JTextArea getTextAreaCompanyInfo() {
 		if (textAreaCompanyInfo == null) {
 			textAreaCompanyInfo = new JTextArea();
+			textAreaCompanyInfo.setLineWrap(true);
 			textAreaCompanyInfo.setBackground(Colors.gray);
 			textAreaCompanyInfo.setForeground(Color.WHITE);
 			textAreaCompanyInfo.setBorder(
@@ -229,7 +230,7 @@ public class AddContactFrame extends JFrame {
 							GUIKontroler.refreshContacts();
 							dispose();
 						} catch (Exception e) {
-							JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
+							GUIKontroler.showError(e);
 						}
 					
 				}
