@@ -17,8 +17,8 @@ import classes.users.Users;
 
 public class SerializationClass {
 
-	public static String path = "src/Files/contacts.serialized";
-	public static String path2 = "src/Files/users.serialized";
+	// public static String path = "src/Files/contacts.serialized";
+	// public static String path2 = "src/Files/users.serialized";
 
 	public static void main(String[] args) {
 		CoWorker cow1 = new CoWorker("Vanilica company", "Serbia", "A company that makes cookies", "Mirko", "Petrovic",
@@ -54,59 +54,71 @@ public class SerializationClass {
 
 		// System.out.println(url.toString());
 
-		// User u1 = new User("Teodora", "Acimov", "acimovljeva", "acimovljeva97");
-		// User u2 = new User("Kristina", "Dekic", "dekana", "dekana8");
-		 User u3 = new User("Vladimir", "Belca", "vlajs16", "vlajs16");
-		// User u4 = new User("Bojan", "Tomic", "bokica", "bokica69");
+		User u1 = new User("Teodora", "Acimov", "acimovljeva", "acimovljeva97");
+		User u2 = new User("Kristina", "Dekic", "dekana", "dekana8");
+		User u3 = new User("Vladimir", "Belca", "vlajs16", "vlajs16");
+		User u4 = new User("Bojan", "Tomic", "bokica", "bokica32");
 		//
-		// Users users = new Users();
-		// users.addUser(u1);
-		// users.addUser(u2);
-		// users.addUser(u3);
-		// users.addUser(u4);
+//		Users users = new Users();
+//		users.addUser(u1);
+//		users.addUser(u2);
+//		users.addUser(u3);
+//		users.addUser(u4);
+//
+//		// for(int i = 0; i<users.getUsers().size(); i++)
+//		// System.out.println(users.getUsers().get(i));
+//
+//		users.saveUsers(Paths.usersPath);
+//		// users.getUsers().clear();
+//		//
+//		users.loadUsers(Paths.usersPath);
+//		//
+//		for (int i = 0; i < users.getUsers().size(); i++)
+//			System.out.println(users.getUsers().get(i));
 
-		// for(int i = 0; i<users.getUsers().size(); i++)
-		// System.out.println(users.getUsers().get(i));
+		Task t1 = new Task("Call Malina", u3.getUsername(), new GregorianCalendar(2018, GregorianCalendar.APRIL, 12),
+				cow2, "Pozovi i poruci sokove", false);
+		Task t2 = new Task("Call Vanilica Company", "bokica", new GregorianCalendar(2018, GregorianCalendar.APRIL, 20),
+				cow1, "Pozovi i poruci kolace", false);
+		Task t3 = new Task("Call Vanilica Company", "bokica", new GregorianCalendar(2015, GregorianCalendar.MAY, 20),
+				cow1, "Pozovi i poruci kolace", false);
+		Task t4 = new Task("Call Vanilica Company Tea", "acimovljeva",
+				new GregorianCalendar(2018, GregorianCalendar.FEBRUARY, 20), cow1, "Pozovi i poruci kolace", false);
 
-		// users.saveUsers(path2);
-		// users.getUsers().clear();
+		Task t5 = new Task("Call Malina 1", u3.getUsername(), new GregorianCalendar(2018, GregorianCalendar.APRIL, 12),
+				cow2, "Pozovi i poruci sokove", false);
+		Task t6 = new Task("Call Vanilica Company 2", "bokica", new GregorianCalendar(2018, GregorianCalendar.APRIL, 20),
+				cow1, "Pozovi i poruci kolace", false);
+		Task t7 = new Task("Call Vanilica Company 3", "bokica", new GregorianCalendar(2015, GregorianCalendar.MAY, 20),
+				cow1, "Pozovi i poruci kolace", false);
+		Task t8 = new Task("Call Vanilica Company 1", "acimovljeva",
+				new GregorianCalendar(2018, GregorianCalendar.FEBRUARY, 20), cow1, "Pozovi i poruci kolace", false);
+
+		 Tasks tasks = new Tasks();
+		 tasks.AddTaskToDo(t1);
+		 tasks.AddTaskToDo(t2);
+		 tasks.AddTaskToDo(t3);
+		 tasks.AddTaskToDo(t4);
+		 tasks.AddTaskToDo(t5);
+		 tasks.AddTaskToDo(t6);
+		 tasks.AddTaskToDo(t7);
+		 tasks.AddTaskToDo(t8);
+		 
 		//
-		// users.loadUsers(path2);
-		//
-		// for(int i = 0; i<users.getUsers().size(); i++)
-		// System.out.println(users.getUsers().get(i));
+		 tasks.saveTasks(Paths.tasksPath, Paths.doneTasksPath);
+		 tasks.LoadTasks(Paths.tasksPath, Paths.doneTasksPath);
+		 for(int i = 0; i<tasks.getTasks().size(); i++)
+		 System.out.println(tasks.getTasks().get(i));
+		// System.out.println();
+		// ArrayList<Task> tillToday = tasks.showTillToday(u3);
+		// for(int i = 0; i<tillToday.size(); i++)
+		// System.out.println(tillToday.get(i));
 
-		Task t1 = new Task("Call Malina", u3.getUsername(), new GregorianCalendar(2018, GregorianCalendar.APRIL, 12), cow2,
-				"Pozovi i poruci sokove", false);
-		Task t2 = new Task("Call Vanilica Company", "vlajs16", new GregorianCalendar(2018, GregorianCalendar.APRIL, 20), cow1,
-				"Pozovi i poruci kolace", false);
-		Task t3 = new Task("Call Vanilica Company", "vlajs16", new GregorianCalendar(2015, GregorianCalendar.MAY, 20), cow1,
-				"Pozovi i poruci kolace", false);
-		Task t4 = new Task("Call Vanilica Company Tea", "acimovljeva", new GregorianCalendar(2018, GregorianCalendar.FEBRUARY, 20), cow1,
-				"Pozovi i poruci kolace", false);
-		
-		
-		Tasks tasks = new Tasks();
-		tasks.AddTaskToDo(t1);
-		tasks.AddTaskToDo(t2);
-		tasks.AddTaskToDo(t3);
-		tasks.AddTaskToDo(t4);
-		tasks.AddTaskToDo(t1);
-		
-		tasks.saveTasks(Paths.tasksPath, Paths.doneTasksPath);
-//		tasks.LoadTasks(Paths.tasksPath, Paths.doneTasksPath);
-//		for(int i = 0; i<tasks.getTasks().size(); i++)
-//			System.out.println(tasks.getTasks().get(i));
-//		System.out.println();
-//		ArrayList<Task> tillToday = tasks.showTillToday(u3);
-//		for(int i = 0; i<tillToday.size(); i++)
-//			System.out.println(tillToday.get(i));
-		
-//		System.out.println(u3.getUsername());
-//		System.out.println(".");
-//		tasks.AddTaskDone(t1);
-//		for(int i = 0; i<tasks.getDoneTasks().size(); i++)
-//			System.out.println(tasks.getDoneTasks().get(i));
-		
+		// System.out.println(u3.getUsername());
+		// System.out.println(".");
+		// tasks.AddTaskDone(t1);
+		// for(int i = 0; i<tasks.getDoneTasks().size(); i++)
+		// System.out.println(tasks.getDoneTasks().get(i));
+
 	}
 }

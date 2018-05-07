@@ -58,6 +58,7 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.ScrollPaneConstants;
 
 public class MainFrame extends JFrame {
 
@@ -128,6 +129,7 @@ public class MainFrame extends JFrame {
 	
 	private Tasks tasks;
 	private User user;
+	private JScrollPane scrollPaneCommments;
 
 
 	/**
@@ -145,11 +147,7 @@ public class MainFrame extends JFrame {
 		setTitle("TaskManager");
 		
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-//		Toolkit tk = Toolkit.getDefaultToolkit();
-//		int width = (int) tk.getScreenSize().getWidth();
-//		int height = (int) tk.getScreenSize().getHeight();
 //		setBounds(100, 100, 1080, 1500);
-//		this.setSize(JFrame.MAXIMIZED_VERT, JFrame.MAXIMIZED_HORIZ);
 		setJMenuBar(getMenuBar_1());
 		contentPane = new JPanel();
 		contentPane.setBackground(Colors.gray);
@@ -165,7 +163,6 @@ public class MainFrame extends JFrame {
 		
 		mainFrame = this;
 		showTasks();
-//		setResizable(false);
 		setExtendedState(JFrame.MAXIMIZED_BOTH);		
 	}
 
@@ -623,7 +620,7 @@ public class MainFrame extends JFrame {
 			panelDetailsOfTask.setForeground(Color.WHITE);
 			panelDetailsOfTask.setLayout(new BorderLayout(0, 0));
 			panelDetailsOfTask.add(getPanelTaskDescription(), BorderLayout.NORTH);
-			panelDetailsOfTask.add(getTextAreaComments(), BorderLayout.CENTER);
+			panelDetailsOfTask.add(getScrollPaneCommments(), BorderLayout.CENTER);
 		}
 		return panelDetailsOfTask;
 	}
@@ -657,6 +654,7 @@ public class MainFrame extends JFrame {
 	private JTextArea getTextAreaComments() {
 		if (textAreaComments == null) {
 			textAreaComments = new JTextArea();
+			textAreaComments.setLineWrap(true);
 			textAreaComments.setForeground(Color.WHITE);
 			textAreaComments.setBackground(Colors.lightGray);
 			textAreaComments.setFont(new Font("Candara", Font.PLAIN, 15));
@@ -844,6 +842,13 @@ public class MainFrame extends JFrame {
 		textAreaAboutCompany.setText("");
 		lblNekaZemljaCuda.setText("");
 	}
-	
-	
+	private JScrollPane getScrollPaneCommments() {
+		if (scrollPaneCommments == null) {
+			scrollPaneCommments = new JScrollPane();
+			scrollPaneCommments.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+			scrollPaneCommments.setBorder(null);
+			scrollPaneCommments.setViewportView(getTextAreaComments());
+		}
+		return scrollPaneCommments;
+	}
 }
