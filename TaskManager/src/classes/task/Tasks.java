@@ -28,6 +28,7 @@ public class Tasks implements TaskInterface {
 
 	/**
 	 * Dodavanje novog zadatka u listu
+	 * Sortiranje liste prema datumu
 	 * @param task novi zadatak
 	 */
 	@Override
@@ -37,7 +38,9 @@ public class Tasks implements TaskInterface {
 	}
 
 	/**
-	 * Dodavanje izvrsenog zdatka u listu izvrsenih zadataka i azuriranje liste zadataka koji treba da se odrade
+	 * Dodavanje izvrsenog zadatka u listu izvrsenih zadataka
+	 * Azuriranje liste zadataka koji treba da se odrade
+	 * Sortiranje liste zadataka prema datumu
 	 * @param task zadatak koji je odradjen
 	 */
 	@Override
@@ -51,7 +54,8 @@ public class Tasks implements TaskInterface {
 	}
 
 	/**
-	 * Ucitavanje zadataka iz datoteke
+	 * Ucitavanje zadataka iz datoteka
+	 * Sortiranje zadataka po datumu
 	 * @param file1 datoteka sa zadacima koji treba da se izvrse
 	 * @param file2 datoteka sa zadacima koji su odradjeni
 	 */
@@ -63,7 +67,8 @@ public class Tasks implements TaskInterface {
 	}
 
 	/**
-	 * Cuvanje zadataka u datoteku
+	 * Sortiranje zadataka po datumu
+	 * Cuvanje zadataka u datoteke
 	 * @param file1 datoteka sa zadacima koji treba da se izvrse
 	 * @param file2 datoteka sa zadacima koji su odradjeni
 	 */
@@ -75,7 +80,8 @@ public class Tasks implements TaskInterface {
 	}
 	
 	/**
-	 * Sortiranje zadataka po datumu
+	 * Sortiranje zadataka koji treba da se odrade po datumu
+	 * Sortiranje odradjenih zadataka po datumu
 	 */
 	@Override
 	public void sortTasksByDate() {

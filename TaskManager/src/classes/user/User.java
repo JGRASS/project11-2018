@@ -33,16 +33,20 @@ public class User implements Serializable{
 	 * Lozinka zaposlenog
 	 */
 	private String password;
-	
-	/**
-	 * Vraca String sa imenom i prezimenom zaposlenog
-	 * @return ime i prezime zaposlenog kao String
-	 */
 
+	/**
+	 * Konstuktor klase User
+	 */
 	public User() {
 		
 	}
-	
+	/**
+	 * Konstruktor klase User
+	 * @param name ime zaposlenog
+	 * @param surname prezime zaposlenog
+	 * @param username username zaposlenog
+	 * @param password sifra zaposlenog
+	 */
 	public User(String name, String surname, String username, String password) {
 		this.setName(name);
 		this.setSurname(surname);
@@ -50,7 +54,10 @@ public class User implements Serializable{
 		this.setPassword(password);
 	}
 	
-	
+	/**
+	 * Vraca String sa imenom i prezimenom zaposlenog
+	 * @return ime i prezime zaposlenog kao String
+	 */
 	@Override
 	public String toString() {
 		return this.name + " " + this.surname;
@@ -216,8 +223,6 @@ public class User implements Serializable{
 			return false;
 		return true;
 	}
-	
-	
 	
 	
 }

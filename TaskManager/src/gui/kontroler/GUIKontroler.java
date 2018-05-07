@@ -12,7 +12,7 @@ import classes.coworker.Contacts;
 import classes.task.Task;
 import classes.task.Tasks;
 import classes.user.User;
-import classes.users.Users;
+import classes.user.Users;
 import gui.AddContactFrame;
 import gui.AddTaskFrame;
 import gui.ContactsFrame;

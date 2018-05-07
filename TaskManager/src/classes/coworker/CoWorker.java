@@ -49,10 +49,23 @@ public class CoWorker implements Serializable, Comparable<CoWorker> {
 	 */
 	private String phone;
 
+	/**
+	 * Konstruktor klase CoWorker
+	 */
 	public CoWorker() {
 
 	}
 
+	/**
+	 * Drugi konstruktor klaseCoWorker
+	 * @param companyName ime kompanije
+	 * @param country zemlja porekla kompanije
+	 * @param aboutCompany opis kompanije sa kojom saradjujemo
+	 * @param name ime saradnika iz kompanije
+	 * @param surname prezime saradnika iz kompanije
+	 * @param email email saradnika
+	 * @param phone kontakt telefon saradnika
+	 */
 	public CoWorker(String companyName, String country, String aboutCompany, String name, String surname, String email,
 			String phone) {
 		this.setCompanyName(companyName);
@@ -311,6 +324,9 @@ public class CoWorker implements Serializable, Comparable<CoWorker> {
 		return true;
 	}
 
+	/**
+	 * Metoda koja sluzi za sortiranje saradnika iz interfejsa Comparable
+	 */
 	@Override
 	public int compareTo(CoWorker o) {
 		return this.getCompanyName().compareTo(o.getCompanyName());
@@ -367,6 +383,10 @@ public class CoWorker implements Serializable, Comparable<CoWorker> {
 		return true;
 	}
 	
+	/**
+	 * Vraca String sa nazivom kompanije i imenom i prezimenom saradnika
+	 * @return companyName, name and surname
+	 */
 	@Override
 	public String toString() {
 		return companyName + ", " + name + " " + surname;

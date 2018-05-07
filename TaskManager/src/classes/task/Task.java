@@ -45,10 +45,21 @@ public class Task implements Serializable, Comparable<Task> {
 	 */
 	private String comment;
 	
+	/**
+	 * Konstruktor klase Task
+	 */
 	public Task() {
 		
 	}
-	
+	/**
+	 * Konstruktor klase Task
+	 * @param taskTitle naziv zadatka
+ 	 * @param username username zaposlenog
+	 * @param date datum
+	 * @param coWorker saradnik
+	 * @param description opis zadatka
+	 * @param done da li ja zadatak odradjen
+	 */
 	public Task(String taskTitle, String username, GregorianCalendar date, CoWorker coWorker, 
 			String description, boolean done) {
 		this.setTaskTitle(taskTitle);
