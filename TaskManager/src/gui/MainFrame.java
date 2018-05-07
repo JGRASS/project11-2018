@@ -148,8 +148,8 @@ public class MainFrame extends JFrame {
 //		Toolkit tk = Toolkit.getDefaultToolkit();
 //		int width = (int) tk.getScreenSize().getWidth();
 //		int height = (int) tk.getScreenSize().getHeight();
-		setBounds(100, 100, 1080, 1500);
-//		this.setSize(977,700);
+//		setBounds(100, 100, 1080, 1500);
+//		this.setSize(JFrame.MAXIMIZED_VERT, JFrame.MAXIMIZED_HORIZ);
 		setJMenuBar(getMenuBar_1());
 		contentPane = new JPanel();
 		contentPane.setBackground(Colors.gray);
@@ -165,6 +165,8 @@ public class MainFrame extends JFrame {
 		
 		mainFrame = this;
 		showTasks();
+//		setResizable(false);
+		setExtendedState(JFrame.MAXIMIZED_BOTH);		
 	}
 
 	private JMenuBar getMenuBar_1() {

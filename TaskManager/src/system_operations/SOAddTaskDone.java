@@ -12,6 +12,8 @@ import classes.task.Task;
  */
 public class SOAddTaskDone {
 	public static void execute(Task task, ArrayList<Task> tasks) {
+		if(task == null)
+			throw new RuntimeException("Task is null");
 		if(tasks.contains(task)) {
 			tasks.remove(task);
 			task.setDone(true);
