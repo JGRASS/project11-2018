@@ -105,7 +105,7 @@ public class GUIKontroler {
 		atf.setLocationRelativeTo(mf);
 		atf.setVisible(true);
 	}
-	public static void loggingIn() {
+	public static void loggingOut() {
 		pf = new PasswordFrame();
 		pf.setVisible(true);
 		pf.setLocationRelativeTo(mf);
@@ -113,43 +113,49 @@ public class GUIKontroler {
 		mf.setVisible(false);
 	}
 	
-	public static void saveContact(String ConName, String ConSurname, String ConPhone, String ConEmail, String ComName, String ComCountry, String ComInfo) {
-		
-//			try {
-				CoWorker contact = new CoWorker();
-				contact.setName(ConName);
-				contact.setSurname(ConSurname);
-				contact.setPhone(ConPhone);
-				contact.setEmail(ConEmail);
-				contact.setCompanyName(ComName);
-				contact.setCountry(ComCountry);
-				contact.setAboutCompany(ComInfo);
-				
-				contacts.addContact(contact);
-				contacts.SaveContacts(Paths.contactsPath);
-//			} catch (Exception e) {
-//				JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
-//			}
-//			
-		
+	public static void showAboutTaskManager() {
+		JOptionPane.showMessageDialog(mf.getContentPane(), "Authors:  Vladimir Belca, Kristina Dekic, Teodora Acimov", "About TaskManager",
+				JOptionPane.INFORMATION_MESSAGE);
+	}
+	public static void logOut() {
+		int option = JOptionPane.showConfirmDialog(null, "Are you sure you want to log out?", "Logging out",
+				JOptionPane.YES_NO_OPTION);
+
+		if (option == JOptionPane.YES_OPTION) {
+			loggingOut();
+		}
+	}
+	public static void showError(Exception e) {
+		JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
+	}
+	
+	public static void saveContact(String ConName, String ConSurname, String ConPhone, String ConEmail, String ComName,
+			String ComCountry, String ComInfo) {
+		CoWorker contact = new CoWorker();
+		contact.setName(ConName);
+		contact.setSurname(ConSurname);
+		contact.setPhone(ConPhone);
+		contact.setEmail(ConEmail);
+		contact.setCompanyName(ComName);
+		contact.setCountry(ComCountry);
+		contact.setAboutCompany(ComInfo);
+
+		contacts.addContact(contact);
+		contacts.SaveContacts(Paths.contactsPath);
 	}
 	
 	
 	public static void saveTask(String title, CoWorker coworker, GregorianCalendar date, String description ) {
-//		try {
-			Task task = new Task();
-			task.setTaskTitle(title);
-			task.setCoWorker(coworker);
-			task.setDate(date);
-			task.setUsername(user.getUsername());
-			task.setDescription(description);
-			task.setDone(false);
-//			System.out.println(task);
-			tm.AddTaskToDo(task);
-			tm.saveTasks(Paths.tasksPath, Paths.doneTasksPath);
-//		} catch (Exception e) {
-//			JOptionPane.showMessageDialog(atf, e.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
-//		}
+		Task task = new Task();
+		task.setTaskTitle(title);
+		task.setCoWorker(coworker);
+		task.setDate(date);
+		task.setUsername(user.getUsername());
+		task.setDescription(description);
+		task.setDone(false);
+
+		tm.AddTaskToDo(task);
+		tm.saveTasks(Paths.tasksPath, Paths.doneTasksPath);
 	}
 	
 	public static void taskCompleted(Task task) {

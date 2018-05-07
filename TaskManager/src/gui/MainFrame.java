@@ -71,7 +71,6 @@ public class MainFrame extends JFrame {
 	private JMenu mnEdit;
 	private JMenu mnHelp;
 	private JMenuItem mntmLogOut;
-	private JMenuItem mntmExit;
 	private JMenuItem mntmNewContact;
 	private JMenuItem mntmNewTask;
 	private JMenuItem mntmAbout;
@@ -128,6 +127,8 @@ public class MainFrame extends JFrame {
 	
 	private Tasks tasks;
 	private User user;
+	private JMenuItem mntmOpenHistory;
+	private JMenuItem mntmOpenContacts;
 
 
 	/**
@@ -180,8 +181,9 @@ public class MainFrame extends JFrame {
 		if (mnFile == null) {
 			mnFile = new JMenu("FIle");
 			mnFile.setFont(new Font("Candara", Font.PLAIN, 15));
+			mnFile.add(getMntmOpenHistory());
+			mnFile.add(getMntmOpenContacts());
 			mnFile.add(getMntmLogOut());
-			mnFile.add(getMntmExit());
 		}
 		return mnFile;
 	}
@@ -201,6 +203,32 @@ public class MainFrame extends JFrame {
 			mnHelp.add(getMntmAbout());
 		}
 		return mnHelp;
+	}	
+	private JMenuItem getMntmOpenHistory() {
+		if (mntmOpenHistory == null) {
+			mntmOpenHistory = new JMenuItem("Open history");
+			mntmOpenHistory.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					GUIKontroler.searchHistory();
+				}
+			});
+			mntmOpenHistory.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, InputEvent.SHIFT_MASK));
+			mntmOpenHistory.setFont(new Font("Candara", Font.PLAIN, 15));
+		}
+		return mntmOpenHistory;
+	}
+	private JMenuItem getMntmOpenContacts() {
+		if (mntmOpenContacts == null) {
+			mntmOpenContacts = new JMenuItem("Open contacts");
+			mntmOpenContacts.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					GUIKontroler.searchContacts();
+				}
+			});
+			mntmOpenContacts.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.SHIFT_MASK));
+			mntmOpenContacts.setFont(new Font("Candara", Font.PLAIN, 15));
+		}
+		return mntmOpenContacts;
 	}
 	private JMenuItem getMntmLogOut() {
 		if (mntmLogOut == null) {
@@ -208,7 +236,6 @@ public class MainFrame extends JFrame {
 			mntmLogOut.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					exitLogOut();
-					
 				}
 			});
 			mntmLogOut.setFont(new Font("Candara", Font.PLAIN, 15));
@@ -216,26 +243,12 @@ public class MainFrame extends JFrame {
 		}
 		return mntmLogOut;
 	}
-	private JMenuItem getMntmExit() {
-		if (mntmExit == null) {
-			mntmExit = new JMenuItem("Exit");
-			mntmExit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, InputEvent.ALT_MASK));
-			mntmExit.setFont(new Font("Candara", Font.PLAIN, 15));
-			mntmExit.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					exitLogOut();
-				}
-			});
-		}
-		return mntmExit;
-	}
 	private JMenuItem getMntmNewContact() {
 		if (mntmNewContact == null) {
 			mntmNewContact = new JMenuItem("New contact");
 			mntmNewContact.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					GUIKontroler.searchContacts();
-					
 				}
 			});
 			mntmNewContact.setFont(new Font("Candara", Font.PLAIN, 15));
@@ -264,7 +277,7 @@ public class MainFrame extends JFrame {
 			mntmAbout.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, InputEvent.ALT_MASK));
 			mntmAbout.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					JOptionPane.showMessageDialog(mainFrame, "Neki tekstic", "About TaskManager", JOptionPane.INFORMATION_MESSAGE);
+					GUIKontroler.showAboutTaskManager();
 				}
 			});
 			mntmAbout.setFont(new Font("Candara", Font.PLAIN, 15));
@@ -794,20 +807,9 @@ public class MainFrame extends JFrame {
 		}
 		return listTasks;
 	}
-	
-	private void exit() {
-		int option = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Exit", JOptionPane.YES_NO_OPTION);
-		
-		if (option == JOptionPane.YES_OPTION)
-			dispose();
-	}
+
 	private void exitLogOut() {
-		int option = JOptionPane.showConfirmDialog(null, "Are you sure you want to log out?", "Logging out", JOptionPane.YES_NO_OPTION);
-		
-		if (option == JOptionPane.YES_OPTION) {
-			GUIKontroler.loggingIn();
-			
-		}
+		GUIKontroler.logOut();
 	}
 	
 	public void setHello(User user) {
@@ -842,6 +844,4 @@ public class MainFrame extends JFrame {
 		textAreaAboutCompany.setText("");
 		lblNekaZemljaCuda.setText("");
 	}
-	
-	
 }

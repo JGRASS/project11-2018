@@ -225,7 +225,7 @@ public class AddContactFrame extends JFrame {
 							GUIKontroler.refreshContacts();
 							dispose();
 						} catch (Exception e) {
-							JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
+							GUIKontroler.showError(e);
 						}
 					
 				}

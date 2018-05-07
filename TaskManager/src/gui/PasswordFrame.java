@@ -129,7 +129,7 @@ public class PasswordFrame extends JFrame {
 						user.setPassword(String.valueOf(passwordField.getPassword()));
 						GUIKontroler.showMainFrame(user);
 					} catch (Exception e) {
-						JOptionPane.showMessageDialog(null , e.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
+						GUIKontroler.showError(e);
 						clear();
 					}
 				}
@@ -175,14 +175,6 @@ public class PasswordFrame extends JFrame {
 			passwordField.setBounds(186, 123, 176, 21);
 		}
 		return passwordField;
-	}
-	
-	private void exitLogOut() {
-		int option = JOptionPane.showConfirmDialog(null, "Are you sure you want to log out?", "Logging out", JOptionPane.YES_NO_OPTION);
-		
-		if (option == JOptionPane.YES_OPTION) {
-			System.exit(0);
-		}
 	}
 	
 	public void clear() {

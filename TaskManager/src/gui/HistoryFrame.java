@@ -100,7 +100,6 @@ public class HistoryFrame extends JFrame {
 			panel.add(getScrollPane_1());
 			panel.add(getRdbtnShowDoneTasks());
 			panel.add(getRdbtnAllTasks());
-//			panel.add(getList_1());
 		}
 		return panel;
 	}
@@ -217,11 +216,6 @@ public class HistoryFrame extends JFrame {
 			rdbtnAllTasks.setForeground(Color.WHITE);
 		}
 		return rdbtnAllTasks;
-	}
-	private void clear() {
-//		if(list.getComponentCount()!=0)
-//			list.removeAll();
-//		System.out.println(list.getComponentCount());
 	}
 	private JButton getBtnCancel() {
 		if (btnCancel == null) {

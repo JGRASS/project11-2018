@@ -146,7 +146,7 @@ public class AddTaskFrame extends JFrame {
 						GUIKontroler.refreshTasks();
 						dispose();
 					} catch (Exception e) {
-						JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
+						GUIKontroler.showError(e);
 					}
 				}
 			});
@@ -226,9 +226,6 @@ public class AddTaskFrame extends JFrame {
 			spinner.setForeground(Color.WHITE);
 			spinner.setBackground(Colors.lightGray);
 			spinner.setBounds(170, 76, 223, 20);
-//			SpinnerNumberModel nummodel = new SpinnerNumberModel(5, 0, 10, 1); 
-//			JSpinner numspinner = new JSpinner(nummodel); 
-//			numspinner.getEditor().getComponent(0).setBackground(Color.green); 
 			}
 		return spinner;
 	}
@@ -236,10 +233,8 @@ public class AddTaskFrame extends JFrame {
 	public GregorianCalendar searchByDate(String s) {
 		int br = s.lastIndexOf("/");
 		int dd = Integer.parseInt(s.substring(br + 1,s.length()));
-		
 		int mm = Integer.parseInt(s.substring(6, 7));
 		int yy = Integer.parseInt(s.substring(0, 4)); 
-		//System.out.println("Datum: "+ dd+"."+mm+"."+yy+".");
 		return new GregorianCalendar(yy, mm, dd);
 
 	}
