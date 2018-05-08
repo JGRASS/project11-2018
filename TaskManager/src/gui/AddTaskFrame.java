@@ -235,7 +235,7 @@ public class AddTaskFrame extends JFrame {
 //					searchByDate(format);
 				}
 			});
-			spinner.setModel(new SpinnerDateModel(new Date(1525590000000L), new Date(1525590000000L), null, Calendar.DAY_OF_YEAR));
+			spinner.setModel(new SpinnerDateModel(new Date(1525762800000L), new Date(1525762800000L), null, Calendar.DAY_OF_YEAR));
 			spinner.setFont(Fonts.candaraNormal);
 			spinner.setForeground(Color.WHITE);
 			spinner.setBackground(Colors.lightGray);
