@@ -159,9 +159,10 @@ public class Task implements Serializable, Comparable<Task> {
 	public void setDate(GregorianCalendar date) {
 		if (date.equals(null))
 			throw new RuntimeException("Date is null");
-		int day = date.get(Calendar.DAY_OF_MONTH)-1;
-		int month = date.get(Calendar.MONTH);
-		int year = date.get(Calendar.YEAR);
+		GregorianCalendar cal = new GregorianCalendar();
+		int day = cal.get(Calendar.DAY_OF_MONTH)-1;
+		int month = cal.get(Calendar.MONTH);
+		int year = cal.get(Calendar.YEAR);
 		if (date.before(new GregorianCalendar(year,month,day)))
 			throw new RuntimeException("You cannot schedule a task in the past");
 		this.date = date;
